@@ -1,0 +1,866 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,框架,SpringMVC," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1.首先建立一个基本的maven项目  Maven命令行构建JavaWeb应用–参数解释 引自jiangbai333.github.io  1mvn archetype:generate -DgroupId=com.spring -DartifactId=SpringMVC -DarchetypeArtifactId=maven-archetype-webapp -DinteractivMode=">
+<meta name="keywords" content="java,框架,SpringMVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring-建立项目">
+<meta property="og:url" content="http://yoursite.com/2017/04/03/spring-建立项目/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="1.首先建立一个基本的maven项目  Maven命令行构建JavaWeb应用–参数解释 引自jiangbai333.github.io  1mvn archetype:generate -DgroupId=com.spring -DartifactId=SpringMVC -DarchetypeArtifactId=maven-archetype-webapp -DinteractivMode=">
+<meta property="og:updated_time" content="2017-06-06T09:00:33.285Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring-建立项目">
+<meta name="twitter:description" content="1.首先建立一个基本的maven项目  Maven命令行构建JavaWeb应用–参数解释 引自jiangbai333.github.io  1mvn archetype:generate -DgroupId=com.spring -DartifactId=SpringMVC -DarchetypeArtifactId=maven-archetype-webapp -DinteractivMode=">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/03/spring-建立项目/"/>
+
+
+
+
+
+  <title>Spring-建立项目 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">副标题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/spring-建立项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="作者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring-建立项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-03T10:10:00+08:00">
+                2017-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/框架/SpringMVC/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringMVC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-首先建立一个基本的maven项目"><a href="#1-首先建立一个基本的maven项目" class="headerlink" title="1.首先建立一个基本的maven项目 "></a>1.首先建立一个基本的maven项目 </h2><blockquote>
+<p>Maven命令行构建JavaWeb应用–参数解释 <a href="http://jiangbai333.github.io/2016/11/02/maven%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9E%84%E5%BB%BAjavaweb%E5%BA%94%E7%94%A8/" title="引自jiangbai333.github.io" target="_blank" rel="external">引自jiangbai333.github.io</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.spring -DartifactId=SpringMVC -DarchetypeArtifactId=maven-archetype-webapp -DinteractivMode=<span class="literal">false</span> -DarchetypeCatalog=internal</div></pre></td></tr></table></figure>
+<p><strong> 运行上面命令后，将在当前目录建立一个名称为<code>SpringMVC</code>的maven项目目录,结构如下： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">└─src</div><div class="line">	└─main</div><div class="line">    	├─resources</div><div class="line">        └─webapp</div><div class="line">        	└─WEB-INF</div></pre></td></tr></table></figure></p>
+<h2 id="2-构建maven项目骨架"><a href="#2-构建maven项目骨架" class="headerlink" title="2.构建maven项目骨架"></a>2.构建maven项目骨架</h2><p><strong> 上面并不是一个完整的maven项目骨架，接下来我们手动完成项目骨架，将目录补全为： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">└─src</div><div class="line">	├─main</div><div class="line">	│	├─java</div><div class="line">	│	│	└─com</div><div class="line">	│	│   	└─spring</div><div class="line">	│	│       	├─common</div><div class="line">	│	│           ├─controller</div><div class="line">	│	│           ├─dao</div><div class="line">	│	│           ├─mbo</div><div class="line">	│	│           └─service</div><div class="line">	│	├─resources</div><div class="line">	│	│	├─mybatis</div><div class="line">	│	│	│	└─mbo</div><div class="line">	│	│	└─spring</div><div class="line">	│	└─webapp</div><div class="line">	│   	├─META-INF</div><div class="line">	│       └─WEB-INF</div><div class="line">	│       	└─page</div><div class="line">	└─test</div></pre></td></tr></table></figure></p>
+<p><strong> 目录功能如下 </strong></p>
+<ul>
+<li>main 项目主目录<ul>
+<li>java.com.spring<ul>
+<li>common 存放公共的类</li>
+<li>controller 存放控制器类</li>
+<li>service 存放业务逻辑类</li>
+<li>dao 存放数据操作类</li>
+</ul>
+</li>
+<li>resources 资源目录<ul>
+<li>spring spring配置文件</li>
+<li>mybatis mybatis配置文件<ul>
+<li>mbo 存放 mybatis Sql映射文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>webapp 存放web应用源代码xml、html、jsp等<ul>
+<li>META-INF</li>
+<li>WEB-INF<ul>
+<li>page </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test maven 测试目录 结构与main一致即可        </li>
+</ul>
+<p><strong> 应该说明一点，各个目录的功能，并不是由目录名字决定的。之所以这样命名，并且“赋予相应的功能”只是为了达成一个共同的开发标准。这对团队开发是非常重要的！如果你开心，完全可以用service目录存放控制器，controller目录存放业务逻辑，甚至把所以文件都放在同一个目录下！ </strong></p>
+<h2 id="3-补全pom-xml文件，利用maven添加spring依赖"><a href="#3-补全pom-xml文件，利用maven添加spring依赖" class="headerlink" title="3.补全pom.xml文件，利用maven添加spring依赖"></a>3.补全pom.xml文件，利用maven添加spring依赖</h2><p><code>pom.xml</code> 位于项目根目录（\SpringMVC）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line">  &lt;groupId&gt;SpringMVC&lt;/groupId&gt;</div><div class="line">  &lt;!-- 这里用来项目运行名 --&gt;</div><div class="line">  &lt;artifactId&gt;SpringMVC&lt;/artifactId&gt; </div><div class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</div><div class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</div><div class="line">  &lt;name&gt;SpringMVC&lt;/name&gt;</div><div class="line">  &lt;description/&gt;</div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</div><div class="line">    &lt;spring.version&gt;4.1.6.RELEASE&lt;/spring.version&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line">  &lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;1.2.1&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;!-- spring用到的包 --&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">      &lt;<span class="built_in">type</span>&gt;jar&lt;/<span class="built_in">type</span>&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">  &lt;/dependencies&gt;</div><div class="line">  &lt;build&gt;</div><div class="line">    &lt;plugins&gt;</div><div class="line">      &lt;plugin&gt;</div><div class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.3.2&lt;/version&gt;</div><div class="line">        &lt;configuration&gt;</div><div class="line">          &lt;<span class="built_in">source</span>&gt;1.7&lt;/<span class="built_in">source</span>&gt;</div><div class="line">          &lt;target&gt;1.7&lt;/target&gt;</div><div class="line">        &lt;/configuration&gt;</div><div class="line">      &lt;/plugin&gt;</div><div class="line">      &lt;plugin&gt;</div><div class="line">        &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;2.2&lt;/version&gt;</div><div class="line">        &lt;configuration&gt;</div><div class="line">          &lt;version&gt;3.1&lt;/version&gt;</div><div class="line">          &lt;failOnMissingWebXml&gt;<span class="literal">false</span>&lt;/failOnMissingWebXml&gt;</div><div class="line">        &lt;/configuration&gt;</div><div class="line">      &lt;/plugin&gt;</div><div class="line">    &lt;/plugins&gt;</div><div class="line">  &lt;/build&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="4-编辑servlet运行配置、spring框架运行配置"><a href="#4-编辑servlet运行配置、spring框架运行配置" class="headerlink" title="4.编辑servlet运行配置、spring框架运行配置"></a>4.编辑servlet运行配置、spring框架运行配置</h2><h4 id="web-xml：servlet运行配置，存放于SpringMVC-src-main-webapp-WEB-INF-目录下"><a href="#web-xml：servlet运行配置，存放于SpringMVC-src-main-webapp-WEB-INF-目录下" class="headerlink" title="web.xml：servlet运行配置，存放于SpringMVC\src\main\webapp\WEB-INF\目录下"></a><code>web.xml</code>：servlet运行配置，存放于<code>SpringMVC\src\main\webapp\WEB-INF\</code>目录下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;web-app version=<span class="string">"3.0"</span> xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span>&gt;</div><div class="line">    &lt;display-name&gt;springmvc&lt;/display-name&gt;</div><div class="line"></div><div class="line">    &lt;servlet&gt;</div><div class="line">		&lt;!-- 配置一个servlet 名称为springmvc 交由springframework的DispatcherServlet类处理 --&gt;</div><div class="line">        &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</div><div class="line">		&lt;!-- 配置一对运行参数，spring在取得控制权后，会根据这里寻找spring运行配置文件 --&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;classpath:spring/applicationContext.xml&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">		&lt;!-- 配置servlet装载顺序 --&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">		&lt;!-- 名为springmvc的servlet将拦截基于“/”的所有请求，并取得控制权 --&gt;</div><div class="line">        &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</div><div class="line">		&lt;!-- 如果你有多个servlet，可在此处依次进行配置 --&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div><div class="line"></div><div class="line">    &lt;filter&gt;</div><div class="line">		&lt;!-- 指定一个过滤器，并交由springframework的CharacterEncodingFilter类处理 --&gt;</div><div class="line">        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;</div><div class="line">        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;</div><div class="line">		&lt;!-- 这里相当于springframework处理过滤信息时的两个配置 --&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;encoding&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;UTF-8&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;forceEncoding&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;<span class="literal">true</span>&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">    &lt;/filter&gt;</div><div class="line">    &lt;filter-mapping&gt;</div><div class="line">		&lt;!-- 让encodingFilter过滤基于“/*”的全部请求 --&gt;</div><div class="line">        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;</div><div class="line">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">    &lt;/filter-mapping&gt;</div><div class="line">    &lt;session-config&gt;</div><div class="line">        &lt;session-timeout&gt;60&lt;/session-timeout&gt;</div><div class="line">    &lt;/session-config&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+<h4 id="applicationContext-xml：spring主配置文件，存放于SpringMVC-src-main-resources-spring-目录下"><a href="#applicationContext-xml：spring主配置文件，存放于SpringMVC-src-main-resources-spring-目录下" class="headerlink" title="applicationContext.xml：spring主配置文件，存放于SpringMVC\src\main\resources\spring\目录下"></a><code>applicationContext.xml</code>：spring主配置文件，存放于<code>SpringMVC\src\main\resources\spring\</code>目录下</h4><blockquote>
+<p>Spring ApplicationContext容器介绍  <a href="http://wiki.jikexueyuan.com/project/spring/ioc-container/spring-application-context-container.html" title="引自极客学院wiki" target="_blank" rel="external">引自极客学院wiki</a><br>applicationContext.xml模块化处理spring配置文件 <a href="http://www.360doc.com/content/14/0406/00/7669533_366687154.shtml" title="引自360doc" target="_blank" rel="external">引自360doc</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">'1.0'</span> encoding=<span class="string">'UTF-8'</span> ?&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;</div><div class="line">    </div><div class="line">	&lt;!-- 引入子配置文件 --&gt;  </div><div class="line">    &lt;import resource=<span class="string">"classpath:spring/applicationContext-mvc.xml"</span>/&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<h4 id="applicationContext-mvc-xml：spring子配置文件，存放于SpringMVC-src-main-resources-spring-目录下"><a href="#applicationContext-mvc-xml：spring子配置文件，存放于SpringMVC-src-main-resources-spring-目录下" class="headerlink" title="applicationContext-mvc.xml：spring子配置文件，存放于SpringMVC\src\main\resources\spring\目录下"></a><code>applicationContext-mvc.xml</code>：spring子配置文件，存放于<code>SpringMVC\src\main\resources\spring\</code>目录下</h4><blockquote>
+<p>Spring MVC静态资源处理 <a href="http://www.cnblogs.com/fangqi/archive/2012/10/28/2743108.html" title="引自&quot;行在途中&quot;个人博客" target="_blank" rel="external">引自”行在途中”个人博客</a><br>SpringMVC初探视图解析器 <a href="http://www.cnblogs.com/liruiloveparents/p/5054605.html" title="引自&quot;夏日的雪花&quot;个人博客" target="_blank" rel="external">引自”夏日的雪花”个人博客</a><br>SrpingMVC mvc:annotation-driven 标签 <a href="http://starscream.iteye.com/blog/1098880" title="引自&quot;starscream&quot;个人博客" target="_blank" rel="external">引自”starscream”个人博客</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">'1.0'</span> encoding=<span class="string">'UTF-8'</span> ?&gt;</div><div class="line">&lt;!-- was: &lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt; --&gt;</div><div class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></div><div class="line">       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       xmlns:mvc=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">       http://www.springframework.org/schema/context </div><div class="line">       http://www.springframework.org/schema/context/spring-context-3.0.xsd </div><div class="line">       http://www.springframework.org/schema/mvc </div><div class="line">       http://www.springframework.org/schema/mvc/spring-mvc.xsd"</div><div class="line">       default-lazy-init=<span class="string">"true"</span>&gt;</div><div class="line">    </div><div class="line">	&lt;!-- 配置spring组件扫描位置，com.spring包下的所有类文件将被spring标识为注解注入类，若存在注解则自动进行注入 --&gt;</div><div class="line">    &lt;context:component-scan base-package=<span class="string">"com.spring"</span>/&gt;</div><div class="line">	&lt;!-- 将静态资源交由spring处理(详细内容见引用部分) --&gt;</div><div class="line">    &lt;mvc:resources location=<span class="string">"/WEB-INF/pages/"</span> mapping=<span class="string">"/page/**"</span>/&gt;</div><div class="line">    &lt;!-- 配置视图由spring解析器InternalResourceViewResolver解析(详细内容见引用部分) --&gt;</div><div class="line">    &lt;bean class=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</div><div class="line">        &lt;property name=<span class="string">"prefix"</span> value=<span class="string">"/WEB-INF/page/"</span>/&gt;</div><div class="line">        &lt;property name=<span class="string">"suffix"</span> value=<span class="string">".jsp"</span>/&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line">    &lt;!-- 默认的注解映射的支持(详细内容见引用部分) --&gt;</div><div class="line">    &lt;mvc:annotation-driven&gt;</div><div class="line">        &lt;mvc:message-converters register-defaults=<span class="string">"true"</span>&gt;</div><div class="line">            &lt;bean class=<span class="string">"com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"</span>&gt;</div><div class="line">                &lt;property name=<span class="string">"supportedMediaTypes"</span>&gt;</div><div class="line">                    &lt;list&gt;</div><div class="line">                        &lt;value&gt;text/plain;charset=utf-8&lt;/value&gt;</div><div class="line">                        &lt;value&gt;application/json;charset=utf-8&lt;/value&gt;</div><div class="line">                        &lt;value&gt;application/x-www-form-urlencoded&lt;/value&gt;</div><div class="line">                    &lt;/list&gt;</div><div class="line">                &lt;/property&gt;</div><div class="line">            &lt;/bean&gt;</div><div class="line">        &lt;/mvc:message-converters&gt;</div><div class="line">    &lt;/mvc:annotation-driven&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p><strong> 至此，一个springmvc开发环境已经搭建完毕 </strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+            <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/06/linux命令iftop/" rel="next" title="Linux命令iftop">
+                <i class="fa fa-chevron-left"></i> Linux命令iftop
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/04/spring-HelloSpring/" rel="prev" title="Spring-HelloSpring">
+                Spring-HelloSpring <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="作者" />
+          <p class="site-author-name" itemprop="name">作者</p>
+           
+              <p class="site-description motion-element" itemprop="description">站点描述</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-首先建立一个基本的maven项目"><span class="nav-number">1.</span> <span class="nav-text">1.首先建立一个基本的maven项目 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-构建maven项目骨架"><span class="nav-number">2.</span> <span class="nav-text">2.构建maven项目骨架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-补全pom-xml文件，利用maven添加spring依赖"><span class="nav-number">3.</span> <span class="nav-text">3.补全pom.xml文件，利用maven添加spring依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编辑servlet运行配置、spring框架运行配置"><span class="nav-number">4.</span> <span class="nav-text">4.编辑servlet运行配置、spring框架运行配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web-xml：servlet运行配置，存放于SpringMVC-src-main-webapp-WEB-INF-目录下"><span class="nav-number">4.0.1.</span> <span class="nav-text">web.xml：servlet运行配置，存放于SpringMVC\src\main\webapp\WEB-INF\目录下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#applicationContext-xml：spring主配置文件，存放于SpringMVC-src-main-resources-spring-目录下"><span class="nav-number">4.0.2.</span> <span class="nav-text">applicationContext.xml：spring主配置文件，存放于SpringMVC\src\main\resources\spring\目录下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#applicationContext-mvc-xml：spring子配置文件，存放于SpringMVC-src-main-resources-spring-目录下"><span class="nav-number">4.0.3.</span> <span class="nav-text">applicationContext-mvc.xml：spring子配置文件，存放于SpringMVC\src\main\resources\spring\目录下</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

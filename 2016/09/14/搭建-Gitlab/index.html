@@ -1,0 +1,815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件,git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="首先说一下，我选用操作系统是centos6.8 x86_64，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行google  首先安装依赖包并启动相应的服务  123456789# 安装依赖yum install curl postfix cronie openssh-server openssh-clients# 启动并检查 postfix 邮件服务器service pos">
+<meta name="keywords" content="软件,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GITLAB搭建(需要64位操作系统)">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/搭建-Gitlab/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="首先说一下，我选用操作系统是centos6.8 x86_64，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行google  首先安装依赖包并启动相应的服务  123456789# 安装依赖yum install curl postfix cronie openssh-server openssh-clients# 启动并检查 postfix 邮件服务器service pos">
+<meta property="og:updated_time" content="2017-06-06T09:00:34.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GITLAB搭建(需要64位操作系统)">
+<meta name="twitter:description" content="首先说一下，我选用操作系统是centos6.8 x86_64，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行google  首先安装依赖包并启动相应的服务  123456789# 安装依赖yum install curl postfix cronie openssh-server openssh-clients# 启动并检查 postfix 邮件服务器service pos">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/14/搭建-Gitlab/"/>
+
+
+
+
+
+  <title>GITLAB搭建(需要64位操作系统) | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">副标题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/14/搭建-Gitlab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="作者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GITLAB搭建(需要64位操作系统)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-14T14:00:00+08:00">
+                2016-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先说一下，我选用操作系统是<code>centos6.8 x86_64</code>，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行<a href="https://www.google.com/ncr" title="Title" target="_blank" rel="external">google</a></p>
+<blockquote>
+<p>首先安装依赖包并启动相应的服务</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装依赖</span></div><div class="line">yum install curl postfix cronie openssh-server openssh-clients</div><div class="line"></div><div class="line"><span class="comment"># 启动并检查 postfix 邮件服务器</span></div><div class="line">service postfix start</div><div class="line">chkconfig postfix on</div><div class="line"></div><div class="line"><span class="comment">#安装 git</span></div><div class="line">yum -y install git</div></pre></td></tr></table></figure>
+<blockquote>
+<p>下载 Github 社区版</p>
+</blockquote>
+<p>找一个镜像站(有 <code>Gitlab</code> 镜像的都行)，根据自己的需要选择不同的版本，老版本的安装更容易成功，我下载的是<code>gitlab-ce-8.0.4-ce.1.el6.x86_64.rpm</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#下载 rpm 安装包</span></div><div class="line">wget https://mirror.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-8.0.4-ce.1.el6.x86_64.rpm</div><div class="line"></div><div class="line"><span class="comment">#更改安装包权限</span></div><div class="line">chmod 777 gitlab-ce-8.0.4-ce.1.el6.x86_64.rpm</div><div class="line"></div><div class="line"><span class="comment">#安装</span></div><div class="line">rpm -i gitlab-ce-8.0.4-ce.1.el6.x86_64.rpm</div></pre></td></tr></table></figure></p>
+<p>安装成功后，配置<code>/etc/gitlab/gitlab.rb</code>文件，找到<code>external_url</code>所在的位置并将它的值修改为你的<code>Gitlab服务器的域名或IP地址(局域网内，用本机ip即可 例如：external_url &#39;http://192.168.1.110&#39;)</code>，修改完成后，刷新配置信息、调整防火墙策略、启动<code>Gitlab</code>服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#刷新配置</span></div><div class="line">gitlab-ctl reconfigure</div><div class="line"></div><div class="line"><span class="comment">#调整防火墙策略放开 http、https、ssh 访问限制</span></div><div class="line">lokkit -s http -s https -s ssh</div><div class="line"></div><div class="line"><span class="comment">#启动 gitlab 服务</span></div><div class="line">gitlab-ctl start</div></pre></td></tr></table></figure></p>
+<p>在浏览器输入你<code>external_url</code>所配置的 ip 即可访问了！</p>
+<h3 id="默认的账户和密码是："><a href="#默认的账户和密码是：" class="headerlink" title="默认的账户和密码是："></a>默认的账户和密码是：</h3><p><code>Username: root</code><br><code>Password: 5iveL!fe</code><br>如果你想注册账户，<code>Gitlab</code>会给你所填写的电子邮箱发送一封用于激活账号的e-mail，如果你在收件箱里找不到，那就到垃圾邮件里找找吧！！！</p>
+<blockquote>
+<p>GITLAB的汉化</p>
+</blockquote>
+<p>想要给<code>Gitlab</code>安装中文语言包的话需要先克隆<code>Gitlab</code>源码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#停止 gitlab 服务</span></div><div class="line">gitlab-ctl stop</div><div class="line"></div><div class="line"><span class="comment">#克隆 GitLab.com 仓库(速度慢但是肯定能用)</span></div><div class="line">git <span class="built_in">clone</span> https://gitlab.com/larryli/gitlab.git</div><div class="line"></div><div class="line"><span class="comment">#克隆 Gitcafe.com 镜像，速度更快(测试了一下，并不能顺利的克隆)</span></div><div class="line">git <span class="built_in">clone</span> https://gitcafe.com/larryli/gitlab.git</div></pre></td></tr></table></figure></p>
+<p>克隆完成后，接下来根据你所下载的<code>Gitlab</code>的版本制作汉化补丁并安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#查看版本 我的是 8.0.4</span></div><div class="line">cat /opt/gitlab/embedded/service/gitlab-rails/VERSION</div><div class="line">8.0.4</div><div class="line"></div><div class="line"><span class="comment">#进入刚刚克隆好的Gitlab源码目录，比较此版本中文语言包分支与原分支的差异，并制作补丁文件 8.0 版本的汉化补丁（8-0-stable是英文稳定版，8-0-zh是中文版，两个 diff 结果便是汉化补丁）</span></div><div class="line"><span class="built_in">cd</span> gitlab</div><div class="line">git diff origin/8-0-stable..origin/8-0-zh &gt; /tmp/8.0.diff</div><div class="line"></div><div class="line"><span class="comment">#安装补丁</span></div><div class="line"><span class="built_in">cd</span> /opt/gitlab/embedded/service/gitlab-rails</div><div class="line">git apply /tmp/8.0.diff  </div><div class="line"></div><div class="line"><span class="comment">#重新启动 gitlab</span></div><div class="line">sudo gitlab-ctl start</div></pre></td></tr></table></figure></p>
+<h3 id="可以看到中文界面啦！"><a href="#可以看到中文界面啦！" class="headerlink" title="可以看到中文界面啦！"></a>可以看到中文界面啦！</h3><blockquote>
+<p>多说一句</p>
+</blockquote>
+<p>由于克隆<code>Gitlab</code>源码比较耗时，如果你在虚拟机克隆成功了的话，建议你将克隆后的<code>gitlab</code>目录拷贝一下，因为当你包含 .git 目录一起拷贝时，你下次直接就能用</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件/" rel="tag"># 软件</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/02/vim/" rel="next" title="vim">
+                <i class="fa fa-chevron-left"></i> vim
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/14/nodeJs数据库基本操作/" rel="prev" title="nodeJs数据库基本操作">
+                nodeJs数据库基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="作者" />
+          <p class="site-author-name" itemprop="name">作者</p>
+           
+              <p class="site-description motion-element" itemprop="description">站点描述</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认的账户和密码是："><span class="nav-number">1.</span> <span class="nav-text">默认的账户和密码是：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到中文界面啦！"><span class="nav-number">2.</span> <span class="nav-text">可以看到中文界面啦！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

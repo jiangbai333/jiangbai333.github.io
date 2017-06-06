@@ -1,0 +1,833 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,框架,SpringMVC,spring拦截器," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。  上面的例子里，车站就相当于我们的spring应用，背着包要进车站的你就相当于用户请求，查票的拦截器，相当于察看用户凭证，映射到实际应用中就是，看你有">
+<meta name="keywords" content="java,框架,SpringMVC,spring拦截器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring-拦截器">
+<meta property="og:url" content="http://yoursite.com/2017/04/11/spring-拦截器/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。  上面的例子里，车站就相当于我们的spring应用，背着包要进车站的你就相当于用户请求，查票的拦截器，相当于察看用户凭证，映射到实际应用中就是，看你有">
+<meta property="og:updated_time" content="2017-06-06T09:00:33.516Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring-拦截器">
+<meta name="twitter:description" content="先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。  上面的例子里，车站就相当于我们的spring应用，背着包要进车站的你就相当于用户请求，查票的拦截器，相当于察看用户凭证，映射到实际应用中就是，看你有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/11/spring-拦截器/"/>
+
+
+
+
+
+  <title>Spring-拦截器 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">副标题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/spring-拦截器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="作者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring-拦截器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T09:06:00+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/框架/SpringMVC/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringMVC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> 先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。 </strong><br><strong> 上面的例子里，车站就相当于我们的spring应用，背着包要进车站的你就相当于用户请求，查票的拦截器，相当于察看用户凭证，映射到实际应用中就是，看你有没有登录，你没登陆（没有票）凭什么让你进入应用（车站）呢。而安检那里呢，就相当于拦截一些危险行为，比如，你在请求的参数里注入了一段清空数据表的sql（你的包里背了一个炸弹），那么肯定不能让你的请求进入应用！ </strong></p>
+<p><strong> 下面的例子里，我们建立一个拦截器，放行所有视图渲染请求，拦截所有其它请求 </strong></p>
+<h2 id="1-添加拦截器配置"><a href="#1-添加拦截器配置" class="headerlink" title="1.添加拦截器配置"></a>1.添加拦截器配置</h2><p><strong> 在<code>\src\main\resources\spring</code>目录下添加<code>applicationContext-hi.xml</code>文件： </strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;</div><div class="line"><span class="comment">&lt;!-- was: &lt;?xml version="1.0" encoding="UTF-8"?&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">       http://www.springframework.org/schema/context </div><div class="line">       http://www.springframework.org/schema/context/spring-context-3.0.xsd </div><div class="line">       http://www.springframework.org/schema/mvc </div><div class="line">       http://www.springframework.org/schema/mvc/spring-mvc.xsd"</div><div class="line">       <span class="attr">default-lazy-init</span>=<span class="string">"true"</span>&gt;</div><div class="line">       </div><div class="line">	<span class="comment">&lt;!-- interceptors里面放拦截器列表 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- interceptor里面代表一个拦截器 interceptors中可存在多个interceptor，每个interceptor将按照顺序执行 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- path="/**" 表示此拦截器将拦截所有请求 --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/**"</span> /&gt;</span></div><div class="line">			<span class="comment">&lt;!-- bean表示拦截器处理类 --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.spring.common.handlerInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong> 建立完成后,需要在<code>applicationContext.xml</code>引用该配置，使其生效： </strong><br><code>applicationContext.xml</code>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;</div><div class="line"><span class="comment">&lt;!-- was: &lt;?xml version="1.0" encoding="UTF-8"?&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;</div><div class="line">       </div><div class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring/applicationContext-mvc.xml"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring/applicationContext-hi.xml"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:mybatis/mybatis.xml"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-在-src-main-java-com-spring-common目录下建立类handlerInterceptor-java"><a href="#2-在-src-main-java-com-spring-common目录下建立类handlerInterceptor-java" class="headerlink" title="2.在\src\main\java\com\spring\common目录下建立类handlerInterceptor.java"></a>2.在<code>\src\main\java\com\spring\common</code>目录下建立类<code>handlerInterceptor.java</code></h2><p><strong> 前面提到过common目录是工具类目录，我们在这里把拦截器看作工具类 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.spring.common;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"></div><div class="line"><span class="comment">//定义的拦截器需要实现 spring HandlerInterceptor 接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">handlerInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span></span>&#123;</div><div class="line">    </div><div class="line">	<span class="comment">/**</span></div><div class="line">     * 这个方法将请求拦截在进入控制器之前，你可以用此方法，验证用户身份、权限等</div><div class="line">     * <span class="doctag">@param</span> request</div><div class="line">     * <span class="doctag">@param</span> response</div><div class="line">     * <span class="doctag">@param</span> handler</div><div class="line">     * <span class="doctag">@return</span> boolean 此方法如果返回为 true 则将请求发往控制器继续执行，如果返回 false 则拦截请求，结束该请求的生命周期</div><div class="line">     * <span class="doctag">@throws</span> Exception </div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response,</span></span></div><div class="line">            Object handler) <span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"进入拦截器"</span>);</div><div class="line">        String url = request.getRequestURI();</div><div class="line">        <span class="keyword">return</span> url.contains(<span class="string">"display"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//这个方法将在视图渲染前进行拦截。</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response,</span></span></div><div class="line">            Object handler, ModelAndView modelAndView) <span class="keyword">throws</span> Exception &#123;</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"视图渲染前的拦截动作，要渲染的视图为："</span> + modelAndView.getViewName());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//这个方法，视图编译完成后执行（所谓编译完成，是指jsp文件、html文件等已经读取替换完成，等待返回前台渲染。）。可以在这里，执行一些统一的处理，例如日志写入等。</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request,</span></span></div><div class="line">            HttpServletResponse response, Object handler, Exception ex)</div><div class="line">            <span class="keyword">throws</span> Exception &#123;</div><div class="line">        System.out.println(<span class="string">"视图编译完成后执行的拦截动作"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-在-src-main-java-com-spring-controller目录下，建立控制器文件"><a href="#3-在-src-main-java-com-spring-controller目录下，建立控制器文件" class="headerlink" title="3.在\src\main\java\com\spring\controller目录下，建立控制器文件"></a>3.在<code>\src\main\java\com\spring\controller</code>目录下，建立控制器文件</h2><p><strong> 在这里，我们建立两个控制器文件，一个是用于视图渲染的<code>\view\viewController.java</code>另一个是用于返回数据的<code>\api\apiController.java</code> </strong><br><code>viewController.java</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.spring.controller.view;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> hsoft</div><div class="line"> */</div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/display"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">viewController</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 渲染视图</div><div class="line">     * <span class="doctag">@param</span> group 视图分组：指在page目录下的某一个分组目录</div><div class="line">     * <span class="doctag">@param</span> viewName 视图名：要渲染的视图文件名</div><div class="line">     *      若要渲染page/menu目录下的view视图，则url为：/display/menu-view/</div><div class="line">     *      若直接渲染page目录下的view视图，则url为：/display/-view/</div><div class="line">     * <span class="doctag">@return</span> </div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/&#123;view&#125;"</span>, method = RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">display</span><span class="params">(@PathVariable(<span class="string">"view"</span>)</span> String viewName)</span>&#123;</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"进入控制器"</span>);</div><div class="line">        <span class="keyword">return</span> viewName;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>apiController.java</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.spring.controller.api;</div><div class="line"></div><div class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> hsoft</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/api"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">apiController</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/testData"</span>, method = RequestMethod.GET, produces = <span class="string">"text/html;charset=UTF-8"</span>)</div><div class="line">    <span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">String <span class="title">testData</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JSONObject().accumulate(<span class="string">"key"</span>, <span class="string">"中文"</span>).toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="4-运行"><a href="#4-运行" class="headerlink" title="4.运行"></a>4.运行</h2><p><strong> 在SpringMVC目录下执行下面命令： </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mvn clean</div><div class="line">mvn package</div><div class="line">mvn tomcat:run</div></pre></td></tr></table></figure></p>
+<p>访问<a href="http://localhost:8080/SpringMVC/display/index" target="_blank" rel="external">http://localhost:8080/SpringMVC/display/index</a>时，将会渲染index.jsp文件的内容到浏览器，并且，tomcat控制台打印以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">进入拦截器</div><div class="line">进入控制器</div><div class="line">视图渲染前的拦截动作，要渲染的视图为：index</div><div class="line">视图编译完成后执行的拦截动作</div></pre></td></tr></table></figure></p>
+<p>从打印结果可以看出，请求是先进入拦截器的。并且，按照我们在<code>preHandle</code>中指定的规则，url中存在“display”关键字，我们认为这个一个视图渲染请求，将请求发送到控制器执行。</p>
+<p>访问<a href="http://localhost:8080/SpringMVC/api/testData" target="_blank" rel="external">http://localhost:8080/SpringMVC/api/testData</a>时，浏览器会一片空白，并且，tomcat控制台只打印以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">进入拦截器</div></pre></td></tr></table></figure></p>
+<p>因为我们的请求的url中，不存在“display”关键字，我们定义拦截器时，要求把这种请求拦截，因此，该请求并没有进入控制器，到拦截器就结束了它的生命周期。</p>
+<p>至于拦截的实现，关键语句在于<code>preHandle</code>方法的返回值：<code>return url.contains(&quot;display&quot;);</code>，可以看出如果url存在“display”关键字会返回true，否则返回false。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+            <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
+          
+            <a href="/tags/spring拦截器/" rel="tag"># spring拦截器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/08/spring-MyBatis操作数据库/" rel="next" title="Spring-MyBatis操作数据库">
+                <i class="fa fa-chevron-left"></i> Spring-MyBatis操作数据库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/06/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="作者" />
+          <p class="site-author-name" itemprop="name">作者</p>
+           
+              <p class="site-description motion-element" itemprop="description">站点描述</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加拦截器配置"><span class="nav-number">1.</span> <span class="nav-text">1.添加拦截器配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在-src-main-java-com-spring-common目录下建立类handlerInterceptor-java"><span class="nav-number">2.</span> <span class="nav-text">2.在\src\main\java\com\spring\common目录下建立类handlerInterceptor.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在-src-main-java-com-spring-controller目录下，建立控制器文件"><span class="nav-number">3.</span> <span class="nav-text">3.在\src\main\java\com\spring\controller目录下，建立控制器文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-运行"><span class="nav-number">4.</span> <span class="nav-text">4.运行</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

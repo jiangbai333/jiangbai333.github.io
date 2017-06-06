@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,svn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="安装 svn 服务端12# yum -y install subversion# svn --version //察看svn版本 如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn创建并指定 svn 文件存放目录12# mkdir /opt/svndata //建立 svndata 主目录 # svnadmin create /opt/svndata/test 在主目录下">
+<meta name="keywords" content="linux,svn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos下搭建svn服务器以及版本仓库的配置">
+<meta property="og:url" content="http://yoursite.com/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="安装 svn 服务端12# yum -y install subversion# svn --version //察看svn版本 如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn创建并指定 svn 文件存放目录12# mkdir /opt/svndata //建立 svndata 主目录 # svnadmin create /opt/svndata/test 在主目录下">
+<meta property="og:updated_time" content="2017-06-06T09:00:29.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos下搭建svn服务器以及版本仓库的配置">
+<meta name="twitter:description" content="安装 svn 服务端12# yum -y install subversion# svn --version //察看svn版本 如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn创建并指定 svn 文件存放目录12# mkdir /opt/svndata //建立 svndata 主目录 # svnadmin create /opt/svndata/test 在主目录下">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/"/>
+
+
+
+
+
+  <title>Centos下搭建svn服务器以及版本仓库的配置 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">副标题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="作者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Centos下搭建svn服务器以及版本仓库的配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-25T23:26:16+08:00">
+                2015-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/" itemprop="url" rel="index">
+                    <span itemprop="name">软件</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/svn/" itemprop="url" rel="index">
+                    <span itemprop="name">svn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装-svn-服务端"><a href="#安装-svn-服务端" class="headerlink" title="安装 svn 服务端"></a>安装 svn 服务端</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install subversion</span></div><div class="line"><span class="comment"># svn --version //察看svn版本</span></div></pre></td></tr></table></figure>
+<h5 id="如果能正常察看到-svn-版本，证明-svn-安装成功，接着开始配置-svn"><a href="#如果能正常察看到-svn-版本，证明-svn-安装成功，接着开始配置-svn" class="headerlink" title="如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn"></a>如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn</h5><h1 id="创建并指定-svn-文件存放目录"><a href="#创建并指定-svn-文件存放目录" class="headerlink" title="创建并指定 svn 文件存放目录"></a>创建并指定 svn 文件存放目录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir /opt/svndata //建立 svndata 主目录 </span></div><div class="line"><span class="comment"># svnadmin create /opt/svndata/test 在主目录下建立 test 仓库</span></div></pre></td></tr></table></figure>
+<h5 id="创建完成后-test-目录下生成-conf-db-hooks-locks-目录以及-format-文件："><a href="#创建完成后-test-目录下生成-conf-db-hooks-locks-目录以及-format-文件：" class="headerlink" title="创建完成后 test 目录下生成 conf/ db/ hooks/ locks/ 目录以及 format 文件："></a>创建完成后 test 目录下生成 conf/ db/ hooks/ locks/ 目录以及 format 文件：</h5><ul>
+<li>conf 目录：存放此 svn 仓库-test仓库（下同）的配置文件</li>
+<li>db 目录：存放本仓库各个用户对文件修改与跟踪信息</li>
+<li>hooks 目录：钩子脚本目录，可以利用钩子脚本实现一些高级的 svn 操作</li>
+<li>locks 目录：？</li>
+<li>format 文件：存放当前版本库的唯一标识符</li>
+</ul>
+<h5 id="以上完成-svn-仓库的建立，接下来开始配置-svn-服务"><a href="#以上完成-svn-仓库的建立，接下来开始配置-svn-服务" class="headerlink" title="以上完成 svn 仓库的建立，接下来开始配置 svn 服务"></a>以上完成 svn 仓库的建立，接下来开始配置 svn 服务</h5><h1 id="配置-svn-仓库"><a href="#配置-svn-仓库" class="headerlink" title="配置 svn 仓库"></a>配置 svn 仓库</h1><blockquote>
+<p>配置 svnserve.conf 文件</p>
+</blockquote>
+<h5 id="svnserve-conf-文件负责-svn-运行时的一些基本配置"><a href="#svnserve-conf-文件负责-svn-运行时的一些基本配置" class="headerlink" title="svnserve.conf 文件负责 svn 运行时的一些基本配置"></a>svnserve.conf 文件负责 svn 运行时的一些基本配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /opt/svndata/test/conf/svnserve.conf</span></div><div class="line">[general]</div><div class="line"><span class="comment">#禁止匿名访问</span></div><div class="line">anon-access = none</div><div class="line"><span class="comment">#允许写操作</span></div><div class="line">auth-access = write   </div><div class="line"><span class="comment">#用户名密码键值对索引位置</span></div><div class="line">password-db = passwd</div><div class="line"><span class="comment">#用户权限键值对索引位置</span></div><div class="line">authz-db = authz</div></pre></td></tr></table></figure>
+<blockquote>
+<p>配置 passwd 文件</p>
+</blockquote>
+<h5 id="passwd-文件负责存放登陆此-svn-资源库用到的用户名密码键值对，提供给-svnserve-conf-进行索引"><a href="#passwd-文件负责存放登陆此-svn-资源库用到的用户名密码键值对，提供给-svnserve-conf-进行索引" class="headerlink" title="passwd 文件负责存放登陆此 svn 资源库用到的用户名密码键值对，提供给 svnserve.conf 进行索引"></a>passwd 文件负责存放登陆此 svn 资源库用到的用户名密码键值对，提供给 svnserve.conf 进行索引</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /opt/svndata/test/conf/passwd</span></div><div class="line">[users]</div><div class="line">test.user1 = passwd1</div><div class="line">user2 = passwd2</div><div class="line">user3 = passwd3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>配置 authz 文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /opt/svndata/test/conf/authz</span></div><div class="line">[groups]   </div><div class="line"><span class="comment">#将 test.user1、user2 用户添加到 admin 组，将 user3 添加到 users 组</span></div><div class="line">admin = test.user1,user2   </div><div class="line">users = user3</div><div class="line">[/]</div><div class="line"><span class="comment">#admin 组赋予对多有目录的读写权限，user 组赋予对多有目录的读权限，其它用户赋予空权限，空权限将禁止其它用户访问</span></div><div class="line">@admin = rw   </div><div class="line">@user = r   </div><div class="line">* =</div></pre></td></tr></table></figure>
+<h5 id="至此-svn-服务端配置完毕。启动-svn-服务并且开放-svn-服务默认端口-在客户端通过svn-svn服务器ip地址-test访问即可"><a href="#至此-svn-服务端配置完毕。启动-svn-服务并且开放-svn-服务默认端口-在客户端通过svn-svn服务器ip地址-test访问即可" class="headerlink" title="至此 svn 服务端配置完毕。启动 svn 服务并且开放 svn 服务默认端口,在客户端通过svn://svn服务器ip地址/test访问即可"></a>至此 svn 服务端配置完毕。启动 svn 服务并且开放 svn 服务默认端口,在客户端通过<code>svn://svn服务器ip地址/test</code>访问即可</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># svnserve -d -r /opt/svndata/</span></div><div class="line"><span class="comment"># iptables -A INPUT -i eth0 -p tcp --dport 3690 -j ACCEPT</span></div><div class="line"><span class="comment"># service iptables save</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/svn/" rel="tag"># svn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/08/mysql开启远程访问(无废话)/" rel="prev" title="mysql开启远程访问(无废话)">
+                mysql开启远程访问(无废话) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="作者" />
+          <p class="site-author-name" itemprop="name">作者</p>
+           
+              <p class="site-description motion-element" itemprop="description">站点描述</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-svn-服务端"><span class="nav-number">1.</span> <span class="nav-text">安装 svn 服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果能正常察看到-svn-版本，证明-svn-安装成功，接着开始配置-svn"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建并指定-svn-文件存放目录"><span class="nav-number">2.</span> <span class="nav-text">创建并指定 svn 文件存放目录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建完成后-test-目录下生成-conf-db-hooks-locks-目录以及-format-文件："><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">创建完成后 test 目录下生成 conf/ db/ hooks/ locks/ 目录以及 format 文件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以上完成-svn-仓库的建立，接下来开始配置-svn-服务"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">以上完成 svn 仓库的建立，接下来开始配置 svn 服务</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-svn-仓库"><span class="nav-number">3.</span> <span class="nav-text">配置 svn 仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#svnserve-conf-文件负责-svn-运行时的一些基本配置"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">svnserve.conf 文件负责 svn 运行时的一些基本配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#passwd-文件负责存放登陆此-svn-资源库用到的用户名密码键值对，提供给-svnserve-conf-进行索引"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">passwd 文件负责存放登陆此 svn 资源库用到的用户名密码键值对，提供给 svnserve.conf 进行索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#至此-svn-服务端配置完毕。启动-svn-服务并且开放-svn-服务默认端口-在客户端通过svn-svn服务器ip地址-test访问即可"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">至此 svn 服务端配置完毕。启动 svn 服务并且开放 svn 服务默认端口,在客户端通过svn://svn服务器ip地址/test访问即可</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
