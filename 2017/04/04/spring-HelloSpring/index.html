@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="框架,java,SpringMVC," />
+  <meta name="keywords" content="java,框架,SpringMVC," />
 
 
 
@@ -93,17 +93,19 @@
 
 
 
-<meta name="description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring  1.建立一个testController.java控制器 在SpringMVC\src\main\java\com\spring\controller路径下建立文件testController.java: 1234567891011121314151617181920212223package c">
-<meta name="keywords" content="框架,java,SpringMVC">
+<meta name="description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring">
+<meta name="keywords" content="java,框架,SpringMVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-HelloSpring">
 <meta property="og:url" content="http://yoursite.com/2017/04/04/spring-HelloSpring/index.html">
 <meta property="og:site_name" content="时间只会一直走">
-<meta property="og:description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring  1.建立一个testController.java控制器 在SpringMVC\src\main\java\com\spring\controller路径下建立文件testController.java: 1234567891011121314151617181920212223package c">
-<meta property="og:updated_time" content="2017-06-06T09:00:32.805Z">
+<meta property="og:description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring">
+<meta property="og:image" content="http://yoursite.com/2017/04/04/spring-HelloSpring/spring.jpg">
+<meta property="og:updated_time" content="2017-07-07T02:37:18.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-HelloSpring">
-<meta name="twitter:description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring  1.建立一个testController.java控制器 在SpringMVC\src\main\java\com\spring\controller路径下建立文件testController.java: 1234567891011121314151617181920212223package c">
+<meta name="twitter:description" content="上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/04/spring-HelloSpring/spring.jpg">
 
 
 
@@ -401,7 +403,8 @@
       
 
       
-        <p><strong> 上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring </strong></p>
+        <p><img src="/2017/04/04/spring-HelloSpring/spring.jpg" alt="图片无法显示"><br><strong> 上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring </strong></p>
+<a id="more"></a>
 <h2 id="1-建立一个testController-java控制器"><a href="#1-建立一个testController-java控制器" class="headerlink" title="1.建立一个testController.java控制器"></a>1.建立一个testController.java控制器</h2><p><strong> 在<code>SpringMVC\src\main\java\com\spring\controller</code>路径下建立文件<code>testController.java</code>: </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.spring.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> hsoft</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">/** 利用Controller注解，将testController类标记为一个控制器 */</span></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="comment">/** 利用RequestMapping注解，为testController类提供一个访问路径 */</span></div><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/test"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testController</span> </span>&#123;</div><div class="line">	<span class="comment">/** 利用RequestMapping注解，为index方法提供一个访问路径并指定请求模式 */</span></div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/index"</span>, method = RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"控制器testController的index方法运行成功"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="2-建立一个index-jsp视图"><a href="#2-建立一个index-jsp视图" class="headerlink" title="2.建立一个index.jsp视图"></a>2.建立一个index.jsp视图</h2><p><strong> 在<code>\SpringMVC\src\main\webapp\WEB-INF\page</code>路径下建立文件<code>index.jsp</code>: </strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">import</span>=<span class="string">"java.util.*"</span> <span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%</span></span></div><div class="line"><span class="attr">String</span> <span class="attr">path</span> = <span class="string">request.getContextPath();</span></div><div class="line"><span class="attr">String</span> <span class="attr">basePath</span> = <span class="string">request.getScheme()+</span>"<span class="attr">:</span>//"+<span class="attr">request.getServerName</span>()+"<span class="attr">:</span>"+<span class="attr">request.getServerPort</span>()+<span class="attr">path</span>+"/";</div><div class="line">%&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"&lt;%=basePath%&gt;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello spring<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello spring<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <h2 id="3-打包、运行项目"><a href="#3-打包、运行项目" class="headerlink" title="3.打包、运行项目"></a>3.打包、运行项目</h2><p>在<code>\SpringMVC</code>目录下执行下列命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mvn clean</div><div class="line">mvn package</div><div class="line">mvn tomcat:run</div></pre></td></tr></table></figure></p>
@@ -440,9 +443,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/框架/" rel="tag"># 框架</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
           
             <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
           

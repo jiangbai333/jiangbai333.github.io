@@ -384,7 +384,7 @@
         <h1 id="ForFreej-0-3"><a href="#ForFreej-0-3" class="headerlink" title="ForFreej 0.3"></a>ForFreej 0.3</h1><h2 id="框架结构"><a href="#框架结构" class="headerlink" title="####框架结构"></a>####框架结构</h2><p><strong>src目录下 包含了 app包、com包以及程序人员开发时需要的配置文件。</strong></p>
 <p><strong>app包是开人人员部署自己项目代码用的。</strong></p>
 <p><strong>com包是存放维持forfreej框架运行的核心代码的程序包，如果你有很好的代码阅读能力并且有一定java语言基础，你可以随意修改。但某些不规范或者不正确的修改，将导致forfreej我发正常运行！</strong></p>
-<p><img src="./colortree.png" alt=""></p>
+<p><img src="/2016/06/07/forfreej0-3-文档/./colortree.png" alt=""></p>
 <h2 id="运用forfreej快速建立一个web应用"><a href="#运用forfreej快速建立一个web应用" class="headerlink" title="####运用forfreej快速建立一个web应用"></a>####运用forfreej快速建立一个web应用</h2><h2 id="首先为应用建立一个index控制器-IndexController-java"><a href="#首先为应用建立一个index控制器-IndexController-java" class="headerlink" title="首先为应用建立一个index控制器(IndexController.java):"></a>首先为应用建立一个index控制器(IndexController.java):</h2><p>#####建立控制器需要符合 forfreej 要求的准则：每一个控制器必须属于某一分组、控制器需要继承核心控制器、控制器命名为 控制器名Controller.java!<br>根据上面的要求，首先在 app 包下控制器容器(app.controller)中建立一个分组包，分组包名为 auto。然后在 auto 包中建立控制器IndexController.java,控制器代码如下：</p>
 <pre><code>package app.controller.auto;
 

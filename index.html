@@ -399,9 +399,7 @@
 
       
         
-          
-           先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。  上面的例子里，车站就相当于我们的spring应用
-          ...
+          <p><img src="/2017/04/11/spring-拦截器/spring.jpg" alt="图片无法显示"><br><strong> 先炒个栗子：你背着包去坐火车，进站之前，首先，会有人查你的票（这里相当于一层拦截器，拦截的目的是看你有没有进站的凭证）。OK，你的票通过了，然后你往里继续走，因为你背着包，所以还要过安检（这里是又一层拦截器，拦截的目的是看你有没有携带危险物品）。 </strong><br><strong> 上面的例子里，车站就相当于我们的spring应用，背着包要进车站的你就相当于用户请求，查票的拦截器，相当于察看用户凭证，映射到实际应用中就是，看你有没有登录，你没登陆（没有票）凭什么让你进入应用（车站）呢。而安检那里呢，就相当于拦截一些危险行为，比如，你在请求的参数里注入了一段清空数据表的sql（你的包里背了一个炸弹），那么肯定不能让你的请求进入应用！ </strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/11/spring-拦截器/#more" rel="contents">
@@ -572,9 +570,8 @@
 
       
         
-          
-          1.建立dao层接口baseDao.java与实现类testDaoImpl.java 在\src\main\java\com\spring\dao目录下，建立ifc、impl目录，分别用来存放接口和实现类，在ifc目录中建立baseDao.java接口文件，在impl目录中建立testDaoImpl
-          ...
+          <p><img src="/2017/04/08/spring-MyBatis操作数据库/spring.jpg" alt="图片无法显示"></p>
+<h2 id="1-建立dao层接口baseDao-java与实现类testDaoImpl-java"><a href="#1-建立dao层接口baseDao-java与实现类testDaoImpl-java" class="headerlink" title="1.建立dao层接口baseDao.java与实现类testDaoImpl.java"></a>1.建立dao层接口<code>baseDao.java</code>与实现类<code>testDaoImpl.java</code></h2><p><strong> 在<code>\src\main\java\com\spring\dao</code>目录下，建立<code>ifc</code>、<code>impl</code>目录，分别用来存放接口和实现类，在<code>ifc</code>目录中建立<code>baseDao.java</code>接口文件，在<code>impl</code>目录中建立<code>testDaoImpl.java</code>实现类文件； </strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/08/spring-MyBatis操作数据库/#more" rel="contents">
@@ -745,12 +742,10 @@
 
       
         
-          
-          
-mybatis简介 mybatis.orgMyBatis 百度百科
-
-1.准备工作 修改pom.xml，添加mybatis相关的依赖 123456789101112131415161718192021&lt;!--数据库相关, mysql, mybatis--&gt;&lt;dependency&
-          ...
+          <p><img src="/2017/04/08/spring-整合MyBatis/spring.jpg" alt="图片无法显示"></p>
+<blockquote>
+<p>mybatis简介 <a href="http://www.mybatis.org/mybatis-3/zh/" title="mybatis.org" target="_blank" rel="external">mybatis.org</a><br>MyBatis <a href="http://baike.baidu.com/link?url=FDonLHL0N0Cg9ZscQYpJxEcAfxE7G7Nh3RM7UNdewR_lsh6UcTyf2uoxurvwmMWSrDhYwWdfJY7X0LVBGLLLja" title="百度百科" target="_blank" rel="external">百度百科</a></p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/08/spring-整合MyBatis/#more" rel="contents">
@@ -921,10 +916,8 @@ mybatis简介 mybatis.orgMyBatis 百度百科
 
       
         
-          
-           本节将在前面章节的基础上添加service层 
-1.准备工作 修改pom.xml，添加json-lib依赖 1234567&lt;!--json-lib--&gt;    &lt;dependency&gt;        &lt;groupId&gt;net.sf.json-lib&lt;/gr
-          ...
+          <p><img src="/2017/04/07/spring-添加业务逻辑/spring.jpg" alt="图片无法显示"><br><strong> 本节将在前面章节的基础上添加service层 </strong></p>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/07/spring-添加业务逻辑/#more" rel="contents">
@@ -1095,10 +1088,7 @@ mybatis简介 mybatis.orgMyBatis 百度百科
 
       
         
-          
-           上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring 
-1.建立一个testController.java控制器 在SpringMVC\src\main\java\com\spring\controller路径下建立文件testController.ja
-          ...
+          <p><img src="/2017/04/04/spring-HelloSpring/spring.jpg" alt="图片无法显示"><br><strong> 上一篇已经完成了spring开发环境的搭建，接下来，我们一起从一个简单的例子开始了解spring </strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/04/spring-HelloSpring/#more" rel="contents">
@@ -1269,12 +1259,10 @@ mybatis简介 mybatis.orgMyBatis 百度百科
 
       
         
-          
-          1.首先建立一个基本的maven项目 
-Maven命令行构建JavaWeb应用–参数解释 引自jiangbai333.github.io
-
-1mvn archetype:generate -DgroupId=com.spring -DartifactId=SpringMVC -DarchetypeA
-          ...
+          <p><img src="/2017/04/03/spring-建立项目/spring.jpg" alt="图片无法显示"></p>
+<h2 id="1-首先建立一个基本的maven项目"><a href="#1-首先建立一个基本的maven项目" class="headerlink" title="1.首先建立一个基本的maven项目 "></a>1.首先建立一个基本的maven项目 </h2><blockquote>
+<p>Maven命令行构建JavaWeb应用–参数解释 <a href="http://jiangbai333.github.io/2016/11/02/maven%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9E%84%E5%BB%BAjavaweb%E5%BA%94%E7%94%A8/" title="引自jiangbai333.github.io" target="_blank" rel="external">引自jiangbai333.github.io</a></p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/03/spring-建立项目/#more" rel="contents">
