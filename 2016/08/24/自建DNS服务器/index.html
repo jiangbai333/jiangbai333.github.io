@@ -1,0 +1,908 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件,linux,DNS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="简介 它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。 域名系统|DNS - 引自维基百科DNS服务器|域名服务器 - 引自百度百科  安装 BIND是什么BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。 伯克利互联网名称服务 (Ber">
+<meta name="keywords" content="软件,linux,DNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自建DNS服务器">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/自建DNS服务器/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="简介 它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。 域名系统|DNS - 引自维基百科DNS服务器|域名服务器 - 引自百度百科  安装 BIND是什么BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。 伯克利互联网名称服务 (Ber">
+<meta property="og:updated_time" content="2017-08-23T07:20:41.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自建DNS服务器">
+<meta name="twitter:description" content="简介 它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。 域名系统|DNS - 引自维基百科DNS服务器|域名服务器 - 引自百度百科  安装 BIND是什么BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。 伯克利互联网名称服务 (Ber">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/24/自建DNS服务器/"/>
+
+
+
+
+
+  <title>自建DNS服务器 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ForFree</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/24/自建DNS服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="姜柏超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自建DNS服务器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-24T11:51:00+08:00">
+                2016-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/" itemprop="url" rel="index">
+                    <span itemprop="name">软件</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/bind/" itemprop="url" rel="index">
+                    <span itemprop="name">bind</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<h6 id="它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。"><a href="#它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。" class="headerlink" title="它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。"></a>它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。</h6><blockquote>
+<p><a href="https://zh.wikipedia.org/zh-cn/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F" title="域名系统|DNS" target="_blank" rel="external">域名系统|DNS</a> - 引自维基百科<br><a href="https://baike.baidu.com/item/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8" title="DNS服务器|域名服务器" target="_blank" rel="external">DNS服务器|域名服务器</a> - 引自百度百科</p>
+</blockquote>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><hr>
+<h4 id="BIND是什么"><a href="#BIND是什么" class="headerlink" title="BIND是什么"></a>BIND是什么</h4><h6 id="BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90-以上的DNS服务器都是由它驱动的。"><a href="#BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90-以上的DNS服务器都是由它驱动的。" class="headerlink" title="BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。"></a>BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。</h6><blockquote>
+<p>伯克利互联网名称服务 (Berkeley Internet Name Daemon，简称 <a href="https://www.isc.org/downloads/bind/" title="BIND主页" target="_blank" rel="external">BIND</a>) 是 DNS 协议的一个参考实现<br>引自<a href="https://wiki.archlinux.org/index.php/BIND" title="ArchWiki" target="_blank" rel="external">ArchWiki</a></p>
+</blockquote>
+<h4 id="基于yum安装BIND"><a href="#基于yum安装BIND" class="headerlink" title="基于yum安装BIND"></a>基于yum安装BIND</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install bind*</span></div></pre></td></tr></table></figure>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><hr>
+<h6 id="假定你要在局域网中映射你的项目地址（192-168-1-100）到域名www-baichao-com，并且你的DNS服务器所分配到的内网ip为（192-168-1-200）。"><a href="#假定你要在局域网中映射你的项目地址（192-168-1-100）到域名www-baichao-com，并且你的DNS服务器所分配到的内网ip为（192-168-1-200）。" class="headerlink" title="假定你要在局域网中映射你的项目地址（192.168.1.100）到域名www.baichao.com，并且你的DNS服务器所分配到的内网ip为（192.168.1.200）。"></a>假定你要在局域网中映射你的项目地址（192.168.1.100）到域名<code>www.baichao.com</code>，并且你的DNS服务器所分配到的内网ip为（192.168.1.200）。</h6><h4 id="编辑named-conf文件"><a href="#编辑named-conf文件" class="headerlink" title="编辑named.conf文件"></a>编辑named.conf文件</h4><h6 id="named-conf文件是BIND的主配置文件，位于-etc目录下，备份后打开："><a href="#named-conf文件是BIND的主配置文件，位于-etc目录下，备份后打开：" class="headerlink" title="named.conf文件是BIND的主配置文件，位于/etc目录下，备份后打开："></a><code>named.conf</code>文件是BIND的主配置文件，位于<code>/etc</code>目录下，备份后打开：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cp /etc/named.conf /etc/named.conf.bak</span></div><div class="line"><span class="comment"># vim /etc/named.conf</span></div></pre></td></tr></table></figure>
+<h6 id="编辑为以下格式"><a href="#编辑为以下格式" class="headerlink" title="编辑为以下格式:"></a>编辑为以下格式:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">options &#123;</div><div class="line">    //bind监听53端口。监听任何主机</div><div class="line">    listen-on port 53 &#123; any; &#125;;</div><div class="line"> </div><div class="line">    //指定区域文件所放置的目录</div><div class="line">    directory &quot;/var/named&quot;;</div><div class="line"></div><div class="line">    //类似于日志信息，指定该信息的保存位置</div><div class="line">    dump-file       &quot;/var/named/data/cache_dump.db&quot;;</div><div class="line">    statistics-file &quot;/var/named/data/named_stats.txt&quot;;</div><div class="line">    memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;</div><div class="line">	</div><div class="line">    //允许任何人发起DNS查询请求</div><div class="line">    allow-query &#123; any; &#125;;</div><div class="line"></div><div class="line">    //允许递归查询</div><div class="line">    recursion yes;</div><div class="line"></div><div class="line">    //开启主从模式后，主服务器区域文件发生改变时，通知从服务器更新</div><div class="line">    notify yes;</div><div class="line"></div><div class="line">    //DNS安全加强</div><div class="line">    dnssec-enable yes;</div><div class="line">    dnssec-validation yes;</div><div class="line">    dnssec-lookaside auto;</div><div class="line">	</div><div class="line">    //上层DNS服务器地址</div><div class="line">    forwarders &#123;</div><div class="line">       8.8.8.8;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    bindkeys-file &quot;/etc/named.iscdlv.key&quot;;</div><div class="line">    managed-keys-directory &quot;/var/named/dynamic&quot;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//运行日志</div><div class="line">logging &#123;</div><div class="line">    </div><div class="line">    //通道(channel)配置</div><div class="line">    channel default_debug &#123;</div><div class="line"></div><div class="line">        //日志文件存放位置 并设置版本与单个日志文件大小</div><div class="line">        file &quot;data/named.run&quot; versions 5 size 20m;</div><div class="line">        </div><div class="line">        //指定消息级别</div><div class="line">        severity dynamic;</div><div class="line">        print-time yes;</div><div class="line">        print-category yes;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//根域区域文件属性配置</div><div class="line">zone &quot;.&quot; IN &#123;</div><div class="line">	</div><div class="line">    //设置区域文件类型</div><div class="line">    type hint; </div><div class="line"></div><div class="line">    //根域区域文件</div><div class="line">    file &quot;named.ca&quot;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//为方便配置管理，将配置分类存放再由主配置文件引入</div><div class="line">include &quot;/etc/named.rfc1912.zones&quot;;</div><div class="line">include &quot;/etc/named.root.key&quot;;</div></pre></td></tr></table></figure>
+<h5 id="部分配置说明"><a href="#部分配置说明" class="headerlink" title="部分配置说明"></a>部分配置说明</h5><ul>
+<li>区域文件类型 zone type<ul>
+<li>hint 根域</li>
+<li>master 主域</li>
+<li>slave 从域</li>
+<li>forward 转发域</li>
+</ul>
+</li>
+<li>{}内部必须包含空格，{string} 错误， { string } 正确</li>
+<li>logging<ul>
+<li>通道<ul>
+<li>消息级别<ul>
+<li>critical</li>
+<li>error</li>
+<li>warning</li>
+<li>notice</li>
+<li>info</li>
+<li>debug [ level ]</li>
+<li>dynamic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="编辑named-rfc1912-zones文件"><a href="#编辑named-rfc1912-zones文件" class="headerlink" title="编辑named.rfc1912.zones文件"></a>编辑named.rfc1912.zones文件</h4><h6 id="named-rfc1912-zones文件用于域配置，位于-etc目录下，备份后打开："><a href="#named-rfc1912-zones文件用于域配置，位于-etc目录下，备份后打开：" class="headerlink" title="named.rfc1912.zones文件用于域配置，位于/etc目录下，备份后打开："></a><code>named.rfc1912.zones</code>文件用于域配置，位于<code>/etc</code>目录下，备份后打开：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cp /etc/named.rfc1912.zones /etc/named.rfc1912.zones.bak</span></div><div class="line"><span class="comment"># vim /etc/named.rfc1912.zones</span></div></pre></td></tr></table></figure>
+<h6 id="在文件结尾添加以下内容"><a href="#在文件结尾添加以下内容" class="headerlink" title="在文件结尾添加以下内容"></a>在文件结尾添加以下内容</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//定义要解析主域名（类似于根域配置）</div><div class="line">zone &quot;baichao.com&quot; IN &#123;</div><div class="line">    type master;</div><div class="line"></div><div class="line">    //区域文件 将保存在 /var/named 目录下</div><div class="line">    file &quot;baichao.com.zone&quot;；</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="建立区域文件baichao-com-zone"><a href="#建立区域文件baichao-com-zone" class="headerlink" title="建立区域文件baichao.com.zone"></a>建立区域文件baichao.com.zone</h4><h6 id="此区域文件的文件名对应named-rfc1912-zones文件中你要解析的域名，将此文件建立在-var-named目录下，建立文件baichao-com-zone"><a href="#此区域文件的文件名对应named-rfc1912-zones文件中你要解析的域名，将此文件建立在-var-named目录下，建立文件baichao-com-zone" class="headerlink" title="此区域文件的文件名对应named.rfc1912.zones文件中你要解析的域名，将此文件建立在/var/named目录下，建立文件baichao.com.zone:"></a>此区域文件的文件名对应<code>named.rfc1912.zones</code>文件中你要解析的域名，将此文件建立在<code>/var/named</code>目录下，建立文件<code>baichao.com.zone</code>:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vim /var/named/baichao.com.zone</div></pre></td></tr></table></figure>
+<h6 id="将以下内容写入："><a href="#将以下内容写入：" class="headerlink" title="将以下内容写入："></a>将以下内容写入：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$TTL 86400</div><div class="line">@       IN      SOA     ns.baichao.com. root (</div><div class="line">                                            1       ; serial 区域文件版本号，用于主从同步</div><div class="line">                                            1D      ; refresh 从服务器区域文件记录刷新时间</div><div class="line">                                            1H      ; retry 从服务器更新失败后，下次尝试更新时间</div><div class="line">                                            1W      ; expire 从服务器更新失败后，原有数据的过期时间</div><div class="line">                                            0 )     ; minimum  被缓存的否定回答的存活时间</div><div class="line"></div><div class="line">@       IN      NS      ns.baichao.com.</div><div class="line">ns      IN      A       192.168.1.200</div><div class="line">www     IN      A       192.168.1.100</div></pre></td></tr></table></figure>
+<h1 id="添加防火墙规则"><a href="#添加防火墙规则" class="headerlink" title="添加防火墙规则"></a>添加防火墙规则</h1><hr>
+<blockquote>
+<p>但是这里需要跟大家报告的是，通常 DNS 查询的时候，是以 udp 这个较快速的数据传输协议来查询的， 但是万一没有办法查询到完整的信息时，就会再次的以 tcp 这个协定来重新查询的！所以启动 DNS 的 daemon (就是 named 啦) 时，会同时启动 tcp 及 udp 的 port 53 喔！所以，记得防火墙也要同时放行 tcp, udp port 53 呢！ </p>
+<p>引自<a href="http://cn.linux.vbird.org/linux_server/0350dns.php#DNS_master_start" title="鸟哥的linux私房菜" target="_blank" rel="external">鸟哥的linux私房菜</a></p>
+</blockquote>
+<h6 id="开放53、953端口"><a href="#开放53、953端口" class="headerlink" title="开放53、953端口:"></a>开放<code>53</code>、<code>953</code>端口:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</div><div class="line"># iptables -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT</div><div class="line"># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 953 -j ACCEPT</div></pre></td></tr></table></figure>
+<h6 id="被映射到的服务地址也需要开放服务端口："><a href="#被映射到的服务地址也需要开放服务端口：" class="headerlink" title="被映射到的服务地址也需要开放服务端口："></a>被映射到的服务地址也需要开放服务端口：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT</div></pre></td></tr></table></figure>
+<h1 id="启动与扩展"><a href="#启动与扩展" class="headerlink" title="启动与扩展"></a>启动与扩展</h1><hr>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><h6 id="启动服务："><a href="#启动服务：" class="headerlink" title="启动服务："></a>启动服务：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># service named restart</span></div><div class="line">Stopping named:                                            [  OK  ]</div><div class="line">Starting named:                                            [  OK  ]</div></pre></td></tr></table></figure>
+<h6 id="有时候会遇到启动失败的情况："><a href="#有时候会遇到启动失败的情况：" class="headerlink" title="有时候会遇到启动失败的情况："></a>有时候会遇到启动失败的情况：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># service named restart</span></div><div class="line">Stopping named:                                            [  OK  ]</div><div class="line">Starting named:                                            [FAILED]</div></pre></td></tr></table></figure>
+<h6 id="此时并不会报出任何错误，你需要查看-var-log-message文件，查找出详细的错误信息并纠正："><a href="#此时并不会报出任何错误，你需要查看-var-log-message文件，查找出详细的错误信息并纠正：" class="headerlink" title="此时并不会报出任何错误，你需要查看/var/log/message文件，查找出详细的错误信息并纠正："></a>此时并不会报出任何错误，你需要查看<code>/var/log/message</code>文件，查找出详细的错误信息并纠正：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /var/<span class="built_in">log</span>/message | grep named</div></pre></td></tr></table></figure>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><h6 id="这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。"><a href="#这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。" class="headerlink" title="这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。"></a>这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。</h6>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Think you!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件/" rel="tag"># 软件</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/DNS/" rel="tag"># DNS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/02/vim/" rel="next" title="vim">
+                <i class="fa fa-chevron-left"></i> vim
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/14/搭建-Gitlab/" rel="prev" title="GITLAB搭建(需要64位操作系统)">
+                GITLAB搭建(需要64位操作系统) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="姜柏超" />
+          <p class="site-author-name" itemprop="name">姜柏超</p>
+           
+              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BIND是什么"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">BIND是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90-以上的DNS服务器都是由它驱动的。"><span class="nav-number">2.0.0.1.0.1.</span> <span class="nav-text">BIND是一个应用程序，它允许你构建一个本地的DNS映射服务。它应用广泛，全球90%以上的DNS服务器都是由它驱动的。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于yum安装BIND"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">基于yum安装BIND</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#假定你要在局域网中映射你的项目地址（192-168-1-100）到域名www-baichao-com，并且你的DNS服务器所分配到的内网ip为（192-168-1-200）。"><span class="nav-number">3.0.0.0.0.1.</span> <span class="nav-text">假定你要在局域网中映射你的项目地址（192.168.1.100）到域名www.baichao.com，并且你的DNS服务器所分配到的内网ip为（192.168.1.200）。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑named-conf文件"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">编辑named.conf文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#named-conf文件是BIND的主配置文件，位于-etc目录下，备份后打开："><span class="nav-number">3.0.0.1.0.1.</span> <span class="nav-text">named.conf文件是BIND的主配置文件，位于/etc目录下，备份后打开：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编辑为以下格式"><span class="nav-number">3.0.0.1.0.2.</span> <span class="nav-text">编辑为以下格式:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部分配置说明"><span class="nav-number">3.0.0.1.1.</span> <span class="nav-text">部分配置说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑named-rfc1912-zones文件"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">编辑named.rfc1912.zones文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#named-rfc1912-zones文件用于域配置，位于-etc目录下，备份后打开："><span class="nav-number">3.0.0.2.0.1.</span> <span class="nav-text">named.rfc1912.zones文件用于域配置，位于/etc目录下，备份后打开：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在文件结尾添加以下内容"><span class="nav-number">3.0.0.2.0.2.</span> <span class="nav-text">在文件结尾添加以下内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立区域文件baichao-com-zone"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">建立区域文件baichao.com.zone</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#此区域文件的文件名对应named-rfc1912-zones文件中你要解析的域名，将此文件建立在-var-named目录下，建立文件baichao-com-zone"><span class="nav-number">3.0.0.3.0.1.</span> <span class="nav-text">此区域文件的文件名对应named.rfc1912.zones文件中你要解析的域名，将此文件建立在/var/named目录下，建立文件baichao.com.zone:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将以下内容写入："><span class="nav-number">3.0.0.3.0.2.</span> <span class="nav-text">将以下内容写入：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加防火墙规则"><span class="nav-number">4.</span> <span class="nav-text">添加防火墙规则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#开放53、953端口"><span class="nav-number">4.0.0.0.0.1.</span> <span class="nav-text">开放53、953端口:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#被映射到的服务地址也需要开放服务端口："><span class="nav-number">4.0.0.0.0.2.</span> <span class="nav-text">被映射到的服务地址也需要开放服务端口：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动与扩展"><span class="nav-number">5.</span> <span class="nav-text">启动与扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">启动</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#启动服务："><span class="nav-number">5.0.0.1.0.1.</span> <span class="nav-text">启动服务：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#有时候会遇到启动失败的情况："><span class="nav-number">5.0.0.1.0.2.</span> <span class="nav-text">有时候会遇到启动失败的情况：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#此时并不会报出任何错误，你需要查看-var-log-message文件，查找出详细的错误信息并纠正："><span class="nav-number">5.0.0.1.0.3.</span> <span class="nav-text">此时并不会报出任何错误，你需要查看/var/log/message文件，查找出详细的错误信息并纠正：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。"><span class="nav-number">5.0.0.2.0.1.</span> <span class="nav-text">这里是题外话，想要科学上网的朋友，可以自建一个DNS服务器，映射到目标地址。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">姜柏超</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
