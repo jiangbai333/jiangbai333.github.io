@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,软件,svn,配置," />
+  <meta name="keywords" content="linux,svn,软件,配置," />
 
 
 
@@ -94,13 +94,13 @@
 
 
 <meta name="description" content="为什么这么做 &amp;emsp;&amp;emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。&amp;emsp;&amp;emsp;如果某项目参与人员，在提交过程中，没有给">
-<meta name="keywords" content="linux,软件,svn,配置">
+<meta name="keywords" content="linux,svn,软件,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="svn开启提交前日志检查">
 <meta property="og:url" content="http://yoursite.com/2018/02/22/svn开启提交前日志检查/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="为什么这么做 &amp;emsp;&amp;emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。&amp;emsp;&amp;emsp;如果某项目参与人员，在提交过程中，没有给">
-<meta property="og:updated_time" content="2018-02-22T09:15:55.000Z">
+<meta property="og:updated_time" content="2018-02-22T17:05:03.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn开启提交前日志检查">
 <meta name="twitter:description" content="为什么这么做 &amp;emsp;&amp;emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。&amp;emsp;&amp;emsp;如果某项目参与人员，在提交过程中，没有给">
@@ -385,7 +385,8 @@
 <h2 id="什么是pre-commit"><a href="#什么是pre-commit" class="headerlink" title="什么是pre-commit"></a>什么是pre-commit</h2><p>&emsp;&emsp;<code>pre-commit</code>是SVN所提供的钩子脚本之一，它允许你利用<code>shall</code>、<code>python</code>等脚本语言，在SVN产生提交动作时，对提交内容进行认证。</p>
 <h2 id="编辑pre-commit，强制要求提交时写入日志"><a href="#编辑pre-commit，强制要求提交时写入日志" class="headerlink" title="编辑pre-commit，强制要求提交时写入日志"></a>编辑pre-commit，强制要求提交时写入日志</h2><p>&emsp;&emsp;在此，我们假设你的SVN仓库建立在<code>/home/baichao/svn/</code>，仓库名为<code>test</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /home/baichao/svn/test/hooks</span></div><div class="line"><span class="comment"># vi pre-commit</span></div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;将下面内容写入到<code>pre-commit</code>文件中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"></div><div class="line">REPOS=<span class="string">"<span class="variable">$1</span>"</span></div><div class="line">TXN=<span class="string">"<span class="variable">$2</span>"</span></div><div class="line">comment=0</div><div class="line"></div><div class="line">SVNLOOK=/usr/bin/svnlook</div><div class="line"><span class="variable">$SVNLOOK</span> <span class="built_in">log</span> -t <span class="string">"<span class="variable">$TXN</span>"</span> <span class="string">"<span class="variable">$REPOS</span>"</span> | grep <span class="string">"[a-zA-Z0-9\u4e00-\u9fa5]"</span> || comment=1</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$comment</span> -eq 1 ]</div><div class="line"><span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"您的提交日志为空!</span></div><div class="line">		输入本次提交的日志,以方便代码回溯" 1&gt;&amp;2</div><div class="line">	<span class="built_in">exit</span> 1</div><div class="line"><span class="keyword">else</span></div><div class="line">	<span class="built_in">exit</span> 0</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;保存提交后无需重新启动SVN服务，即改即用！</p>
+<p>&emsp;&emsp;保存后，赋予<code>pre-commit</code>文件可执行权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># chmod +x pre-commit</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;无需重新启动SVN服务，即改即用！</p>
 
       
     </div>
@@ -438,9 +439,9 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/软件/" rel="tag"># 软件</a>
-          
             <a href="/tags/svn/" rel="tag"># svn</a>
+          
+            <a href="/tags/软件/" rel="tag"># 软件</a>
           
             <a href="/tags/配置/" rel="tag"># 配置</a>
           
