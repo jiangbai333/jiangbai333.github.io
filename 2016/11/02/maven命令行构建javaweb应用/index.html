@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。123">
+<meta name="description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。">
 <meta name="keywords" content="软件,java,maven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven命令行构建JavaWeb应用">
 <meta property="og:url" content="http://yoursite.com/2016/11/02/maven命令行构建javaweb应用/index.html">
 <meta property="og:site_name" content="时间只会一直走">
-<meta property="og:description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。123">
-<meta property="og:updated_time" content="2017-06-06T09:00:31.659Z">
+<meta property="og:description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。">
+<meta property="og:updated_time" content="2018-04-09T18:54:03.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven命令行构建JavaWeb应用">
-<meta name="twitter:description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。123">
+<meta name="twitter:description" content="说起来，做java有段时间了，原先用eclipse开发的时候还好，转到sts简直卡出翔。早有抛弃IDE的打算，首要选择目标是VIM + MAVEN，这几天趁着有时间整理一下。废话到此为止，先说说maven那点儿事儿(以下均为linux环境下的操作与配置)！  安装  首先下载最新版的MAVEN，在网上可以下载到 二进制版 和 源码版 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。">
 
 
 
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ForFree</p>
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
       
   </div>
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Maven命令行构建JavaWeb应用</h1>
+          <h2 class="post-title" itemprop="name headline">Maven命令行构建JavaWeb应用</h2>
         
 
         <div class="post-meta">
@@ -383,7 +383,7 @@
 <blockquote>
 <p>安装</p>
 </blockquote>
-<p>首先下载最新版的MAVEN，在网上可以下载到 <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz" title="下载maven二进制版" target="_blank" rel="external">二进制版</a> 和 <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz" title="下载maven源码版" target="_blank" rel="external">源码版</a> 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 解压 更换目录将 maven 解压到 /opt 目录下</span></div><div class="line">wegt https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz</div><div class="line">tar -zxvf ./apache-maven-3.3.9-bin.tar.gz -C /opt/</div><div class="line"></div><div class="line"><span class="comment"># 配置环境变量</span></div><div class="line"><span class="built_in">export</span> M2_HOME=/opt/apache-maven-3.3.9/</div><div class="line"><span class="built_in">export</span> M2=<span class="variable">$M2_HOME</span>/bin</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$M2</span>:<span class="variable">$PATH</span></div><div class="line"></div><div class="line"><span class="comment"># 查看 maven 版本 如能正常打印出 maven 版本号等信息 表示配置成功</span></div><div class="line">mvn --version</div></pre></td></tr></table></figure></p>
+<p>首先下载最新版的MAVEN，在网上可以下载到 <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz" title="下载maven二进制版" target="_blank" rel="external">二进制版</a> 和 <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz" title="下载maven源码版" target="_blank" rel="external">源码版</a> 。二进制版解压后配完环境变量就直接能用了，源码版需要编译。<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载 解压 更换目录将 maven 解压到 /opt 目录下</span></div><div class="line">wegt https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz</div><div class="line">tar -zxvf ./apache-maven-3.3.9-bin.tar.gz -C /opt/</div><div class="line"></div><div class="line"><span class="comment"># 配置环境变量</span></div><div class="line"><span class="built_in">export</span> M2_HOME=/opt/apache-maven-3.3.9/</div><div class="line"><span class="built_in">export</span> M2=<span class="variable">$M2_HOME</span>/bin</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$M2</span>:<span class="variable">$PATH</span></div><div class="line"></div><div class="line"><span class="comment"># 查看 maven 版本 如能正常打印出 maven 版本号等信息 表示配置成功</span></div><div class="line">mvn --version</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>利用 MAVEN 构建 web 项目骨架</p>
 </blockquote>
@@ -574,8 +574,8 @@
                alt="姜柏超" />
           <p class="site-author-name" itemprop="name">姜柏超</p>
            
-              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 

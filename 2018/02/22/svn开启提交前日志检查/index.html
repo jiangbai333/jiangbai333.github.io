@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/22/svn开启提交前日志检查/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="为什么这么做 &amp;emsp;&amp;emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。&amp;emsp;&amp;emsp;如果某项目参与人员，在提交过程中，没有给">
-<meta property="og:updated_time" content="2018-02-22T17:05:03.514Z">
+<meta property="og:updated_time" content="2018-04-09T18:48:31.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn开启提交前日志检查">
 <meta name="twitter:description" content="为什么这么做 &amp;emsp;&amp;emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。&amp;emsp;&amp;emsp;如果某项目参与人员，在提交过程中，没有给">
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ForFree</p>
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
       
   </div>
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">svn开启提交前日志检查</h1>
+          <h2 class="post-title" itemprop="name headline">svn开启提交前日志检查</h2>
         
 
         <div class="post-meta">
@@ -380,7 +380,7 @@
 
       
         <h1 id="为什么这么做"><a href="#为什么这么做" class="headerlink" title="为什么这么做"></a>为什么这么做</h1><hr>
-<p>&emsp;&emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。<br>&emsp;&emsp;如果某项目参与人员，在提交过程中，没有给出提交日志，那么上述两个过程是十分让人痛苦的。好在我们有方法，强制提交者写明提交日志。下面进入正文！</p>
+<p>&emsp;&emsp;SVN作为版本控制软件，主要用来管理项目、文件等的历史版本，并且给予一个支持多人协同开发的平台。当某一个版本出现错误或需求产生变化，需要切换至历史版本时，由于版本库里面，历史版本数量往往是比较庞大的，因此想要找到回溯点，就比较困难。另外，当交叉开发维护时，也会因为历史代码、逻辑不好寻找而耽误进度。<br>&emsp;&emsp;如果某项目参与人员，在提交过程中，没有给出提交日志，那么上述两个过程是十分让人痛苦的。好在我们有方法，强制提交者写明提交日志。下面进入正文！<br><a id="more"></a></p>
 <h1 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h1><hr>
 <h2 id="什么是pre-commit"><a href="#什么是pre-commit" class="headerlink" title="什么是pre-commit"></a>什么是pre-commit</h2><p>&emsp;&emsp;<code>pre-commit</code>是SVN所提供的钩子脚本之一，它允许你利用<code>shall</code>、<code>python</code>等脚本语言，在SVN产生提交动作时，对提交内容进行认证。</p>
 <h2 id="编辑pre-commit，强制要求提交时写入日志"><a href="#编辑pre-commit，强制要求提交时写入日志" class="headerlink" title="编辑pre-commit，强制要求提交时写入日志"></a>编辑pre-commit，强制要求提交时写入日志</h2><p>&emsp;&emsp;在此，我们假设你的SVN仓库建立在<code>/home/baichao/svn/</code>，仓库名为<code>test</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /home/baichao/svn/test/hooks</span></div><div class="line"><span class="comment"># vi pre-commit</span></div></pre></td></tr></table></figure></p>
@@ -557,8 +557,8 @@
                alt="姜柏超" />
           <p class="site-author-name" itemprop="name">姜柏超</p>
            
-              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 

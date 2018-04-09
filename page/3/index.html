@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ForFree</p>
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
       
   </div>
 
@@ -294,9 +294,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/14/搭建-Gitlab/" itemprop="url">GITLAB搭建(需要64位操作系统)</a></h1>
+                <a class="post-title-link" href="/2016/09/14/搭建-Gitlab/" itemprop="url">GITLAB搭建(需要64位操作系统)</a></h2>
         
 
         <div class="post-meta">
@@ -377,13 +377,11 @@
 
       
         
-          
-          首先说一下，我选用操作系统是centos6.8 x86_64，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行google
-
-首先安装依赖包并启动相应的服务
-
-123456789# 安装依赖yum install curl postfix cronie openssh-serv
-          ...
+          <p>首先说一下，我选用操作系统是<code>centos6.8 x86_64</code>，如果你安装到虚拟机的话，可能需要先开启CPU虚拟化才行，具体过程请自行<a href="https://www.google.com/ncr" title="Title" target="_blank" rel="external">google</a></p>
+<blockquote>
+<p>首先安装依赖包并启动相应的服务</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装依赖</span></div><div class="line">yum install curl postfix cronie openssh-server openssh-clients</div><div class="line"></div><div class="line"><span class="comment"># 启动并检查 postfix 邮件服务器</span></div><div class="line">service postfix start</div><div class="line">chkconfig postfix on</div><div class="line"></div><div class="line"><span class="comment">#安装 git</span></div><div class="line">yum -y install git</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/09/14/搭建-Gitlab/#more" rel="contents">
@@ -449,9 +447,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/08/24/自建DNS服务器/" itemprop="url">自建DNS服务器</a></h1>
+                <a class="post-title-link" href="/2016/08/24/自建DNS服务器/" itemprop="url">自建DNS服务器</a></h2>
         
 
         <div class="post-meta">
@@ -532,15 +530,10 @@
 
       
         
-          
-          简介
-&emsp;&emsp;它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。
-
-域名系统|DNS - 引自维基百科DNS服务器|域名服务器 - 引自百度百科
-
-安装
-BIND是什么&emsp;&emsp;
-          ...
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<p>&emsp;&emsp;它将域名和IP地址相互映射到一个分布式数据库，能够使人更方便地访问互联网。人们不需要去记住繁琐的ip地址，仅通过语义化的域名即可访问网络资源。</p>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/zh-cn/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F" title="域名系统|DNS" target="_blank" rel="external">域名系统|DNS</a> - 引自维基百科<br><a href="https://baike.baidu.com/item/DNS%E6%9C%8D%E5%8A%A1%E5%99%A8" title="DNS服务器|域名服务器" target="_blank" rel="external">DNS服务器|域名服务器</a> - 引自百度百科<br></p></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/24/自建DNS服务器/#more" rel="contents">
@@ -606,9 +599,9 @@ BIND是什么&emsp;&emsp;
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/07/02/vim/" itemprop="url">vim</a></h1>
+                <a class="post-title-link" href="/2016/07/02/vim/" itemprop="url">vim</a></h2>
         
 
         <div class="post-meta">
@@ -657,15 +650,9 @@ BIND是什么&emsp;&emsp;
       
         
           
-          利用 Ctags 在关键字中跳转http://prdownloads.sourceforge.net/ctags/ctags-5.6.tar.gz下载、解压./configure &amp;&amp; make &amp;&amp; make install进入源码目录 ctags -R然后再vim
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/07/02/vim/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>利用 <code>Ctags</code> 在关键字中跳转<br><a href="http://prdownloads.sourceforge.net/ctags/ctags-5.6.tar.gz下载、解压" target="_blank" rel="external">http://prdownloads.sourceforge.net/ctags/ctags-5.6.tar.gz下载、解压</a><br><code>./configure &amp;&amp; make &amp;&amp; make install</code><br>进入源码目录 <code>ctags -R</code><br>然后再vim中 <code>:set tags=源码目录/tags</code><br>在函数处按 <code>&lt;C-]&gt;</code> 即可跳转到第一处 按 <code>&lt;C-T&gt;</code>跳回来源处</p>
+
+          
         
       
     </div>
@@ -724,9 +711,9 @@ BIND是什么&emsp;&emsp;
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/07/forfreej0-3-文档/" itemprop="url">forfreej0.3 文档</a></h1>
+                <a class="post-title-link" href="/2016/06/07/forfreej0-3-文档/" itemprop="url">forfreej0.3 文档</a></h2>
         
 
         <div class="post-meta">
@@ -807,11 +794,9 @@ BIND是什么&emsp;&emsp;
 
       
         
-          
-          ForFreej 0.3####框架结构src目录下 包含了 app包、com包以及程序人员开发时需要的配置文件。
-app包是开人人员部署自己项目代码用的。
-com包是存放维持forfreej框架运行的核心代码的程序包，如果你有很好的代码阅读能力并且有一定java语言基础，你可以随意修改。但某些不规
-          ...
+          <h1 id="ForFreej-0-3"><a href="#ForFreej-0-3" class="headerlink" title="ForFreej 0.3"></a>ForFreej 0.3</h1><h2 id="框架结构"><a href="#框架结构" class="headerlink" title="####框架结构"></a>####框架结构</h2><p><strong>src目录下 包含了 app包、com包以及程序人员开发时需要的配置文件。</strong></p>
+<p><strong>app包是开人人员部署自己项目代码用的。</strong></p>
+<p><strong>com包是存放维持forfreej框架运行的核心代码的程序包，如果你有很好的代码阅读能力并且有一定java语言基础，你可以随意修改。但某些不规范或者不正确的修改，将导致forfreej我发正常运行！</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/06/07/forfreej0-3-文档/#more" rel="contents">
@@ -877,9 +862,9 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/07/测试/" itemprop="url">测试</a></h1>
+                <a class="post-title-link" href="/2016/06/07/测试/" itemprop="url">测试</a></h2>
         
 
         <div class="post-meta">
@@ -928,16 +913,9 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
       
         
           
-          一个测试页面
+            <p>一个测试页面</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/07/测试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -996,9 +974,9 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/08/mysql开启远程访问(无废话)/" itemprop="url">mysql开启远程访问(无废话)</a></h1>
+                <a class="post-title-link" href="/2016/03/08/mysql开启远程访问(无废话)/" itemprop="url">mysql开启远程访问(无废话)</a></h2>
         
 
         <div class="post-meta">
@@ -1079,13 +1057,11 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
 
       
         
-          
-          
-查看端口3306是否开启远程监听！
-
-12$ netstat -an | grep 3306 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
-如果是上面这样0 127.0.0.1:3306或0 :
-          ...
+          <blockquote>
+<p>查看端口3306是否开启远程监听！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ netstat -an | grep 3306 </div><div class="line">tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN</div></pre></td></tr></table></figure>
+<h5 id="如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置"><a href="#如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置" class="headerlink" title="如果是上面这样0 127.0.0.1:3306或0 :::3306证明只在本机回路里监听，修改mysql配置文件/etc/mysql/my.cnf(如果你的配置文件不在这个目录，你可以用find / -name &quot;my.cnf&quot;命令查找出它的位置)"></a>如果是上面这样<code>0 127.0.0.1:3306</code>或<code>0 :::3306</code>证明只在本机回路里监听，修改mysql配置文件<code>/etc/mysql/my.cnf</code>(如果你的配置文件不在这个目录，你可以用<code>find / -name &quot;my.cnf&quot;</code>命令查找出它的位置)</h5>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/03/08/mysql开启远程访问(无废话)/#more" rel="contents">
@@ -1151,9 +1127,9 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/" itemprop="url">Centos下搭建svn服务器以及版本仓库的配置</a></h1>
+                <a class="post-title-link" href="/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/" itemprop="url">Centos下搭建svn服务器以及版本仓库的配置</a></h2>
         
 
         <div class="post-meta">
@@ -1234,11 +1210,9 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
 
       
         
-          
-          安装 svn 服务端12# yum -y install subversion# svn --version //察看svn版本
- 如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn 
-创建并指定 svn 文件存放目录12# mkdir /opt/svndata //建立 
-          ...
+          <h1 id="安装-svn-服务端"><a href="#安装-svn-服务端" class="headerlink" title="安装 svn 服务端"></a>安装 svn 服务端</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install subversion</span></div><div class="line"><span class="comment"># svn --version //察看svn版本</span></div></pre></td></tr></table></figure>
+<p><strong> 如果能正常察看到 svn 版本，证明 svn 安装成功，接着开始配置 svn </strong></p>
+<h1 id="创建并指定-svn-文件存放目录"><a href="#创建并指定-svn-文件存放目录" class="headerlink" title="创建并指定 svn 文件存放目录"></a>创建并指定 svn 文件存放目录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir /opt/svndata //建立 svndata 主目录 </span></div><div class="line"><span class="comment"># svnadmin create /opt/svndata/test 在主目录下建立 test 仓库</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/08/25/Centos下搭建svn服务器以及版本仓库的配置/#more" rel="contents">
@@ -1319,8 +1293,8 @@ com包是存放维持forfreej框架运行的核心代码的程序包，如果你
                alt="姜柏超" />
           <p class="site-author-name" itemprop="name">姜柏超</p>
            
-              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 

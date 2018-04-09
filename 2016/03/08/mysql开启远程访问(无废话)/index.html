@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/08/mysql开启远程访问(无废话)/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="查看端口3306是否开启远程监听！  12$ netstat -an | grep 3306 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN 如果是上面这样0 127.0.0.1:3306或0 :::3306证明只在本机回路里监听，修改mysql配置文件/etc/mysql/my.cnf(如果你">
-<meta property="og:updated_time" content="2017-06-06T09:00:32.047Z">
+<meta property="og:updated_time" content="2018-04-09T18:47:20.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql开启远程访问(无废话)">
 <meta name="twitter:description" content="查看端口3306是否开启远程监听！  12$ netstat -an | grep 3306 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN 如果是上面这样0 127.0.0.1:3306或0 :::3306证明只在本机回路里监听，修改mysql配置文件/etc/mysql/my.cnf(如果你">
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ForFree</p>
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
       
   </div>
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql开启远程访问(无废话)</h1>
+          <h2 class="post-title" itemprop="name headline">mysql开启远程访问(无废话)</h2>
         
 
         <div class="post-meta">
@@ -383,7 +383,8 @@
 <p>查看端口3306是否开启远程监听！</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ netstat -an | grep 3306 </div><div class="line">tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN</div></pre></td></tr></table></figure>
-<h5 id="如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置"><a href="#如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置" class="headerlink" title="如果是上面这样0 127.0.0.1:3306或0 :::3306证明只在本机回路里监听，修改mysql配置文件/etc/mysql/my.cnf(如果你的配置文件不在这个目录，你可以用find / -name &quot;my.cnf&quot;命令查找出它的位置)"></a>如果是上面这样<code>0 127.0.0.1:3306</code>或<code>0 :::3306</code>证明只在本机回路里监听，修改mysql配置文件<code>/etc/mysql/my.cnf</code>(如果你的配置文件不在这个目录，你可以用<code>find / -name &quot;my.cnf&quot;</code>命令查找出它的位置)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/mysql/my.cnf</div><div class="line"></div><div class="line">........</div><div class="line"><span class="comment">#将bind-address  = 127.0.0.1 前面加上 “#” 注释掉</span></div><div class="line"><span class="comment">#bind-address  = 127.0.0.1 </span></div><div class="line">........</div><div class="line"></div><div class="line">$ service mysql restart</div></pre></td></tr></table></figure>
+<h5 id="如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置"><a href="#如果是上面这样0-127-0-0-1-3306或0-3306证明只在本机回路里监听，修改mysql配置文件-etc-mysql-my-cnf-如果你的配置文件不在这个目录，你可以用find-name-quot-my-cnf-quot-命令查找出它的位置" class="headerlink" title="如果是上面这样0 127.0.0.1:3306或0 :::3306证明只在本机回路里监听，修改mysql配置文件/etc/mysql/my.cnf(如果你的配置文件不在这个目录，你可以用find / -name &quot;my.cnf&quot;命令查找出它的位置)"></a>如果是上面这样<code>0 127.0.0.1:3306</code>或<code>0 :::3306</code>证明只在本机回路里监听，修改mysql配置文件<code>/etc/mysql/my.cnf</code>(如果你的配置文件不在这个目录，你可以用<code>find / -name &quot;my.cnf&quot;</code>命令查找出它的位置)</h5><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/mysql/my.cnf</div><div class="line"></div><div class="line">........</div><div class="line"><span class="comment">#将bind-address  = 127.0.0.1 前面加上 “#” 注释掉</span></div><div class="line"><span class="comment">#bind-address  = 127.0.0.1 </span></div><div class="line">........</div><div class="line"></div><div class="line">$ service mysql restart</div></pre></td></tr></table></figure>
 <h5 id="但是即使你的-mysql-服务已经启动并成功运行，你也有可能遇到查不到3306端口的情况！如下："><a href="#但是即使你的-mysql-服务已经启动并成功运行，你也有可能遇到查不到3306端口的情况！如下：" class="headerlink" title="但是即使你的 mysql 服务已经启动并成功运行，你也有可能遇到查不到3306端口的情况！如下："></a>但是<em>即使你的 mysql 服务已经启动并成功运行，你也有可能遇到查不到3306端口的情况</em>！如下：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ netstat -an | grep 3306 </div><div class="line">$ lsof -i : 3306</div><div class="line">$ ps aux|grep mysql</div><div class="line">root      3713  0.1  0.2   5064  1368 pts/0    S    10:20   0:00 /bin/sh /opt/lampp/bin/mysqld_safe --datadir=/opt/lampp/var/mysql --pid-file=/opt/lampp/var/mysql/bogon.pid</div><div class="line">mysql     4096  0.3 19.2 332004 98160 pts/0    Sl   10:20   0:00 /opt/lampp/sbin/mysqld --basedir=/opt/lampp --datadir=/opt/lampp/var/mysql --plugin-dir=/opt/lampp/lib/mysql/plugin/ --user=mysql --<span class="built_in">log</span>-error=/opt/lampp/var/mysql/bogon.err --pid-file=/opt/lampp/var/mysql/bogon.pid --socket=/opt/lampp/var/mysql/mysql.sock --port=3306</div><div class="line">root      4125  0.0  0.1   4356   736 pts/0    S+   10:22   0:00 grep mysql</div></pre></td></tr></table></figure>
 <h5 id="这是因为在-mysql-配置文件my-cnf中存在这样一段配置："><a href="#这是因为在-mysql-配置文件my-cnf中存在这样一段配置：" class="headerlink" title="这是因为在 mysql 配置文件my.cnf中存在这样一段配置："></a>这是因为在 mysql 配置文件<code>my.cnf</code>中存在这样一段配置：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Don't listen on a TCP/IP port at all. This can be a security enhancement,</span></div><div class="line"><span class="comment"># if all processes that need to connect to mysqld run on the same host.</span></div><div class="line"><span class="comment"># All interaction with mysqld must be made via Unix sockets or named pipes.</span></div><div class="line"><span class="comment"># Note that using this option without enabling named pipes on Windows</span></div><div class="line"><span class="comment"># (via the &amp;quot;enable-named-pipe&amp;quot; option) will render mysqld useless!</span></div><div class="line"><span class="comment"># skip-networking</span></div></pre></td></tr></table></figure>
 <h5 id="参数skip-networking起的作用是让-mysql-不再监听-TCP-IP-端口！此时，与mysqld的所有互动都必须通过Unix套接字或命名管道进行。需要将skip-networking注释掉，才能重新使-mysql-监听3306端口！"><a href="#参数skip-networking起的作用是让-mysql-不再监听-TCP-IP-端口！此时，与mysqld的所有互动都必须通过Unix套接字或命名管道进行。需要将skip-networking注释掉，才能重新使-mysql-监听3306端口！" class="headerlink" title="参数skip-networking起的作用是让 mysql 不再监听 TCP/IP 端口！此时，与mysqld的所有互动都必须通过Unix套接字或命名管道进行。需要将skip-networking注释掉，才能重新使 mysql 监听3306端口！"></a>参数<em>skip-networking</em>起的作用是让 mysql 不再监听 TCP/IP 端口！此时，与mysqld的所有互动都必须通过Unix套接字或命名管道进行。需要将<em>skip-networking</em>注释掉，才能重新使 mysql 监听3306端口！</h5><h5 id="将参数注释后，重新尝试第一步，你可以看到3306端口的监听状况！"><a href="#将参数注释后，重新尝试第一步，你可以看到3306端口的监听状况！" class="headerlink" title="将参数注释后，重新尝试第一步，你可以看到3306端口的监听状况！"></a>将参数注释后，重新尝试第一步，你可以看到3306端口的监听状况！</h5><blockquote>
@@ -560,8 +561,8 @@
                alt="姜柏超" />
           <p class="site-author-name" itemprop="name">姜柏超</p>
            
-              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 

@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。 123456select 	cas">
+<meta name="description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。">
 <meta name="keywords" content="软件,mysql,数据库,SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql数据库中 Case-When语句的使用">
 <meta property="og:url" content="http://yoursite.com/2016/10/14/mysql数据库中 Case-When语句的使用/index.html">
 <meta property="og:site_name" content="时间只会一直走">
-<meta property="og:description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。 123456select 	cas">
-<meta property="og:updated_time" content="2017-06-06T09:00:32.252Z">
+<meta property="og:description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。">
+<meta property="og:updated_time" content="2018-04-09T18:47:47.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库中 Case-When语句的使用">
-<meta name="twitter:description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。 123456select 	cas">
+<meta name="twitter:description" content="个人认为这个功能可以减少后台逻辑处理，并且由于在数据库内部完成，保证了数据的准确性(例如：数值与数据格式的合法性)。另外，如果条件包含结果集全集那么可以不加 else 关键字，否则需要指定 else 对应的值，如果不指定，条件之外的结果集将变成 NULL  按条件更改查询值  如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。">
 
 
 
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">ForFree</p>
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
       
   </div>
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql数据库中 Case-When语句的使用</h1>
+          <h2 class="post-title" itemprop="name headline">mysql数据库中 Case-When语句的使用</h2>
         
 
         <div class="post-meta">
@@ -383,7 +383,7 @@
 <blockquote>
 <p>按条件更改查询值</p>
 </blockquote>
-<p>如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。</p>
+<p>如果表中 field1、field2字段条件相互冲突，那么将会以field1条件为主。<br><a id="more"></a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> </div><div class="line">	<span class="keyword">case</span></div><div class="line">		<span class="keyword">when</span> field1 &lt; <span class="string">'某值1'</span> <span class="keyword">then</span> <span class="string">'小'</span>  </div><div class="line">		<span class="keyword">when</span> field2 &gt; <span class="string">'某值2'</span> <span class="keyword">then</span> <span class="string">'大'</span>  </div><div class="line">        	<span class="keyword">else</span> <span class="string">'一般'</span> <span class="keyword">END</span> <span class="keyword">as</span> <span class="string">"field"</span></div><div class="line"><span class="keyword">from</span> <span class="keyword">table</span>;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>按特定值更改查询值</p>
@@ -554,8 +554,8 @@
                alt="姜柏超" />
           <p class="site-author-name" itemprop="name">姜柏超</p>
            
-              <p class="site-description motion-element" itemprop="description">当你的才华无法支撑你的野心时，你就该安下心来学习了</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
