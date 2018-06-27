@@ -1,0 +1,901 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,nodejs,webpack,构建&持续集成," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="简介 &amp;emsp;&amp;emsp;前文已经提到，webpack用来将种种模块打包，最终输出一个全量 js 文件，引入到页面。一些针对项目的功能性模块，固然是需要我们自己去完成，但是 node 所提供的丰富类库，更是我们开发时必不可少的工具。因此，我们在开发过程中，一定会涉及到结合第三方类库开发的情况。本节中，将通过实例，讲解如何在webpack中引用第三方类库。">
+<meta name="keywords" content="javascript,nodejs,webpack,构建&amp;持续集成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack入门系列教程-引用第三方类库">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="简介 &amp;emsp;&amp;emsp;前文已经提到，webpack用来将种种模块打包，最终输出一个全量 js 文件，引入到页面。一些针对项目的功能性模块，固然是需要我们自己去完成，但是 node 所提供的丰富类库，更是我们开发时必不可少的工具。因此，我们在开发过程中，一定会涉及到结合第三方类库开发的情况。本节中，将通过实例，讲解如何在webpack中引用第三方类库。">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/1.gif">
+<meta property="og:updated_time" content="2018-06-27T03:09:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack入门系列教程-引用第三方类库">
+<meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;前文已经提到，webpack用来将种种模块打包，最终输出一个全量 js 文件，引入到页面。一些针对项目的功能性模块，固然是需要我们自己去完成，但是 node 所提供的丰富类库，更是我们开发时必不可少的工具。因此，我们在开发过程中，一定会涉及到结合第三方类库开发的情况。本节中，将通过实例，讲解如何在webpack中引用第三方类库。">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/"/>
+
+
+
+
+
+  <title>webpack入门系列教程-引用第三方类库 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="姜柏超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">webpack入门系列教程-引用第三方类库</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T22:21:16+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<p>&emsp;&emsp;前文已经提到，<code>webpack</code>用来将种种模块打包，最终输出一个全量 js 文件，引入到页面。一些针对项目的功能性模块，固然是需要我们自己去完成，但是 node 所提供的丰富类库，更是我们开发时必不可少的工具。因此，我们在开发过程中，一定会涉及到结合第三方类库开发的情况。本节中，将通过实例，讲解如何在webpack中引用第三方类库。<br><a id="more"></a></p>
+<h1 id="整理项目结构"><a href="#整理项目结构" class="headerlink" title="整理项目结构"></a>整理项目结构</h1><hr>
+<p>&emsp;&emsp;前文的练习中，我们构建了一套项目结构，用以测试相应的代码，下面我们重新建立一个项目，并修改项目结构。建立如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">project</div><div class="line">├── app</div><div class="line">│   ├── index.js</div><div class="line">│   ├── script.js</div><div class="line">│   └── style.js</div><div class="line">├── node_modules</div><div class="line">│   └── ...</div><div class="line">├── package.json</div><div class="line">├── <span class="built_in">source</span></div><div class="line">│   ├── image</div><div class="line">│   │   └── 1.jpg</div><div class="line">│   ├── libs</div><div class="line">│   │   └── rander.js</div><div class="line">│   ├── style</div><div class="line">│   │   ├── css</div><div class="line">│   │   │   └── index.css</div><div class="line">│   │   └── sass</div><div class="line">│   │       ├── index.scss</div><div class="line">│   │       └── variables.scss</div><div class="line">│   └── template</div><div class="line">│       └── index.html</div><div class="line">└── webpack.config.js</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;简单介绍一下各个目录的约定规则：</p>
+<ol>
+<li><code>app/index.js</code>：项目入口文件</li>
+<li><code>app/script.js</code>：类库引用</li>
+<li><code>app/style.js</code>：样式引用</li>
+<li><code>node_modules</code>：通过 npm 安装类库</li>
+<li><code>source/libs</code>：存放我们自己写的类库</li>
+<li>其它目录及文件与原来的相同</li>
+</ol>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><hr>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install html-webpack-plugin extract-text-webpack-plugin@next uglifyjs-webpack-plugin --save-dev</span></div><div class="line"><span class="comment"># npm install webpack-dev-server -g</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;其中，我们本篇中暂不介绍 <code>extract-text-webpack-plugin@next</code>、<code>uglifyjs-webpack-plugin</code>的使用，用法将在后续文章介绍。</p>
+<h2 id="安装加载器及相关解释器"><a href="#安装加载器及相关解释器" class="headerlink" title="安装加载器及相关解释器"></a>安装加载器及相关解释器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install file-loader css-loader style-loader sass-loader url-loader babel-loader node-sass --save-dev</span></div></pre></td></tr></table></figure>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>&emsp;&emsp;以上所安装的依赖中，<strong> 插件 </strong>部分皆不是本文章所讲解功能的必须插件，但为了我们开发、调试便利，建议全部安装。<br>&emsp;&emsp;其中<code>html-webpack-plugin</code>、<code>webpack-dev-server</code>前面文章已经提到过，灵活使用它们，可以加快开发进度。<br>&emsp;&emsp;<code>extract-text-webpack-plugin</code>为文本抽离插件，将在后续文章举例讲解。<br>&emsp;&emsp;<code>uglifyjs-webpack-plugin</code>为压缩插件，将在后续文章举例讲解。<br>&emsp;&emsp;<strong> 加载器 </strong>部分，必须全部安装。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><hr>
+<p>&emsp;&emsp;根据前面所安装的依赖，对项目进行配置：</p>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="string">"script"</span>: &#123;</div><div class="line">        ...,</div><div class="line">        <span class="string">"start"</span>: <span class="string">"webpack-dev-server --hot --inline"</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<strong> <code>...</code>代表源文件保持不变，因此上面的意思是：在<code>package.json</code>中找到<code>script</code>字段，并在其结尾添加<code>&quot;start&quot;: &quot;webpack-dev-server --hot --inline&quot;</code>，并且在所添加的前一行结尾增加一个逗号<code>[,]</code>（参考js对象的写法，每个键值对后都要有个逗号），其它位置保持不变。<br>&emsp;&emsp;因为配置较多的话，重复内容过多，占用篇幅。因此，文章中其它配置，也会有这种写法，后文不在赘述 </strong>。</p>
+<h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><p>&emsp;&emsp;配置webpack运行时需要的配置文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">const</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> ROOT_PATH = path.resolve(__dirname);</div><div class="line"><span class="keyword">const</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</div><div class="line"><span class="keyword">const</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</div><div class="line"><span class="keyword">const</span> SOURCE_PATH = path.resolve(ROOT_PATH, <span class="string">'source'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">mode</span>: <span class="string">'development'</span>,</div><div class="line">    <span class="attr">entry</span>: APP_PATH,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: BUILD_PATH,</div><div class="line">        <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="attr">rules</span>: [&#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.s?css$/</span>,</div><div class="line">            <span class="attr">loaders</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>],</div><div class="line">            <span class="attr">include</span>: ROOT_PATH</div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.(jpe?g|png|gif|ico)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10240'</span></div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.((ttf|eot|woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot|woff2?|svg)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10000&amp;name=fonts/[hash:8].[name].[ext]'</span></div><div class="line">        &#125;]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'hello world app'</span>,</div><div class="line">            <span class="attr">template</span>:__dirname + <span class="string">'/source/template/index.html'</span></div><div class="line">        &#125;),</div><div class="line">    ],</div><div class="line">    <span class="attr">devServer</span>: &#123;</div><div class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">inline</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">progress</span>: <span class="literal">true</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="安装第三方类库"><a href="#安装第三方类库" class="headerlink" title="安装第三方类库"></a>安装第三方类库</h1><hr>
+<p>&emsp;&emsp;本篇文章中，我们使用<code>moment</code>库。</p>
+<blockquote>
+<p>A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.<br>引自 <a href="https://github.com/moment/moment/" title="Moment.js" target="_blank" rel="external">Moment.js</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install moment --save-dev</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;OK！等待控制台跑完，<code>Moment</code> 库就安装完成了，其实跟我们安装插件、加载器的方式是相同的。</p>
+<h1 id="编写与测试"><a href="#编写与测试" class="headerlink" title="编写与测试"></a>编写与测试</h1><hr>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><p>&emsp;&emsp;首先编辑<code>source/libs/rander.js</code>，我们在这个类中，引用了 Moment 库，并利用它向一个 DOM 元素渲染当前时间。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Rander</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/** 构造方法 */</span></div><div class="line">    <span class="keyword">constructor</span>(dom) &#123;</div><div class="line">        <span class="keyword">this</span>._dom = dom;</div><div class="line">        <span class="keyword">this</span>.randerTime();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/** 时间渲染方法 */</span></div><div class="line">    randerTime() &#123;</div><div class="line">        <span class="keyword">this</span>._dom.innerHTML = Moment().format(<span class="string">'YYYY-MM-DD hh:mm:ss'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;很简单的一个工具类，在创建 Rander 实例时，传入一个 DOM 对象，然后利用 randerTime 方法想所传入的 DOM 对象，渲染当前时间。接下来是构建用于显示的 html 模板，以及相应样式文件。</p>
+<h3 id="模板文件"><a href="#模板文件" class="headerlink" title="模板文件"></a>模板文件</h3><p><strong> <code>source/template/index.html</code>： </strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Moment app<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="样式文件"><a href="#样式文件" class="headerlink" title="样式文件"></a>样式文件</h3><p>&emsp;&emsp;为了熟悉 <code>sass</code> ，我们同时使用 css样式表 与 sass样式表。</p>
+<p><strong> <code>source/style/css/index.css</code>： </strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.time</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> <code>source/style/sass/variables.scss</code>： </strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$body-background-color: rgba(0, 0, 0, 0.72);</div><div class="line"></div><div class="line">$time-margin: 20% auto;</div><div class="line">$time-width: 500px;</div><div class="line">$time-text-align: center;</div></pre></td></tr></table></figure></p>
+<p><strong> <code>source/style/sass/index.scss</code>： </strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">'./variables.scss'</span>;</div><div class="line"></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: $body-background-color;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.time</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: $time-margin;</div><div class="line">    <span class="attribute">width</span>: $time-width;</div><div class="line">    <span class="attribute">text-align</span>: $time-text-align;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后，编辑入口目录 <code>app</code> 下的脚本引入文件 <code>app/script.js</code>、<code>app/style.js</code> 引入我们上面写的的类库与样式文件，并将在入口文件 <code>app/index.js</code> 中导入上面两个文件。</p>
+<p><strong> <code>app/script.js</code> </strong><br>&emsp;&emsp;在 <code>app/script.js</code> 中，我们将引入我们所写好的 <code>/source/libs/rander.js</code> 工具类，并且写入我们所需要的基本逻辑代码。如下代码所示，非常简单的一段代码，利用 Rander 对象，向 DOM 渲染当前时间：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Rander&#125; <span class="keyword">from</span> <span class="string">'../source/libs/rander'</span>;</div><div class="line"></div><div class="line"><span class="keyword">let</span> rnd =  <span class="keyword">new</span> Rander(<span class="built_in">document</span>.querySelector(<span class="string">".time"</span>));</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    rnd.randerTime();</div><div class="line">    setTimeout(loop, <span class="number">1000</span>)</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
+<p><strong> <code>app/style.js</code> </strong><br>&emsp;&emsp;在 <code>app/style.js</code> 中，引入所有样式文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'../source/style/css/index.css'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'../source/style/sass/index.scss'</span>;</div></pre></td></tr></table></figure></p>
+<p><strong> <code>app/index.js</code> </strong><br>&emsp;&emsp;在 <code>app/index.js</code> 中，导入上述两个文件，完成本文全部代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'./script.js'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'./style.js'</span>;</div></pre></td></tr></table></figure></p>
+<h1 id="测试运行"><a href="#测试运行" class="headerlink" title="测试运行"></a>测试运行</h1><hr>
+<p>&emsp;&emsp;如果你安装了 <code>webpack-dev-server</code> 插件，那么直接运行就可以：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project </span></div><div class="line"><span class="comment"># npm start</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如果你未安装 <code>webpack-dev-server</code> 插件，那么可以直接利用 <code>webpack</code> 命令打包，然后运行 <code>build/index.html</code> 文件即可：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project </span></div><div class="line"><span class="comment"># webpack</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;之后在浏览器产看页面即可，最终的页面效果如下：<br><img src="/2018/06/26/webpack入门系列教程-引用第三方类库/1.gif" alt="图片无法显示"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Think you!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/构建-持续集成/" rel="tag"># 构建&持续集成</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/12/webpack入门系列教程-加载器/" rel="next" title="webpack入门系列教程-加载器">
+                <i class="fa fa-chevron-left"></i> webpack入门系列教程-加载器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="姜柏超" />
+          <p class="site-author-name" itemprop="name">姜柏超</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整理项目结构"><span class="nav-number">2.</span> <span class="nav-text">整理项目结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装依赖"><span class="nav-number">3.</span> <span class="nav-text">安装依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装"><span class="nav-number">3.1.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装加载器及相关解释器"><span class="nav-number">3.2.</span> <span class="nav-text">安装加载器及相关解释器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">3.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">4.1.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-config-js"><span class="nav-number">4.2.</span> <span class="nav-text">webpack.config.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装第三方类库"><span class="nav-number">5.</span> <span class="nav-text">安装第三方类库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写与测试"><span class="nav-number">6.</span> <span class="nav-text">编写与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写代码"><span class="nav-number">6.1.</span> <span class="nav-text">编写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板文件"><span class="nav-number">6.1.1.</span> <span class="nav-text">模板文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式文件"><span class="nav-number">6.1.2.</span> <span class="nav-text">样式文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试运行"><span class="nav-number">7.</span> <span class="nav-text">测试运行</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">姜柏超</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

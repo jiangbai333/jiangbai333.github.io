@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/04/22/webpack入门系列教程-使用插件/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;前一篇中，我们介绍了webpack的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过webpack打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的webpack，强大之处远不只如此…！&amp;emsp;&amp;emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用">
-<meta property="og:updated_time" content="2018-06-12T16:09:18.756Z">
+<meta property="og:updated_time" content="2018-06-27T03:05:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入门系列教程-使用插件">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;前一篇中，我们介绍了webpack的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过webpack打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的webpack，强大之处远不只如此…！&amp;emsp;&amp;emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用">
@@ -380,8 +380,7 @@
 
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
-<p>&emsp;&emsp;前一篇中，我们介绍了<code>webpack</code>的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过<code>webpack</code>打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的<code>webpack</code>，强大之处远不只如此…！<br>&emsp;&emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用法，我将会另开一个专题进行详细讲解。</p>
-<a id="more"></a>
+<p>&emsp;&emsp;前一篇中，我们介绍了<code>webpack</code>的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过<code>webpack</code>打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的<code>webpack</code>，强大之处远不只如此…！<br>&emsp;&emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用法，我将会另开一个专题进行详细讲解。<br><a id="more"></a></p>
 <h1 id="常用插件的安装与使用"><a href="#常用插件的安装与使用" class="headerlink" title="常用插件的安装与使用"></a>常用插件的安装与使用</h1><hr>
 <h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a><code>html-webpack-plugin</code></h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>&emsp;&emsp;在前一节中，我们使用到了这个插件，它帮我们在打包之后，自动生成一个引用打包后的js脚本的html文件。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>&emsp;&emsp;进入项目主目录，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install html-webpack-plugin --save-dev</span></div></pre></td></tr></table></figure></p>
@@ -398,6 +397,7 @@
 <h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>&emsp;&emsp;在<code>package.json</code>文件中增加执行脚本映射，当执行<code>npm start</code>时将自动打包部署：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        ...</div><div class="line">        <span class="string">"start"</span>: <span class="string">"webpack-dev-server --hot --inline"</span></div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;编辑完成后，进入项目主目录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># npm start</span></div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;等待启动完成后，可在浏览器通过<code>http://ip:8080</code>访问生成的页面。再次修改任何项目资源文件，浏览器均可自动刷新为最新的状态。</p>
+<h2 id="extract-text-webpack-plugin"><a href="#extract-text-webpack-plugin" class="headerlink" title="extract-text-webpack-plugin"></a>extract-text-webpack-plugin</h2><p>&emsp;&emsp;由于此插件需要与加载器结合使用，因此将放到后面做一篇特别讲解。</p>
 <h2 id="uglifyjs-webpack-plugin"><a href="#uglifyjs-webpack-plugin" class="headerlink" title="uglifyjs-webpack-plugin"></a>uglifyjs-webpack-plugin</h2><p><strong> 未完待续 </strong></p>
 
       
@@ -577,7 +577,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -660,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用插件的安装与使用"><span class="nav-number">2.</span> <span class="nav-text">常用插件的安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin"><span class="nav-number">2.1.</span> <span class="nav-text">html-webpack-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">2.1.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">2.2.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uglifyjs-webpack-plugin"><span class="nav-number">2.3.</span> <span class="nav-text">uglifyjs-webpack-plugin</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用插件的安装与使用"><span class="nav-number">2.</span> <span class="nav-text">常用插件的安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin"><span class="nav-number">2.1.</span> <span class="nav-text">html-webpack-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">2.1.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">2.2.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin"><span class="nav-number">2.3.</span> <span class="nav-text">extract-text-webpack-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uglifyjs-webpack-plugin"><span class="nav-number">2.4.</span> <span class="nav-text">uglifyjs-webpack-plugin</span></a></li></ol></li></ol></div>
             
 
           </div>

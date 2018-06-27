@@ -277,6 +277,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/webpack入门系列教程-引用第三方类库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="姜柏超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/26/webpack入门系列教程-引用第三方类库/" itemprop="url">webpack入门系列教程-引用第三方类库</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T22:21:16+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<p>&emsp;&emsp;前文已经提到，<code>webpack</code>用来将种种模块打包，最终输出一个全量 js 文件，引入到页面。一些针对项目的功能性模块，固然是需要我们自己去完成，但是 node 所提供的丰富类库，更是我们开发时必不可少的工具。因此，我们在开发过程中，一定会涉及到结合第三方类库开发的情况。本节中，将通过实例，讲解如何在webpack中引用第三方类库。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/26/webpack入门系列教程-引用第三方类库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/12/webpack入门系列教程-加载器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -386,7 +536,9 @@
 <li><code>style-loader</code>：将样式插入到<code>&lt;style&gt;&lt;/style&gt;</code>标签中</li>
 <li><code>sass-loader</code>: 便利文件，解析<code>sass</code>格式样式表</li>
 <li><code>url-loader</code>: 根据需求将图片自动转成base64编码，减少网络负载</li>
-<li><code>babel-loader</code>：添加ES6语法支持</li></ul>
+<li><code>file-loade</code>：解决项目中，<code>url</code>资源的引入问题（ttf、woff、eot…等）</li>
+<li><code>babel-loader</code>：添加ES6语法支持</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/12/webpack入门系列教程-加载器/#more" rel="contents">
@@ -536,7 +688,7 @@
       
         
           <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
-<p>&emsp;&emsp;前一篇中，我们介绍了<code>webpack</code>的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过<code>webpack</code>打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的<code>webpack</code>，强大之处远不只如此…！<br>&emsp;&emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用法，我将会另开一个专题进行详细讲解。</p>
+<p>&emsp;&emsp;前一篇中，我们介绍了<code>webpack</code>的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过<code>webpack</code>打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的<code>webpack</code>，强大之处远不只如此…！<br>&emsp;&emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用法，我将会另开一个专题进行详细讲解。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/22/webpack入门系列教程-使用插件/#more" rel="contents">
@@ -837,6 +989,9 @@
         
           <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
 <p>&emsp;&emsp;本篇中不介绍概念性的描述，仅给出可以顺利运行的操作方法与相应的代码、配置。关于本文中用到的软件、类库的概念性的介绍，我将在另外几篇文章中，做详细解释。</p>
+<h1 id="开发环境安装"><a href="#开发环境安装" class="headerlink" title="开发环境安装"></a>开发环境安装</h1><hr>
+<h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><p>&emsp;&emsp;本系列文章利用<code>nvm</code>对<code>node</code>进行版本管理</p>
+<h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/04/webpack入门系列教程-安装及建立项目/#more" rel="contents">
@@ -1707,185 +1862,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/spring-整合MyBatis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="姜柏超">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时间只会一直走">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/08/spring-整合MyBatis/" itemprop="url">Spring-整合MyBatis</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T10:50:00+08:00">
-                2017-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/java/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/java/框架/SpringMVC/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringMVC</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/2017/04/08/spring-整合MyBatis/spring.jpg" alt="图片无法显示"></p>
-<blockquote>
-<p>mybatis简介 <a href="http://www.mybatis.org/mybatis-3/zh/" title="mybatis.org" target="_blank" rel="external">mybatis.org</a><br>MyBatis <a href="http://baike.baidu.com/link?url=FDonLHL0N0Cg9ZscQYpJxEcAfxE7G7Nh3RM7UNdewR_lsh6UcTyf2uoxurvwmMWSrDhYwWdfJY7X0LVBGLLLja" title="百度百科" target="_blank" rel="external">百度百科</a></p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/08/spring-整合MyBatis/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1930,7 +1911,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
