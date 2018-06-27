@@ -93,17 +93,20 @@
 
 
 
-<meta name="description" content="简介 &amp;emsp;&amp;emsp;前一篇中，我们介绍了webpack的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过webpack打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的webpack，强大之处远不只如此…！&amp;emsp;&amp;emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用">
+<meta name="description" content="简介 &amp;emsp;&amp;emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 .css 文件，然后引入到项目。&amp;emsp;&amp;emsp;实际上，这两种做法，各自有各自的优点。&amp;emsp;&amp;emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是">
 <meta name="keywords" content="javascript,nodejs,webpack,构建&amp;持续集成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack入门系列教程-使用插件">
-<meta property="og:url" content="http://yoursite.com/2018/04/22/webpack入门系列教程-使用插件/index.html">
+<meta property="og:title" content="webpack入门系列教程-文本抽离">
+<meta property="og:url" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/index.html">
 <meta property="og:site_name" content="时间只会一直走">
-<meta property="og:description" content="简介 &amp;emsp;&amp;emsp;前一篇中，我们介绍了webpack的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过webpack打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的webpack，强大之处远不只如此…！&amp;emsp;&amp;emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用">
-<meta property="og:updated_time" content="2018-06-27T03:05:25.000Z">
+<meta property="og:description" content="简介 &amp;emsp;&amp;emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 .css 文件，然后引入到项目。&amp;emsp;&amp;emsp;实际上，这两种做法，各自有各自的优点。&amp;emsp;&amp;emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/2.png">
+<meta property="og:updated_time" content="2018-06-27T15:31:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack入门系列教程-使用插件">
-<meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;前一篇中，我们介绍了webpack的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过webpack打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的webpack，强大之处远不只如此…！&amp;emsp;&amp;emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用">
+<meta name="twitter:title" content="webpack入门系列教程-文本抽离">
+<meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 .css 文件，然后引入到项目。&amp;emsp;&amp;emsp;实际上，这两种做法，各自有各自的优点。&amp;emsp;&amp;emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/1.png">
 
 
 
@@ -131,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/22/webpack入门系列教程-使用插件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/"/>
 
 
 
 
 
-  <title>webpack入门系列教程-使用插件 | 时间只会一直走</title>
+  <title>webpack入门系列教程-文本抽离 | 时间只会一直走</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/webpack入门系列教程-使用插件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="姜柏超">
@@ -294,7 +297,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">webpack入门系列教程-使用插件</h2>
+          <h2 class="post-title" itemprop="name headline">webpack入门系列教程-文本抽离</h2>
         
 
         <div class="post-meta">
@@ -306,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T21:47:52+08:00">
-                2018-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T21:28:00+08:00">
+                2018-06-27
               </time>
             
 
@@ -380,25 +383,22 @@
 
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
-<p>&emsp;&emsp;前一篇中，我们介绍了<code>webpack</code>的安装，并且通过一个简单的例子让其帮我们打包一个项目，可以看到，经过<code>webpack</code>打包之后，使得部署版的代码文件尺寸，更加的小，从而减小在带宽消耗。但是结合各种构建插件后的<code>webpack</code>，强大之处远不只如此…！<br>&emsp;&emsp;本章节中，将介绍开发中几个常用的插件的功能与基本用法，为后续文章中的示例内容打下基础。各个插件的详细用法，我将会另开一个专题进行详细讲解。<br><a id="more"></a></p>
-<h1 id="常用插件的安装与使用"><a href="#常用插件的安装与使用" class="headerlink" title="常用插件的安装与使用"></a>常用插件的安装与使用</h1><hr>
-<h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a><code>html-webpack-plugin</code></h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>&emsp;&emsp;在前一节中，我们使用到了这个插件，它帮我们在打包之后，自动生成一个引用打包后的js脚本的html文件。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>&emsp;&emsp;进入项目主目录，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install html-webpack-plugin --save-dev</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;执行后，<code>package.json</code>中将自动引入此依赖。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>&emsp;&emsp;在<code>webpack.config.js</code>文件中的引入<code>html-webpack-plugin</code>模块，并且在<code>plugins</code>属性内，增加如下配置：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">var hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line">...</div><div class="line">module.exports = &#123;</div><div class="line">    ...</div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'hello world app'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;其中，<code>hwp</code>方法参数中，代表生成的html的title为<code>hello world app</code>。完成上述步骤之后，在进入项目根目录进行打包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># webpack</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;打包完成后，可在<code>output</code>指向的目录中生成相应的文件。<br>&emsp;&emsp;因为在开发阶段，不可能每次都利用默认生成的<code>html</code>文件来重新改写，因此在使用<code>html-webpack-plugin</code>时，亦可指定一个模板文件，首先建立要存放模板文件的目录与相应的模板文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># mkdir -p source/template/</span></div><div class="line"><span class="comment"># touch source/template/index.html</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;建立完成后，编辑此<code>html</code>文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>My template app<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>item 3<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;修改<code>webpack.config.js</code>，使<code>html-webpack-plugin</code>引用此文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">module.exports = &#123;</div><div class="line">    ...</div><div class="line">    plugins: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">template</span>:__dirname + <span class="string">'/source/template/index.html'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;之后，在进入项目根目录进行打包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># webpack</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;查看<code>output</code>目录中生成的<code>index.html</code>文件，会发现，其为模板文件附加一条打包好的js的引用。</p>
-<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a><code>webpack-dev-server</code></h2><h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>&emsp;&emsp;此插件相当于一个热部署插件，使用后无需在不停的进行打包-查看-修改-打包-查看…，修改完，可直接执行打包部署，同时会内建一个web服务，你可通过浏览器，查看打包完成后的效果，并且在发生更改是，将自动推送至浏览器。</p>
-<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>&emsp;&emsp;此插件不属于项目依赖，因此直接进行全局安装比较方便，安装完成后，后续的其它项目可直接配置并使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install webpack-dev-server -g</span></div></pre></td></tr></table></figure></p>
-<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>&emsp;&emsp;在<code>package.json</code>文件中增加执行脚本映射，当执行<code>npm start</code>时将自动打包部署：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        ...</div><div class="line">        <span class="string">"start"</span>: <span class="string">"webpack-dev-server --hot --inline"</span></div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;编辑完成后，进入项目主目录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># npm start</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;等待启动完成后，可在浏览器通过<code>http://ip:8080</code>访问生成的页面。再次修改任何项目资源文件，浏览器均可自动刷新为最新的状态。</p>
-<h2 id="extract-text-webpack-plugin"><a href="#extract-text-webpack-plugin" class="headerlink" title="extract-text-webpack-plugin"></a>extract-text-webpack-plugin</h2><p>&emsp;&emsp;由于此插件需要与加载器结合使用，因此将放到后面做一篇特别讲解。</p>
-<h2 id="uglifyjs-webpack-plugin"><a href="#uglifyjs-webpack-plugin" class="headerlink" title="uglifyjs-webpack-plugin"></a>uglifyjs-webpack-plugin</h2><p><strong> 未完待续 </strong></p>
+<p>&emsp;&emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 <code>.css</code> 文件，然后引入到项目。<br>&emsp;&emsp;实际上，这两种做法，各自有各自的优点。<br>&emsp;&emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是通过 URL 引用样式文件，那么用户需要等待请求完成后才能看到渲染的界面，因此，在需要的样式较少时，实际上直接卸载<code>&lt;style&gt;</code>当中，是更好的选择，因为只需要访问页面时加载一次。<br>&emsp;&emsp;然而，当样式内容较多是时，单次相应已经不足以迅速完成，那么将样式表独立抽出较好，既方便调试、有不会产生请求的同步中断。<br>&emsp;&emsp;本篇文章将介绍如何在 <code>webpack</code> 打包时，抽离出独立的 css 文件，所用的项目为上一篇文章中建立的测试项目。</p>
+<a id="more"></a>
+<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><hr>
+<p>&emsp;&emsp;上一篇文章中，我建议大家安装的<code>extract-text-webpack-plugin</code>便是今天的主角，如果你在上次练习中没有安装，那么现在进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></div></pre></td></tr></table></figure></p>
+<h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><hr>
+<p>&emsp;&emsp;使用<code>extract-text-webpack-plugin</code>时需要修改<code>webpack</code>配置文件<code>webpack.config.js</code>，将上一篇文章中的<code>webpack.config.js</code>文件修改如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line"><span class="comment">/** 导入 extract-text-webpack-plugin 插件 */</span></div><div class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> ROOT_PATH = path.resolve(__dirname);</div><div class="line"><span class="keyword">const</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</div><div class="line"><span class="keyword">const</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</div><div class="line"><span class="keyword">const</span> SOURCE_PATH = path.resolve(ROOT_PATH, <span class="string">'source'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">mode</span>: <span class="string">'development'</span>,</div><div class="line">    <span class="attr">entry</span>: APP_PATH,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: BUILD_PATH,</div><div class="line">        <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="comment">/** 将 css-loader、sass-loader 交由 extract-text-webpack-plugin 处理 */</span></div><div class="line">        rules: [&#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.s?css$/</span>,</div><div class="line">            <span class="attr">use</span>: ExtractTextPlugin.extract(&#123;</div><div class="line">                <span class="attr">fallback</span>: <span class="string">"style-loader"</span>,</div><div class="line">                <span class="attr">use</span>: [<span class="string">"css-loader"</span>, <span class="string">"sass-loader"</span>]</div><div class="line">            &#125;)</div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.(jpe?g|png|gif|ico)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10240'</span></div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.((ttf|eot|woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot|woff2?|svg)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10000&amp;name=fonts/[hash:8].[name].[ext]'</span></div><div class="line">        &#125;]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'hello world app'</span>,</div><div class="line">            <span class="attr">template</span>:__dirname + <span class="string">'/source/template/index.html'</span></div><div class="line">        &#125;),</div><div class="line">        <span class="comment">/** 指定抽离出的文件名，本例中为 styles.css */</span></div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>)</div><div class="line">    ],</div><div class="line">    <span class="attr">devServer</span>: &#123;</div><div class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">inline</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">progress</span>: <span class="literal">true</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;可以看到，修改的项并不多。我们只需要将<code>extract-text-webpack-plugin</code>插件导入，将<code>css-loader</code>、<code>sass-loader</code>两个加载器指定给<code>extract-text-webpack-plugin</code>处理，并且添加一个<code>extract-text-webpack-plugin</code>导出实例就可以了。<br>&emsp;&emsp;配置完成后，所有样式将以<code>styles.css</code>通过<code>&lt;link&gt;</code>标签引入页面。</p>
+<h1 id="运行、对比结果"><a href="#运行、对比结果" class="headerlink" title="运行、对比结果"></a>运行、对比结果</h1><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># npm start</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;访问页面后，按<f12>打开开发者工具：</f12></p>
+<h3 id="文本抽离"><a href="#文本抽离" class="headerlink" title="文本抽离"></a>文本抽离</h3><p><img src="/2018/06/27/webpack入门系列教程-文本抽离/1.png" alt="图片无法显示"><br>&emsp;&emsp;可以看到通过<code>&lt;link&gt;</code>标签引入了<code>styles.css</code></p>
+<h3 id="未进行文本抽离"><a href="#未进行文本抽离" class="headerlink" title="未进行文本抽离"></a>未进行文本抽离</h3><p><img src="/2018/06/27/webpack入门系列教程-文本抽离/2.png" alt="图片无法显示"><br>&emsp;&emsp;全部样式都写到了页面的<code>&lt;style&gt;</code>标签中。</p>
+<h1 id="遇到的几个错误"><a href="#遇到的几个错误" class="headerlink" title="遇到的几个错误"></a>遇到的几个错误</h1><hr>
+<h2 id="extract-text-webpack-plugin-版本问题"><a href="#extract-text-webpack-plugin-版本问题" class="headerlink" title="extract-text-webpack-plugin 版本问题"></a>extract-text-webpack-plugin 版本问题</h2><p>&emsp;&emsp;在前几次安装中一直按照下面方法安装的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin --save-dev</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;但是安装完成后，一直报错，最后发现是由于<code>install extract-text-webpack-plugin</code>的版本过低，不支持<code>webpack4</code>。因此需要用以下方法安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></div></pre></td></tr></table></figure></p>
+<h2 id="一定要利用extract-text-webpack-plugin建立输出文件的实例"><a href="#一定要利用extract-text-webpack-plugin建立输出文件的实例" class="headerlink" title="一定要利用extract-text-webpack-plugin建立输出文件的实例"></a>一定要利用<code>extract-text-webpack-plugin</code>建立输出文件的实例</h2><p>&emsp;&emsp;必须在 <code>plugins</code> 中增加 <code>new ExtractTextPlugin(&quot;filename.css&quot;)</code></p>
 
       
     </div>
@@ -468,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/10/Github项目克隆提速/" rel="next" title="Github项目克隆提速">
-                <i class="fa fa-chevron-left"></i> Github项目克隆提速
+              <a href="/2018/06/26/webpack入门系列教程-引用第三方类库/" rel="next" title="webpack入门系列教程-引用第三方类库">
+                <i class="fa fa-chevron-left"></i> webpack入门系列教程-引用第三方类库
               </a>
             
           </div>
@@ -477,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/12/webpack入门系列教程-加载器/" rel="prev" title="webpack入门系列教程-加载器">
-                webpack入门系列教程-加载器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用插件的安装与使用"><span class="nav-number">2.</span> <span class="nav-text">常用插件的安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin"><span class="nav-number">2.1.</span> <span class="nav-text">html-webpack-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">2.1.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">2.2.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin"><span class="nav-number">2.3.</span> <span class="nav-text">extract-text-webpack-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uglifyjs-webpack-plugin"><span class="nav-number">2.4.</span> <span class="nav-text">uglifyjs-webpack-plugin</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件"><span class="nav-number">2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改配置"><span class="nav-number">3.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行、对比结果"><span class="nav-number">4.</span> <span class="nav-text">运行、对比结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本抽离"><span class="nav-number">4.0.1.</span> <span class="nav-text">文本抽离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未进行文本抽离"><span class="nav-number">4.0.2.</span> <span class="nav-text">未进行文本抽离</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的几个错误"><span class="nav-number">5.</span> <span class="nav-text">遇到的几个错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin-版本问题"><span class="nav-number">5.1.</span> <span class="nav-text">extract-text-webpack-plugin 版本问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一定要利用extract-text-webpack-plugin建立输出文件的实例"><span class="nav-number">5.2.</span> <span class="nav-text">一定要利用extract-text-webpack-plugin建立输出文件的实例</span></a></li></ol></li></ol></div>
             
 
           </div>
