@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,基础," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="简介 &amp;emsp;&amp;emsp;前面的文章中，我们说了继承，表示一种实例的泛化过程，但是在父类当中存在的都是具体的方法（即行为），实际开发中，大部分情况下，我们仅仅需要抽象出子类的行为，具体实现由子类来完成。这篇文章里，我们通过说明抽象类和接口，并结合例子，来实现java中如何对对象进行抽象化。 &amp;emsp;&amp;emsp;实现抽象化有两种方式一种是利用接口：  接口被用来统一类的共通行为，当不同的类需">
+<meta name="keywords" content="java,基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础-实例抽象化">
+<meta property="og:url" content="http://yoursite.com/2018/11/17/java基础-实例抽象化/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="简介 &amp;emsp;&amp;emsp;前面的文章中，我们说了继承，表示一种实例的泛化过程，但是在父类当中存在的都是具体的方法（即行为），实际开发中，大部分情况下，我们仅仅需要抽象出子类的行为，具体实现由子类来完成。这篇文章里，我们通过说明抽象类和接口，并结合例子，来实现java中如何对对象进行抽象化。 &amp;emsp;&amp;emsp;实现抽象化有两种方式一种是利用接口：  接口被用来统一类的共通行为，当不同的类需">
+<meta property="og:updated_time" content="2018-11-17T13:26:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java基础-实例抽象化">
+<meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;前面的文章中，我们说了继承，表示一种实例的泛化过程，但是在父类当中存在的都是具体的方法（即行为），实际开发中，大部分情况下，我们仅仅需要抽象出子类的行为，具体实现由子类来完成。这篇文章里，我们通过说明抽象类和接口，并结合例子，来实现java中如何对对象进行抽象化。 &amp;emsp;&amp;emsp;实现抽象化有两种方式一种是利用接口：  接口被用来统一类的共通行为，当不同的类需">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/17/java基础-实例抽象化/"/>
+
+
+
+
+
+  <title>java基础-实例抽象化 | 时间只会一直走</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/17/java基础-实例抽象化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="姜柏超">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">java基础-实例抽象化</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-17T21:14:53+08:00">
+                2018-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/原生/" itemprop="url" rel="index">
+                    <span itemprop="name">原生</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/原生/基础/" itemprop="url" rel="index">
+                    <span itemprop="name">基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<p>&emsp;&emsp;前面的文章中，我们说了继承，表示一种实例的泛化过程，但是在父类当中存在的都是具体的方法（即行为），实际开发中，大部分情况下，我们仅仅需要抽象出子类的行为，具体实现由子类来完成。这篇文章里，我们通过说明<code>抽象类</code>和<code>接口</code>，并结合例子，来实现java中如何对对象进行抽象化。</p>
+<p>&emsp;&emsp;实现抽象化有两种方式一种是利用<code>接口</code>：</p>
+<blockquote>
+<p>接口被用来统一类的共通行为，当不同的类需要进行信息共享时，是不需要特别去创建类间的关系。举例来说，一个人（Human）及一只鹦鹉（Parrot）都会吹口哨（whistle），然而Human及Parrot不应该为Whistler的子类，最好的做法是令他们为Animal的子类，而他们可以使用Whistler的接口进行沟通。<br>引自—-<a href="https://zh.wikipedia.org/wiki/%E6%8E%A5%E5%8F%A3" target="_blank" rel="external">维基百科</a></p>
+</blockquote>
+<p>&emsp;&emsp;另一种是利用<code>抽象类</code>：</p>
+<blockquote>
+<p>抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。<br>引自—-<a href="https://baike.baidu.com/item/%E6%8A%BD%E8%B1%A1%E7%B1%BB/4748292#3_3" target="_blank" rel="external">百度百科</a></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>&emsp;&emsp;我们的示例代码中共存在四个类，一个接口，项目的目录结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">├── src</div><div class="line">│   └── com</div><div class="line">│       ├── Index.java</div><div class="line">│       └── libs</div><div class="line">│           ├── ast</div><div class="line">│           │   └── Weapon.java</div><div class="line">│           ├── Grenade.java</div><div class="line">│           ├── inf                                                            </div><div class="line">│           │   └── Explosion.java</div><div class="line">│           └── Spear.java</div></pre></td></tr></table></figure></p>
+<p><strong> Weapon.java 武器抽象类 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ast;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Weapon</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sequence;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Weapon</span><span class="params">(<span class="keyword">int</span> sequence)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.sequence = sequence;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSequence</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.sequence;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">fighting</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> Explosion.java 描述爆炸的接口 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.inf;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Explosion</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String description = <span class="string">"爆炸会产生响声，并且伤害周围的人"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">explosion</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> Spear.java 武器长矛 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ast.Weapon;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Spear</span> <span class="keyword">extends</span> <span class="title">Weapon</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Spear</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>) + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fighting</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"挥舞着 "</span> + <span class="keyword">this</span>.getSequence() + <span class="string">" 号长矛向敌人刺去"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> Grenade.java 武器手雷 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ast.Weapon;</div><div class="line"><span class="keyword">import</span> com.libs.inf.Explosion;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Grenade</span> <span class="keyword">extends</span> <span class="title">Weapon</span> <span class="keyword">implements</span> <span class="title">Explosion</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Grenade</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>) + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fighting</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"投掷 "</span> + <span class="keyword">this</span>.getSequence() + <span class="string">" 号手雷到敌人阵地"</span>);</div><div class="line">        <span class="keyword">this</span>.explosion();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">explosion</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>.getSequence() + <span class="string">" 号手雷爆炸了"</span>);</div><div class="line">        System.out.println(Grenade.description);   </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> Index.java 主类 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.Grenade;</div><div class="line"><span class="keyword">import</span> com.libs.Spear;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        Spear s = <span class="keyword">new</span> Spear();</div><div class="line">        Grenade g = <span class="keyword">new</span> Grenade();</div><div class="line"></div><div class="line">        s.fighting();</div><div class="line">        g.fighting();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> 运行结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">挥舞着 456 号长矛向敌人刺去</div><div class="line">投掷 12 号手雷到敌人阵地</div><div class="line">12 号手雷爆炸了</div><div class="line">爆炸会产生响声，并且伤害周围的人</div></pre></td></tr></table></figure></p>
+<h1 id="接口与抽象类"><a href="#接口与抽象类" class="headerlink" title="接口与抽象类"></a>接口与抽象类</h1><p>&emsp;&emsp;在java中，抽象类与接口是实现对实例对象进行抽象的两种机制，但是它们对事物的抽象理念是不同的，接口往往是脱离对象的本质对某种行为进行抽象，而抽象类则是对具体事物的实例进行抽象。</p>
+<h2 id="抽象的理念"><a href="#抽象的理念" class="headerlink" title="抽象的理念"></a>抽象的理念</h2><h3 id="代码层面上"><a href="#代码层面上" class="headerlink" title="代码层面上"></a>代码层面上</h3><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p>&emsp;&emsp;接口更像是提供了一套行为的模板，实现它的子类会去完成其中的细节。接口中可以声明一个或多个行为的名称，但是不能对它进行实现，也可以提供一个静态常量，用以描述一些事情。如例子中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Explosion</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String description = <span class="string">"爆炸会产生响声，并且伤害周围的人"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">explosion</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;它只是告诉即将实现它的子类，“我要描述一个行为，这个行为是爆炸”，“爆炸会产生响声，并且伤害周围的人”，而如何爆炸、什么时候爆炸、爆炸的威力是多大，这些，完全根据实现它的子类来定。并且，如果有任何子类实现了它，那么该类必须实现<code>explosion</code>这个行为的细节。<br>&emsp;&emsp;由于接口中定义的方法，必须被子类实现，因此，接口中的方法必须被显示的标注为<code>public</code>，接口本身也必须被<code>public</code>所标注。同时接口是可以继承其它接口的，例如我们可以再定义一个接口，描述<strong> 闪光 </strong>这种行为，然后利用<code>Explosion</code>继承这个接口（因为爆炸可能会产生闪光），在<code>Explosion</code>继承了<code>Flare</code>之后，实现<code>Explosion</code>接口的类，必须同时实现<code>public void flare();</code>方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Flare</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">flare</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Explosion</span> <span class="keyword">extends</span> <span class="title">Flare</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String description = <span class="string">"爆炸会产生响声，并且伤害周围的人"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">explosion</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;与继承时父类与子类的关系类似的是，实现接口后，实例存在向上转型的可能，如上述代码中的<code>Flare</code>接口，最终会被<code>Grenade</code>实现，那么我们可以通过<code>Flare fg = new Grenade();</code>来构建一个<code>Flare</code>类型的变量，但是它的引用地址则指向内存中的<code>Grenade</code>实例，在这里的向上转型的原则与继承中完全一致，因此<code>fg</code>只能调用<code>Flare</code>接口中被<code>Grenade</code>所实现的方法，但是<code>Flare</code>中的所有方法必定都会被<code>Grenade</code>所实现（因为我们既然能new Grenade，那么证明它不是一个接口也不是一个抽象类，所以它必须实现全部抽象方法）。<br>&emsp;&emsp;由于接口内没有属性（即类的成员变量）和实际可执行的方法，仅仅存在方法名，因此，单独的接口是不可被<code>new</code>关键字作用的，即不可实例化，因此在代码层面上来说，没有被实现的接口就没有存在价值。</p>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>&emsp;&emsp;抽象类中，不光存在接口中那种没有方法实体的抽象行为，同时还可存在实际的方法以及属性，子类在继承它以后，除了需要重写其中的抽象方法以外，其它的特性与继承完全相同。<br>&emsp;&emsp;值得注意的是，<strong> 抽象类中可以没有抽象方法 </strong>！你可以亲自修改<code>Weapon</code>类试一下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Weapon</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sequence;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Weapon</span><span class="params">(<span class="keyword">int</span> sequence)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.sequence = sequence;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSequence</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.sequence;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fighting</span><span class="params">()</span> </span>&#123;</div><div class="line">        ;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;修改完成后，编译运行是都可以通过的。这个情况，实际上很有用，比如当<strong> 某些类一定要被继承才能使用 </strong>，因为即使没有抽象方法，该类依然被<code>abstract</code>关键字标注，那么在编译阶段就不允许该类被<code>new</code>关键字直接作用，也就是说，他不能独自实例化（抽象类只能作为父类），必须依赖子类调用<code>super()</code>进行实例化。<br>&emsp;&emsp;实际上，除了不能直接实例化这件事之外，抽象类的其它用法与普通类没有差别，因此它也能实现接口，继承其它抽象类。</p>
+<h3 id="思维层面上"><a href="#思维层面上" class="headerlink" title="思维层面上"></a>思维层面上</h3><p>&emsp;&emsp;在思维层面上，接口是可以脱离实现类存在的，例如我们例子中的<code>Explosion</code>接口，它只是描述爆炸这种行为，至于什么实际对象会发生爆炸、什么时候会发生爆炸，我们不需要知道，也没必要知道。不管有没有子类去实现它，这种行为是存在的，这个接口是存在的。</p>
+<p>&emsp;&emsp;但是对于抽象类就不是，因为他既然作为一个父类，那么最少要有两个子类才能抽象出它吧，假如我们的例子中，如果只有长矛一种武器，很显然直接抽象出一个武器父类是很草率的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;通过上面的说明，我们分为接口和抽象类总结出以下几点！</p>
+<h3 id="接口-1"><a href="#接口-1" class="headerlink" title="接口"></a>接口</h3><ul>
+<li><strong> 接口内部全部的方法必须声明为<code>public</code> </strong></li>
+<li><strong> 接口内部不能有任何实现 </strong></li>
+<li><strong> 在实现接口时，若子类为<em> 非抽象类 </em> 则必须实现接口中定义的全部方法 </strong></li>
+<li><strong> 接口中可使用 <code>static final</code> 修饰一个不可变成员变量（常量），通过<code>接口名.变量名</code>或<code>子类名.变量名</code>引用 </strong></li>
+<li><strong> 不可被<code>new</code>关键字直接作用，生成实例 </strong></li>
+<li><strong> 实现类可向上转型 </strong></li>
+</ul>
+<h3 id="抽象类-1"><a href="#抽象类-1" class="headerlink" title="抽象类"></a>抽象类</h3><ul>
+<li><strong> 抽象类内部全部的抽象方法必须声明为<code>public</code> </strong></li>
+<li><strong> 不管是否存在抽象方法，只要被<code>abstract</code>声明后，就会成为抽象类 </strong></li>
+<li><strong> 若抽象类实现一个接口，可实现其中的任意数量的抽象方法，若有未实现的方法，无论是否以抽象方法的形式写入此抽象类，其子类必须实现这些未实现的方法 </strong></li>
+<li><strong> 若抽象类继承另一抽象类，可实现其中的任意数量的抽象方法，若有未实现的方法，无论是否以抽象方法的形式写入此抽象类，其子类必须实现这些未实现的方法。若此抽象类存在自身的抽象方法，不可与父类抽象方法重名，但可重载 </strong></li>
+<li><strong> 不可被<code>new</code>关键字直接作用，生成实例 </strong></li>
+<li><strong> 被子类继承后，子类可向上转型 </strong></li>
+</ul>
+<h1 id="实际开发中的抽象行为"><a href="#实际开发中的抽象行为" class="headerlink" title="实际开发中的抽象行为"></a>实际开发中的抽象行为</h1><p>&emsp;&emsp;上面的例子中，我们用<code>Explosion</code>接口继承了<code>Flare</code>,最终<code>Grenade</code>实现了<code>Explosion</code>接口，这样做到底好不好呢？很明显不好，因为我们无形中扩充了<code>Explosion</code>接口的行为。<br>&emsp;&emsp;我们例子中的实例都是武器，其中<code>Grenade</code>手雷在爆炸时确实能产生闪光（<code>Flare</code>），但是是不是爆炸都能产生闪光呢，很显然不是，比如锅炉因为压力过大而爆炸，气球因为吹的太鼓而爆炸，这些都不存在闪光，对于我们而言，爆炸就是爆炸，闪光就是闪光，但是我们的例子中，把它们结合到了一起，这种思路很显然是错误的。更好的方式是利用<code>Grenade</code>去实现<code>Explosion</code>、<code>Flare</code>两个接口：<code>public class Grenade extends Weapon implements Explosion, Flare {...}</code>，代表<code>Grenade</code>存在这两个行为，这更符合<a href="https://zh.wikipedia.org/wiki/%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99" target="_blank" rel="external">ISP原则</a>。</p>
+<p>&emsp;&emsp;另外，在实际开发中，我们应该通过分析，结合抽象类和接口的性质完成对实例的抽象。为了方便描述，我们以电梯为例再来举一个简单的例子。</p>
+<p>&emsp;&emsp;抛开属性不谈，电梯可以存在两种行为，<code>上行</code>、<code>下行</code>，因此我们可以有两种方式去抽象它：<br><strong> 接口 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Elevator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">up</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">down</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> 抽象类 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Elevator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">up</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">down</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;目前，这两种抽象方式看起来都没什么问题，但是如果我们为直梯稍微加一点点功能呢？比如说我们为直梯加上观光功能（抽象方法<code>public void view();</code>）,这时无论把<code>view</code>加到接口中还是抽象类中，都不好。如果加到接口中，那么，观光这个行为，就变成了冗余的，比如说如果在后续的阶段，需要一个观光电车的实例，那么你如何定义？还要重新的去定义这个观光的抽象方法，这严重违反开发中的ISP原则。文章的前面已经提到了，接口是脱离实例对象而存在的，它仅仅描述行为，因此这里我们定将接口定义为<code>Elevator</code>本身就存在问题，它太有针对性了，更好的定义应该是<code>Direction</code>（运行方向）。<br>&emsp;&emsp;同时，对于抽象类来说，<code>上行</code>、<code>下行</code>两个行为，本身就是电梯运行的两种方式，因此它拥有这两个方法是没问题的，但是<code>public void view();</code>方法，却不适合它，因为不是所有的电梯都有观光功能，<code>public void view();</code>只是某些特殊电梯具有的一种行为。因此以下两种方式是更好的抽象化定义：</p>
+<p><strong> 当你认为电梯存在时 </strong><br>&emsp;&emsp;这种情况是指，你肯定了电梯这个对象，它包含<strong> 滚梯 </strong>、<strong> 直梯 </strong>、 <strong> 货梯 </strong>、<strong> 观光梯 </strong>，你从他们当中，抽象出了电梯的共有行为<code>上行</code>、<code>下行</code>，并为某些电梯增加了能够观光这种行为。简单说就是，你认为<strong> 我抽象了电梯，但是有些电梯是<code>SightseeingLadder</code>，它们具有<code>view</code>这种行为，它们能观光 </strong>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">view</span><span class="params">()</span></span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Elevator</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">up</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">down</span><span class="params">()</span></span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//观光梯</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SightseeingLadder</span> <span class="keyword">extends</span> <span class="title">Elevator</span> <span class="keyword">implements</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="comment">//实现方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> 当你觉得电梯不存在时 </strong><br>&emsp;&emsp;与上面的情形不同，在这种情况下，你不认为或不知道电梯存在，但是你知道有某种东西或事物，它们可以<code>上行</code>、<code>下行</code>、<code>观光</code>。简单说就是，你认为<strong> 我知道三种行为：<code>上行</code>、<code>下行</code>、<code>观光</code>，这几种行为可能出现到很多实例当中。但是我知道有一种事物，拥有这三种行为，那我们把它叫做<code>SightseeingLadder</code>吧 </strong>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">view</span><span class="params">()</span></span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Direction</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">up</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">down</span><span class="params">()</span></span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//观光梯</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SightseeingLadder</span> <span class="keyword">implements</span> <span class="title">Direction</span>, <span class="title">View</span>  </span>&#123;</div><div class="line">    <span class="comment">//实现方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Think you!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/java基础-继承/" rel="next" title="java基础-继承">
+                <i class="fa fa-chevron-left"></i> java基础-继承
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
+               alt="姜柏超" />
+          <p class="site-author-name" itemprop="name">姜柏超</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例代码"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口与抽象类"><span class="nav-number">3.</span> <span class="nav-text">接口与抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象的理念"><span class="nav-number">3.1.</span> <span class="nav-text">抽象的理念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码层面上"><span class="nav-number">3.1.1.</span> <span class="nav-text">代码层面上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维层面上"><span class="nav-number">3.1.2.</span> <span class="nav-text">思维层面上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">抽象类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际开发中的抽象行为"><span class="nav-number">4.</span> <span class="nav-text">实际开发中的抽象行为</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">姜柏超</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
