@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;Github作为全球最大的同性交友网站，一直广受开发者们的喜爱，但是由于某些不可描述的原因，在访问、克隆、拉取、推送的时候，经常莫名其妙的不好使，速度慢的让人无法忍受。解决这个问题（克隆、拉取、推送）的一个途径就是通过代理，绕过 某长城 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/04/10/Github项目克隆提速/git1.png">
-<meta property="og:image" content="http://yoursite.com/2018/04/10/Github项目克隆提速/git2.png">
-<meta property="og:updated_time" content="2019-03-29T04:59:57.155Z">
+<meta property="og:image" content="http://yoursite.com/images/Github项目克隆提速/git1.png">
+<meta property="og:image" content="http://yoursite.com/images/Github项目克隆提速/git2.png">
+<meta property="og:updated_time" content="2019-03-29T06:48:02.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github项目克隆提速">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;Github作为全球最大的同性交友网站，一直广受开发者们的喜爱，但是由于某些不可描述的原因，在访问、克隆、拉取、推送的时候，经常莫名其妙的不好使，速度慢的让人无法忍受。解决这个问题（克隆、拉取、推送）的一个途径就是通过代理，绕过 某长城 。">
-<meta name="twitter:image" content="http://yoursite.com/2018/04/10/Github项目克隆提速/git1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/Github项目克隆提速/git1.png">
 
 
 
@@ -386,9 +386,9 @@
 <a id="more"></a>
 <h1 id="配置本地代理"><a href="#配置本地代理" class="headerlink" title="配置本地代理"></a>配置本地代理</h1><hr>
 <p>&emsp;&emsp;关于代理服务器的事儿就不多说了，要么买，要么租vps自己搭建。一下内容的先决条件是你拥有一个好使的代理服务。<br>&emsp;&emsp;用<code>shadowsocks</code>开启代理后，右键点击托盘中的纸飞机，选择选项配置：</p>
-<p><img src="git1.png" alt="图片无法显示"></p>
+<p><img src="/images/Github项目克隆提速/git1.png" alt="图片无法显示"></p>
 <p>&emsp;&emsp;设置一个本地代理端口号，如果需要局域网其它用户也通过此代理，需要勾选<em> 允许来自局域网的连接 </em>选项：</p>
-<p><img src="git2.png" alt="图片无法显示"></p>
+<p><img src="/images/Github项目克隆提速/git2.png" alt="图片无法显示"></p>
 <h1 id="设置git代理"><a href="#设置git代理" class="headerlink" title="设置git代理"></a>设置git代理</h1><hr>
 <p>&emsp;&emsp;通过以下命令设置git的代理：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://ip:1080'</span> </span><br><span class="line">git config --global https.proxy <span class="string">'socks5://ip:1080'</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;这里需要注意的是，如果本机使用的话，ip用<code>127.0.0.1</code>即可,局域网ip能不能用我没有测试。如果需要取消代理，可以用下面的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy </span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure></p>
