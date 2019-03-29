@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -6,10 +6,11 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="javascript,构建&持续集成,nodejs,webpack," />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,构建&持续集成,nodejs,webpack,">
+
+
+
+
 
 
 
@@ -100,7 +86,8 @@
 <meta property="og:url" content="http://yoursite.com/2018/04/04/webpack入门系列教程-安装及建立项目/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;本篇中不介绍概念性的描述，仅给出可以顺利运行的操作方法与相应的代码、配置。关于本文中用到的软件、类库的概念性的介绍，我将在另外几篇文章中，做详细解释。 开发环境安装 安装nvm&amp;emsp;&amp;emsp;本系列文章利用nvm对node进行版本管理 wget1# wget -qO- https://raw.githubusercontent.com/creationix/n">
-<meta property="og:updated_time" content="2018-06-27T03:05:19.000Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-29T04:59:58.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入门系列教程-安装及建立项目">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;本篇中不介绍概念性的描述，仅给出可以顺利运行的操作方法与相应的代码、配置。关于本文中用到的软件、类库的概念性的介绍，我将在另外几篇文章中，做详细解释。 开发环境安装 安装nvm&amp;emsp;&amp;emsp;本系列文章利用nvm对node进行版本管理 wget1# wget -qO- https://raw.githubusercontent.com/creationix/n">
@@ -112,9 +99,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -131,24 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/04/webpack入门系列教程-安装及建立项目/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/04/webpack入门系列教程-安装及建立项目/">
 
 
 
 
 
   <title>webpack入门系列教程-安装及建立项目 | 时间只会一直走</title>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-8303399095895090",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -158,19 +136,16 @@
 
 
 
+</head>
 
-
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +154,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">时间只会一直走</span>
         <span class="logo-line-after"><i></i></span>
@@ -209,17 +184,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -227,29 +212,19 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+          <a href="/404/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -283,12 +258,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/webpack入门系列教程-安装及建立项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="姜柏超">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
     </span>
 
@@ -324,7 +303,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -360,6 +339,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/04/webpack入门系列教程-安装及建立项目/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/04/webpack入门系列教程-安装及建立项目/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -368,7 +357,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -380,6 +369,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -390,17 +382,17 @@
 <p>&emsp;&emsp;本篇中不介绍概念性的描述，仅给出可以顺利运行的操作方法与相应的代码、配置。关于本文中用到的软件、类库的概念性的介绍，我将在另外几篇文章中，做详细解释。</p>
 <h1 id="开发环境安装"><a href="#开发环境安装" class="headerlink" title="开发环境安装"></a>开发环境安装</h1><hr>
 <h2 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h2><p>&emsp;&emsp;本系列文章利用<code>nvm</code>对<code>node</code>进行版本管理</p>
-<h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></div></pre></td></tr></table></figure>
+<h3 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></div></pre></td></tr></table></figure>
-<h3 id="nvm-command-not-found的解决方法"><a href="#nvm-command-not-found的解决方法" class="headerlink" title="nvm: command not found的解决方法"></a><code>nvm: command not found</code>的解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># source ~/.bashrc</span></div></pre></td></tr></table></figure>
-<h3 id="安装最新稳定版本node"><a href="#安装最新稳定版本node" class="headerlink" title="安装最新稳定版本node"></a>安装最新稳定版本<code>node</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># nvm install stable</span></div></pre></td></tr></table></figure>
-<p><strong> 如果下载速度慢，建议将<code>nvm</code>数据源切换成taobao的 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node</span></div><div class="line"><span class="comment"># nvm install stable</span></div></pre></td></tr></table></figure></p>
-<h3 id="查看当前的node版本"><a href="#查看当前的node版本" class="headerlink" title="查看当前的node版本"></a>查看当前的node版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nvm current</div><div class="line">v9.10.1</div></pre></td></tr></table></figure>
-<h2 id="安装webpack其相关依赖"><a href="#安装webpack其相关依赖" class="headerlink" title="安装webpack其相关依赖"></a>安装<code>webpack</code>其相关依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm install webpack-cli -g</span></div><div class="line"><span class="comment"># npm link webpack</span></div></pre></td></tr></table></figure>
-<p><strong> 如果安装速度较慢，建议将<code>npm</code>数据源切换成taobao的 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># npm config set registry http://registry.npm.taobao.org</span></div></pre></td></tr></table></figure></p>
+<h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash</span></span><br></pre></td></tr></table></figure>
+<h3 id="nvm-command-not-found的解决方法"><a href="#nvm-command-not-found的解决方法" class="headerlink" title="nvm: command not found的解决方法"></a><code>nvm: command not found</code>的解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装最新稳定版本node"><a href="#安装最新稳定版本node" class="headerlink" title="安装最新稳定版本node"></a>安装最新稳定版本<code>node</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nvm install stable</span></span><br></pre></td></tr></table></figure>
+<p><strong> 如果下载速度慢，建议将<code>nvm</code>数据源切换成taobao的 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node</span></span><br><span class="line"><span class="comment"># nvm install stable</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="查看当前的node版本"><a href="#查看当前的node版本" class="headerlink" title="查看当前的node版本"></a>查看当前的node版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm current</span><br><span class="line">v9.10.1</span><br></pre></td></tr></table></figure>
+<h2 id="安装webpack其相关依赖"><a href="#安装webpack其相关依赖" class="headerlink" title="安装webpack其相关依赖"></a>安装<code>webpack</code>其相关依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># npm install webpack-cli -g</span></span><br><span class="line"><span class="comment"># npm link webpack</span></span><br></pre></td></tr></table></figure>
+<p><strong> 如果安装速度较慢，建议将<code>npm</code>数据源切换成taobao的 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># npm config set registry http://registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="建立webpack“项目”"><a href="#建立webpack“项目”" class="headerlink" title="建立webpack“项目”"></a>建立<code>webpack</code>“项目”</h2><p>&emsp;&emsp;严格来说，这并不能叫做一个项目，因为<code>webpack</code>仅仅是一个构建工具集合，我们做的只是用它来对我们的现有项目进行构建而已。</p>
-<h3 id="初始化并完善目录结构"><a href="#初始化并完善目录结构" class="headerlink" title="初始化并完善目录结构"></a>初始化并完善目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir project</span></div><div class="line"><span class="comment"># cd project</span></div><div class="line"><span class="comment"># npm init</span></div></pre></td></tr></table></figure>
+<h3 id="初始化并完善目录结构"><a href="#初始化并完善目录结构" class="headerlink" title="初始化并完善目录结构"></a>初始化并完善目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir project</span></span><br><span class="line"><span class="comment"># cd project</span></span><br><span class="line"><span class="comment"># npm init</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;执行<code>npm init</code>后，将出现对话流程，按照提示，输入你想生成的信息。执行完成后，将会在<code>project</code>目录下，生成用于运行的<code>package.json</code>文件，文件内是项目的描述信息（你刚刚输入的信息）。<br>&emsp;&emsp;接下来将目录及文件结构补全为下面的形式：</p>
 <ul>
 <li>app<ul>
@@ -413,58 +405,54 @@
 </ul>
 <p>&emsp;&emsp;其中<code>app</code>目录为你的源码目录，其中<code>index.js</code>文件是入口文件，<code>lib.js</code>是你的模块文件。<code>webpack.config.js</code>是webpack的配置文件。</p>
 <h3 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h3><p>&emsp;&emsp;编辑目录下的各个文件，用来测试<code>webpack</code>打包。</p>
-<p><strong> 模块文件<code>lib.js</code> </strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello world"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** 导出这个对象 */</span></div><div class="line"><span class="built_in">module</span>.exports = test;</div></pre></td></tr></table></figure></p>
-<p><strong> 入口文件<code>index.js</code> </strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myLib = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</div><div class="line"><span class="keyword">var</span> dom  = <span class="built_in">document</span>.querySelector(<span class="string">"body"</span>);</div><div class="line"></div><div class="line">dom.innerHTML = <span class="string">'&lt;h1&gt;'</span> + myLib() + <span class="string">'&lt;/h1&gt;'</span>;</div></pre></td></tr></table></figure></p>
-<p><strong> webpack配置文件<code>webpack.config.js</code> </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> ROOT_PATH = path.resolve(__dirname);</div><div class="line"><span class="keyword">var</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</div><div class="line"><span class="keyword">var</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">mode</span>: <span class="string">'development'</span>,</div><div class="line">    <span class="attr">entry</span>: APP_PATH,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: BUILD_PATH,</div><div class="line">        <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'hello world app'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>&emsp;&emsp;进入主目录<code>~/project</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># npm install html-webpack-plugin --save-dev</span></div></pre></td></tr></table></figure></p>
+<p><strong> 模块文件<code>lib.js</code> </strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 导出这个对象 */</span></span><br><span class="line"><span class="built_in">module</span>.exports = test;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 入口文件<code>index.js</code> </strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myLib = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</span><br><span class="line"><span class="keyword">var</span> dom  = <span class="built_in">document</span>.querySelector(<span class="string">"body"</span>);</span><br><span class="line"></span><br><span class="line">dom.innerHTML = <span class="string">'&lt;h1&gt;'</span> + myLib() + <span class="string">'&lt;/h1&gt;'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong> webpack配置文件<code>webpack.config.js</code> </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ROOT_PATH = path.resolve(__dirname);</span><br><span class="line"><span class="keyword">var</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</span><br><span class="line"><span class="keyword">var</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line">    entry: APP_PATH,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: BUILD_PATH,</span><br><span class="line">        filename: <span class="string">'bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> hwp(&#123;</span><br><span class="line">            title: <span class="string">'hello world app'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>&emsp;&emsp;进入主目录<code>~/project</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd ~/project</span></span><br><span class="line"><span class="comment"># npm install html-webpack-plugin --save-dev</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><hr>
-<p>&emsp;&emsp;运行打包命令时，需要在<code>project</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /project</span></div><div class="line"><span class="comment"># webpack</span></div><div class="line">Hash: 4d0cdffd153633cd3a5a</div><div class="line">Version: webpack 4.4.1</div><div class="line">Time: 670ms</div><div class="line">Built at: 2018-4-25 21:23:06</div><div class="line">     Asset       Size  Chunks             Chunk Names</div><div class="line"> bundle.js   3.27 KiB    main  [emitted]  main</div><div class="line">index.html  186 bytes          [emitted]</div><div class="line">Entrypoint main = bundle.js</div><div class="line">[./app/index.js] 115 bytes &#123;main&#125; [built]</div><div class="line">[./app/lib.js] 67 bytes &#123;main&#125; [built]</div><div class="line">Child html-webpack-plugin <span class="keyword">for</span> <span class="string">"index.html"</span>:</div><div class="line">     1 asset</div><div class="line">    Entrypoint undefined = index.html</div><div class="line">       4 modules</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;运行打包命令时，需要在<code>project</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /project</span></span><br><span class="line"><span class="comment"># webpack</span></span><br><span class="line">Hash: 4d0cdffd153633cd3a5a</span><br><span class="line">Version: webpack 4.4.1</span><br><span class="line">Time: 670ms</span><br><span class="line">Built at: 2018-4-25 21:23:06</span><br><span class="line">     Asset       Size  Chunks             Chunk Names</span><br><span class="line"> bundle.js   3.27 KiB    main  [emitted]  main</span><br><span class="line">index.html  186 bytes          [emitted]</span><br><span class="line">Entrypoint main = bundle.js</span><br><span class="line">[./app/index.js] 115 bytes &#123;main&#125; [built]</span><br><span class="line">[./app/lib.js] 67 bytes &#123;main&#125; [built]</span><br><span class="line">Child html-webpack-plugin <span class="keyword">for</span> <span class="string">"index.html"</span>:</span><br><span class="line">     1 asset</span><br><span class="line">    Entrypoint undefined = index.html</span><br><span class="line">       4 modules</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;打包完成后，将会自动建立<code>build</code>目录，其中为打包好的<code>bundle.js</code>,以及由<code>html-webpack-plugin</code>插件自动为我们生成的<code>index.html</code>。在<code>index.html</code>中自动引用的打包好的<code>bundle.js</code>，可以直接用浏览器打开查看效果。</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>Think you!</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpj" alt="姜柏超 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -510,34 +498,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
       
     </div>
   </div>
@@ -548,11 +517,12 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
-    
-  </div>
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
 
 
         </div>
@@ -568,107 +538,104 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
-               alt="姜柏超" />
-          <p class="site-author-name" itemprop="name">姜柏超</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460" alt="姜柏超">
+            
+              <p class="site-author-name" itemprop="name">姜柏超</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
-            </a>
           </div>
-        
 
-        
-        
+          <nav class="site-state motion-element">
 
-        
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
 
       
@@ -701,32 +668,32 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">姜柏超</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
 <div class="busuanzi-count">
-  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -746,6 +713,12 @@
 </div>
 
 
+
+
+
+
+
+
         
       </div>
     </footer>
@@ -755,6 +728,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -789,46 +764,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -858,34 +845,48 @@
 
 
 
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'R4y5z2N2MbKO9zCCBfN5EmMo-gzGzoHsz',
+        appKey: 'sweLAHuOwRwgcWjrPYuVTa5g',
+        placeholder: '😈',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
   
 
 
 
 
 
-
   
-
-
-
-
 
   
 
   
 
+  
   
 
   

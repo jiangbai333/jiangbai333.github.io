@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -6,10 +6,11 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="git,gitlab,构建&持续集成," />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,gitlab,构建&持续集成,">
+
+
+
+
 
 
 
@@ -100,6 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;利用Gitlab、Gitlab-runner，实现代码托管与持续集成。 环境安装 安装Gitlab及其所依赖的服务程序依赖服务程序安装1234# yum install -y curl policycoreutils-python openssh-server cronie postfix lokkit# lokkit -s http -s ssh# service">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/runner-url.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/runner-token.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/new.png">
@@ -110,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/ci-success.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/ci-info.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/ci-complate.png">
-<meta property="og:updated_time" content="2018-11-12T03:19:42.671Z">
+<meta property="og:updated_time" content="2019-03-29T04:59:57.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitlab-runner安装与使用">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;利用Gitlab、Gitlab-runner，实现代码托管与持续集成。 环境安装 安装Gitlab及其所依赖的服务程序依赖服务程序安装1234# yum install -y curl policycoreutils-python openssh-server cronie postfix lokkit# lokkit -s http -s ssh# service">
@@ -123,9 +110,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -142,24 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/">
 
 
 
 
 
   <title>gitlab-runner安装与使用 | 时间只会一直走</title>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-8303399095895090",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -169,19 +147,16 @@
 
 
 
+</head>
 
-
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -190,7 +165,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">时间只会一直走</span>
         <span class="logo-line-after"><i></i></span>
@@ -220,17 +195,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -238,29 +223,19 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+          <a href="/404/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -294,12 +269,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/gitlab-runner安装与使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="姜柏超">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
     </span>
 
@@ -335,7 +314,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -371,6 +350,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/30/gitlab-runner安装与使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/30/gitlab-runner安装与使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -379,7 +368,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -391,6 +380,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -400,86 +392,86 @@
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
 <p>&emsp;&emsp;利用<code>Gitlab</code>、<code>Gitlab-runner</code>，实现代码托管与持续集成。</p>
 <h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><hr>
-<h2 id="安装Gitlab及其所依赖的服务程序"><a href="#安装Gitlab及其所依赖的服务程序" class="headerlink" title="安装Gitlab及其所依赖的服务程序"></a>安装Gitlab及其所依赖的服务程序</h2><h3 id="依赖服务程序安装"><a href="#依赖服务程序安装" class="headerlink" title="依赖服务程序安装"></a>依赖服务程序安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install -y curl policycoreutils-python openssh-server cronie postfix lokkit</span></div><div class="line"><span class="comment"># lokkit -s http -s ssh</span></div><div class="line"><span class="comment"># service postfix start</span></div><div class="line"><span class="comment"># chkconfig postfix on</span></div></pre></td></tr></table></figure>
-<h3 id="安装Gitlab"><a href="#安装Gitlab" class="headerlink" title="安装Gitlab"></a>安装Gitlab</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span></div><div class="line"><span class="comment"># EXTERNAL_URL="Yourhost" yum -y install gitlab-ee</span></div></pre></td></tr></table></figure>
+<h2 id="安装Gitlab及其所依赖的服务程序"><a href="#安装Gitlab及其所依赖的服务程序" class="headerlink" title="安装Gitlab及其所依赖的服务程序"></a>安装Gitlab及其所依赖的服务程序</h2><h3 id="依赖服务程序安装"><a href="#依赖服务程序安装" class="headerlink" title="依赖服务程序安装"></a>依赖服务程序安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum install -y curl policycoreutils-python openssh-server cronie postfix lokkit</span></span><br><span class="line"><span class="comment"># lokkit -s http -s ssh</span></span><br><span class="line"><span class="comment"># service postfix start</span></span><br><span class="line"><span class="comment"># chkconfig postfix on</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装Gitlab"><a href="#安装Gitlab" class="headerlink" title="安装Gitlab"></a>安装Gitlab</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span></span><br><span class="line"><span class="comment"># EXTERNAL_URL="Yourhost" yum -y install gitlab-ee</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="安装Gitlab-runner"><a href="#安装Gitlab-runner" class="headerlink" title="安装Gitlab-runner"></a>安装Gitlab-runner</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh | sudo bash</span></div><div class="line"><span class="comment"># yum install gitlab-runner</span></div></pre></td></tr></table></figure>
-<h1 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h1><h2 id="配置访问地址"><a href="#配置访问地址" class="headerlink" title="配置访问地址"></a>配置访问地址</h2><p>&emsp;&emsp;在安装步骤中<code>EXTERNAL_URL=&quot;Yourhost&quot; yum -y install gitlab-ee</code>，其中<code>EXTERNAL_URL</code>代表未来访问Gitlab服务的url地址，如果需要更换，可修改<code>/etc/gitlab/gitlab.rb</code>文件，找到以下位置并修改<code>external_url</code>属性：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">## GitLab URL</div><div class="line">##! URL <span class="keyword">on</span> which GitLab will <span class="keyword">be</span> reachable.</div><div class="line">##! For more details <span class="keyword">on</span> configuring external_url see:</div><div class="line">##! http<span class="variable">s:</span>//docs.gitlab.<span class="keyword">com</span>/omnibus/settings/configuration.html#configuring-the-external-url-<span class="keyword">for</span>-gitlab</div><div class="line">#external_url <span class="string">'example.gitlab.com'</span></div><div class="line">external_url <span class="string">'http://ipaddr'</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;如果你想通过域名进行访问，需要自行绑定域名。若在局域网内，需要自己搭建<code>DNS</code>服务器，详细可参考<a href="http://jiangbai333.github.io/2016/08/24/%E8%87%AA%E5%BB%BADNS%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_blank" rel="external">自建DNS服务器</a></p>
-<h2 id="注册runner"><a href="#注册runner" class="headerlink" title="注册runner"></a>注册runner</h2><p>&emsp;&emsp;在使用<code>runner</code>前，需要先注册一个<code>runner</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># gitlab-runner register</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;执行后，进入对话，填写相应信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Running <span class="keyword">in</span> system-mode.</div><div class="line"></div><div class="line">Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):</div><div class="line">http://192.168.1.163/</div><div class="line">Please enter the gitlab-ci token <span class="keyword">for</span> this runner:</div><div class="line">hFN9XzRfxHPfAo9Gb1AH</div><div class="line">Please enter the gitlab-ci description <span class="keyword">for</span> this runner:</div><div class="line">[Jenkins]: 测试</div><div class="line">Please enter the gitlab-ci tags <span class="keyword">for</span> this runner (comma separated):</div><div class="line">build,<span class="built_in">test</span></div><div class="line">Whether to run untagged builds [<span class="literal">true</span>/<span class="literal">false</span>]:</div><div class="line">[<span class="literal">false</span>]:</div><div class="line">Whether to lock Runner to current project [<span class="literal">true</span>/<span class="literal">false</span>]:</div><div class="line">[<span class="literal">false</span>]:</div><div class="line">Registering runner... succeeded                     runner=hFN9XzRf</div><div class="line">Please enter the executor: docker+machine, docker-ssh+machine, docker, parallels, ssh, kubernetes, docker-ssh, shell, virtualbox:</div><div class="line">shell</div><div class="line">Runner registered successfully. Feel free to start it, but <span class="keyword">if</span> it<span class="string">'s running already the config should be automatically reloaded!</span></div></pre></td></tr></table></figure></p>
-<h3 id="对话信息说明"><a href="#对话信息说明" class="headerlink" title="对话信息说明"></a>对话信息说明</h3><h4 id="Please-enter-the-gitlab-ci-coordinator-URL-e-g-https-gitlab-com"><a href="#Please-enter-the-gitlab-ci-coordinator-URL-e-g-https-gitlab-com" class="headerlink" title="Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):"></a>Please enter the gitlab-ci coordinator URL (e.g. <a href="https://gitlab.com/" target="_blank" rel="external">https://gitlab.com/</a>):</h4><p>&emsp;&emsp;输入gitlab-ci的通讯url，用以在runner运行期进行管道通讯。在gitlab客户端界面获取此通讯url并填写到对话中：</p>
-<p><img src="/2018/10/30/gitlab-runner安装与使用/runner-url.png" alt=""></p>
+<h3 id="安装Gitlab-runner"><a href="#安装Gitlab-runner" class="headerlink" title="安装Gitlab-runner"></a>安装Gitlab-runner</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh | sudo bash</span></span><br><span class="line"><span class="comment"># yum install gitlab-runner</span></span><br></pre></td></tr></table></figure>
+<h1 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h1><h2 id="配置访问地址"><a href="#配置访问地址" class="headerlink" title="配置访问地址"></a>配置访问地址</h2><p>&emsp;&emsp;在安装步骤中<code>EXTERNAL_URL=&quot;Yourhost&quot; yum -y install gitlab-ee</code>，其中<code>EXTERNAL_URL</code>代表未来访问Gitlab服务的url地址，如果需要更换，可修改<code>/etc/gitlab/gitlab.rb</code>文件，找到以下位置并修改<code>external_url</code>属性：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## GitLab URL</span><br><span class="line">##! URL <span class="keyword">on</span> which GitLab will <span class="keyword">be</span> reachable.</span><br><span class="line">##! For more details <span class="keyword">on</span> configuring external_url see:</span><br><span class="line">##! http<span class="variable">s:</span>//docs.gitlab.<span class="keyword">com</span>/omnibus/settings/configuration.html#configuring-the-external-url-<span class="keyword">for</span>-gitlab</span><br><span class="line">#external_url <span class="string">'example.gitlab.com'</span></span><br><span class="line">external_url <span class="string">'http://ipaddr'</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如果你想通过域名进行访问，需要自行绑定域名。若在局域网内，需要自己搭建<code>DNS</code>服务器，详细可参考<a href="http://jiangbai333.github.io/2016/08/24/%E8%87%AA%E5%BB%BADNS%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_blank" rel="noopener">自建DNS服务器</a></p>
+<h2 id="注册runner"><a href="#注册runner" class="headerlink" title="注册runner"></a>注册runner</h2><p>&emsp;&emsp;在使用<code>runner</code>前，需要先注册一个<code>runner</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab-runner register</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;执行后，进入对话，填写相应信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Running <span class="keyword">in</span> system-mode.</span><br><span class="line"></span><br><span class="line">Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):</span><br><span class="line">http://192.168.1.163/</span><br><span class="line">Please enter the gitlab-ci token <span class="keyword">for</span> this runner:</span><br><span class="line">hFN9XzRfxHPfAo9Gb1AH</span><br><span class="line">Please enter the gitlab-ci description <span class="keyword">for</span> this runner:</span><br><span class="line">[Jenkins]: 测试</span><br><span class="line">Please enter the gitlab-ci tags <span class="keyword">for</span> this runner (comma separated):</span><br><span class="line">build,<span class="built_in">test</span></span><br><span class="line">Whether to run untagged builds [<span class="literal">true</span>/<span class="literal">false</span>]:</span><br><span class="line">[<span class="literal">false</span>]:</span><br><span class="line">Whether to lock Runner to current project [<span class="literal">true</span>/<span class="literal">false</span>]:</span><br><span class="line">[<span class="literal">false</span>]:</span><br><span class="line">Registering runner... succeeded                     runner=hFN9XzRf</span><br><span class="line">Please enter the executor: docker+machine, docker-ssh+machine, docker, parallels, ssh, kubernetes, docker-ssh, shell, virtualbox:</span><br><span class="line">shell</span><br><span class="line">Runner registered successfully. Feel free to start it, but <span class="keyword">if</span> it<span class="string">'s running already the config should be automatically reloaded!</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="对话信息说明"><a href="#对话信息说明" class="headerlink" title="对话信息说明"></a>对话信息说明</h3><h4 id="Please-enter-the-gitlab-ci-coordinator-URL-e-g-https-gitlab-com"><a href="#Please-enter-the-gitlab-ci-coordinator-URL-e-g-https-gitlab-com" class="headerlink" title="Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):"></a>Please enter the gitlab-ci coordinator URL (e.g. <a href="https://gitlab.com/)" target="_blank" rel="noopener">https://gitlab.com/)</a>:</h4><p>&emsp;&emsp;输入gitlab-ci的通讯url，用以在runner运行期进行管道通讯。在gitlab客户端界面获取此通讯url并填写到对话中：</p>
+<p><img src="runner-url.png" alt></p>
 <h4 id="Please-enter-the-gitlab-ci-token-for-this-runner"><a href="#Please-enter-the-gitlab-ci-token-for-this-runner" class="headerlink" title="Please enter the gitlab-ci token for this runner:"></a>Please enter the gitlab-ci token for this runner:</h4><p>&emsp;&emsp;输入gitlab-ci的通讯认证token，在gitlab客户端界面获取认证token并填写到对话中：</p>
-<p><img src="/2018/10/30/gitlab-runner安装与使用/runner-token.png" alt=""></p>
+<p><img src="runner-token.png" alt></p>
 <h4 id="Please-enter-the-gitlab-ci-description-for-this-runner"><a href="#Please-enter-the-gitlab-ci-description-for-this-runner" class="headerlink" title="Please enter the gitlab-ci description for this runner:"></a>Please enter the gitlab-ci description for this runner:</h4><p>&emsp;&emsp;对此runner的描述、简介</p>
 <h4 id="Please-enter-the-gitlab-ci-tags-for-this-runner-comma-separated"><a href="#Please-enter-the-gitlab-ci-tags-for-this-runner-comma-separated" class="headerlink" title="Please enter the gitlab-ci tags for this runner (comma separated):"></a>Please enter the gitlab-ci tags for this runner (comma separated):</h4><p>&emsp;&emsp;我的理解是，为runner进行分组，以便对job的运行进行管理。以下是官方的说明：</p>
 <blockquote>
 <p>You must set up a Runner to be able to run all the different types of jobs that &gt; it may encounter on the projects it’s shared over. This would be problematic &gt; for large amounts of projects, if it wasn’t for tags.</p>
+</blockquote>
+<blockquote>
 <p>By tagging a Runner for the types of jobs it can handle, you can make sure &gt; shared Runners will only run the jobs they are equipped to run.</p>
+</blockquote>
+<blockquote>
 <p>For instance, at GitLab we have Runners tagged with “rails” if they contain the &gt; appropriate dependencies to run Rails test suites.</p>
 </blockquote>
 <h4 id="Whether-to-run-untagged-builds-true-false"><a href="#Whether-to-run-untagged-builds-true-false" class="headerlink" title="Whether to run untagged builds [true/false]:"></a>Whether to run untagged builds [true/false]:</h4><p>&emsp;&emsp;如果此runner中的tag，不存在于某个job的tags属性中，是否允许执行此job。默认为false，也就是说如果我们使用这个runner，那么在添加job的时候，需要在tags中添加<code>build</code>或<code>test</code>，否则将不会执行。</p>
 <h4 id="Whether-to-lock-Runner-to-current-project-true-false"><a href="#Whether-to-lock-Runner-to-current-project-true-false" class="headerlink" title="Whether to lock Runner to current project [true/false]:"></a>Whether to lock Runner to current project [true/false]:</h4><p>&emsp;&emsp;我的理解是，<em> 若job已被触发，则此runner是否只对当前项目有效 </em>。</p>
 <h4 id="Please-enter-the-executor-docker-machine-docker-ssh-machine-docker-parallels-ssh-kubernetes-docker-ssh-shell-virtualbox"><a href="#Please-enter-the-executor-docker-machine-docker-ssh-machine-docker-parallels-ssh-kubernetes-docker-ssh-shell-virtualbox" class="headerlink" title="Please enter the executor: docker+machine, docker-ssh+machine, docker, parallels, ssh, kubernetes, docker-ssh, shell, virtualbox:"></a>Please enter the executor: docker+machine, docker-ssh+machine, docker, parallels, ssh, kubernetes, docker-ssh, shell, virtualbox:</h4><p>&emsp;&emsp;为当前runner选择一个执行器。</p>
-<h3 id="通过配置文件修改runner"><a href="#通过配置文件修改runner" class="headerlink" title="通过配置文件修改runner"></a>通过配置文件修改runner</h3><p>&emsp;&emsp;若在配置过程中出现偏差，可通过编辑配置文件<code>/etc/gitlab-runner/config.toml</code>进行修改:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/gitlab-runner/config.toml</span></div><div class="line">concurrent = 1</div><div class="line">check_interval = 0</div><div class="line"></div><div class="line">[[runners]]</div><div class="line">  name = <span class="string">"测试"</span></div><div class="line">  url = <span class="string">"http://192.168.1.163/"</span></div><div class="line">  token = <span class="string">"5df7f7f10f0e3072f09365379046f1"</span></div><div class="line">  executor = <span class="string">"shell"</span></div><div class="line">  [runners.cache]</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;修改完成后，需要重新启动runner：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># gitlab-runner restart</span></div></pre></td></tr></table></figure></p>
+<h3 id="通过配置文件修改runner"><a href="#通过配置文件修改runner" class="headerlink" title="通过配置文件修改runner"></a>通过配置文件修改runner</h3><p>&emsp;&emsp;若在配置过程中出现偏差，可通过编辑配置文件<code>/etc/gitlab-runner/config.toml</code>进行修改:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi /etc/gitlab-runner/config.toml</span></span><br><span class="line">concurrent = 1</span><br><span class="line">check_interval = 0</span><br><span class="line"></span><br><span class="line">[[runners]]</span><br><span class="line">  name = <span class="string">"测试"</span></span><br><span class="line">  url = <span class="string">"http://192.168.1.163/"</span></span><br><span class="line">  token = <span class="string">"5df7f7f10f0e3072f09365379046f1"</span></span><br><span class="line">  executor = <span class="string">"shell"</span></span><br><span class="line">  [runners.cache]</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;修改完成后，需要重新启动runner：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab-runner restart</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="测试runner"><a href="#测试runner" class="headerlink" title="测试runner"></a>测试runner</h1><h2 id="添加项目"><a href="#添加项目" class="headerlink" title="添加项目"></a>添加项目</h2><p>&emsp;&emsp;首先，为了进行测试，我们需要想gitlab提交一个项目，为了方便起见，直接引入一个github项目，地址为<code>https://github.com/jiangbai333/FileHandle.git</code>：</p>
-<p><img src="/2018/10/30/gitlab-runner安装与使用/new.png" alt=""></p>
+<p><img src="new.png" alt></p>
 <h2 id="将项目关联到runner中"><a href="#将项目关联到runner中" class="headerlink" title="将项目关联到runner中"></a>将项目关联到runner中</h2><p>&emsp;&emsp;实际上，每个runner可以关联多个项目，而又可以通过job，限制每个项目的CI流程，因此，建议经可能少建立runner，多使用job。</p>
-<h3 id="找到runner，点击“笔”进行编辑"><a href="#找到runner，点击“笔”进行编辑" class="headerlink" title="找到runner，点击“笔”进行编辑"></a>找到runner，点击“笔”进行编辑</h3><p><img src="/2018/10/30/gitlab-runner安装与使用/add-project.png" alt=""></p>
-<h3 id="设置runner的运行规则"><a href="#设置runner的运行规则" class="headerlink" title="设置runner的运行规则"></a>设置runner的运行规则</h3><p><img src="/2018/10/30/gitlab-runner安装与使用/add-project1.png" alt=""></p>
-<h3 id="将项目关联到runner"><a href="#将项目关联到runner" class="headerlink" title="将项目关联到runner"></a>将项目关联到runner</h3><p><img src="/2018/10/30/gitlab-runner安装与使用/add-project2.png" alt=""></p>
-<h2 id="向项目添加-gitlab-runner-yml"><a href="#向项目添加-gitlab-runner-yml" class="headerlink" title="向项目添加.gitlab-runner.yml"></a>向项目添加.gitlab-runner.yml</h2><p>&emsp;&emsp;<code>.gitlab-runner.yml</code>相当于CI的描述文件，通过它，可以定制CI的执行步骤。<br><strong> .gitlab-runner.yml </strong><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">stages:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">build</span></div><div class="line"><span class="attr">job:</span></div><div class="line"><span class="attr">    stage:</span> <span class="string">build</span></div><div class="line"><span class="attr">    script:</span></div><div class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">clean</span></div><div class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">package</span></div></pre></td></tr></table></figure></p>
+<h3 id="找到runner，点击“笔”进行编辑"><a href="#找到runner，点击“笔”进行编辑" class="headerlink" title="找到runner，点击“笔”进行编辑"></a>找到runner，点击“笔”进行编辑</h3><p><img src="add-project.png" alt></p>
+<h3 id="设置runner的运行规则"><a href="#设置runner的运行规则" class="headerlink" title="设置runner的运行规则"></a>设置runner的运行规则</h3><p><img src="add-project1.png" alt></p>
+<h3 id="将项目关联到runner"><a href="#将项目关联到runner" class="headerlink" title="将项目关联到runner"></a>将项目关联到runner</h3><p><img src="add-project2.png" alt></p>
+<h2 id="向项目添加-gitlab-runner-yml"><a href="#向项目添加-gitlab-runner-yml" class="headerlink" title="向项目添加.gitlab-runner.yml"></a>向项目添加.gitlab-runner.yml</h2><p>&emsp;&emsp;<code>.gitlab-runner.yml</code>相当于CI的描述文件，通过它，可以定制CI的执行步骤。<br><strong> .gitlab-runner.yml </strong><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">build</span></span><br><span class="line"><span class="attr">job:</span></span><br><span class="line"><span class="attr">    stage:</span> <span class="string">build</span></span><br><span class="line"><span class="attr">    script:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">clean</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">package</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;保存提交到项目主分支。</p>
-<h2 id="查看job运行结果"><a href="#查看job运行结果" class="headerlink" title="查看job运行结果"></a>查看job运行结果</h2><p>&emsp;&emsp;由于我们在添加<code>.gitlab-runner.yml</code>之前，已经完成了runner与此项目的关联，因此，保存后，runner将自动执行，你会看到项目主页上有一个“蓝色的月牙”。<br><img src="/2018/10/30/gitlab-runner安装与使用/runnering.png" alt=""><br>&emsp;&emsp;它代表当前job的运行状态，当CI成功后，将变为“绿色的对号”，如果失败则会变为“红色X”。我们点击它，会出现提交信息页面，此时，由于构建已经完成并且成功了，因此变成了“绿色的对号”（如果构建步骤较为复杂，很有可能，到这里，还是“蓝色的月牙”）。再次点击它：<br><img src="/2018/10/30/gitlab-runner安装与使用/ci-success.png" alt=""><br>&emsp;&emsp;会看到job的状态（当然也是成功），接下来，点击job，查看详细构建信息：<br><img src="/2018/10/30/gitlab-runner安装与使用/ci-info.png" alt=""><br><img src="/2018/10/30/gitlab-runner安装与使用/ci-complate.png" alt=""></p>
-<h2 id="分解job"><a href="#分解job" class="headerlink" title="分解job"></a>分解job</h2><p>&emsp;&emsp;上面的例子里，你会发现，<code>clean</code>、<code>package</code>两个构建过程存在于一个job中，我们可以尝试将其分离：<br><strong> .gitlab-runner.yml </strong><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="attr">stages:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">build</span></div><div class="line"><span class="bullet">    -</span> <span class="string">dev</span></div><div class="line"><span class="attr">job:</span></div><div class="line"><span class="attr">    stage:</span> <span class="string">build</span></div><div class="line"><span class="attr">    script:</span></div><div class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">clean</span></div><div class="line"><span class="attr">job1:</span></div><div class="line"><span class="attr">    stage:</span> <span class="string">dev</span></div><div class="line"><span class="attr">    script:</span></div><div class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">package</span></div></pre></td></tr></table></figure></p>
+<h2 id="查看job运行结果"><a href="#查看job运行结果" class="headerlink" title="查看job运行结果"></a>查看job运行结果</h2><p>&emsp;&emsp;由于我们在添加<code>.gitlab-runner.yml</code>之前，已经完成了runner与此项目的关联，因此，保存后，runner将自动执行，你会看到项目主页上有一个“蓝色的月牙”。<br><img src="runnering.png" alt><br>&emsp;&emsp;它代表当前job的运行状态，当CI成功后，将变为“绿色的对号”，如果失败则会变为“红色X”。我们点击它，会出现提交信息页面，此时，由于构建已经完成并且成功了，因此变成了“绿色的对号”（如果构建步骤较为复杂，很有可能，到这里，还是“蓝色的月牙”）。再次点击它：<br><img src="ci-success.png" alt><br>&emsp;&emsp;会看到job的状态（当然也是成功），接下来，点击job，查看详细构建信息：<br><img src="ci-info.png" alt><br><img src="ci-complate.png" alt></p>
+<h2 id="分解job"><a href="#分解job" class="headerlink" title="分解job"></a>分解job</h2><p>&emsp;&emsp;上面的例子里，你会发现，<code>clean</code>、<code>package</code>两个构建过程存在于一个job中，我们可以尝试将其分离：<br><strong> .gitlab-runner.yml </strong><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">build</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">job:</span></span><br><span class="line"><span class="attr">    stage:</span> <span class="string">build</span></span><br><span class="line"><span class="attr">    script:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">clean</span></span><br><span class="line"><span class="attr">job1:</span></span><br><span class="line"><span class="attr">    stage:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">    script:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">mvn</span> <span class="string">package</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;提交后，依然会自动进行构建，但是job与job1将会串行执行，job成功后，继续执行job1。最后，将生成两份构建清单。这部分就不上图了，大家可以自己尝试一下。</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>Think you!</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpj" alt="姜柏超 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -523,34 +515,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
       
     </div>
   </div>
@@ -561,11 +534,12 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
-    
-  </div>
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
 
 
         </div>
@@ -581,107 +555,104 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
-               alt="姜柏超" />
-          <p class="site-author-name" itemprop="name">姜柏超</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460" alt="姜柏超">
+            
+              <p class="site-author-name" itemprop="name">姜柏超</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
-            </a>
           </div>
-        
 
-        
-        
+          <nav class="site-state motion-element">
 
-        
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
 
       
@@ -714,32 +685,32 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">姜柏超</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
 <div class="busuanzi-count">
-  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -759,6 +730,12 @@
 </div>
 
 
+
+
+
+
+
+
         
       </div>
     </footer>
@@ -768,6 +745,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -802,46 +781,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -871,34 +862,48 @@
 
 
 
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'R4y5z2N2MbKO9zCCBfN5EmMo-gzGzoHsz',
+        appKey: 'sweLAHuOwRwgcWjrPYuVTa5g',
+        placeholder: '😈',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
   
 
 
 
 
 
-
   
-
-
-
-
 
   
 
   
 
+  
   
 
   

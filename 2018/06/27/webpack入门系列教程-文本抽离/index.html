@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -6,10 +6,11 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="javascript,构建&持续集成,nodejs,webpack," />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,构建&持续集成,nodejs,webpack,">
+
+
+
+
 
 
 
@@ -100,9 +86,10 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 .css 文件，然后引入到项目。&amp;emsp;&amp;emsp;实际上，这两种做法，各自有各自的优点。&amp;emsp;&amp;emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/2.png">
-<meta property="og:updated_time" content="2018-06-27T15:31:39.000Z">
+<meta property="og:updated_time" content="2019-03-29T04:59:58.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入门系列教程-文本抽离">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 .css 文件，然后引入到项目。&amp;emsp;&amp;emsp;实际上，这两种做法，各自有各自的优点。&amp;emsp;&amp;emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是">
@@ -115,9 +102,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -134,24 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/">
 
 
 
 
 
   <title>webpack入门系列教程-文本抽离 | 时间只会一直走</title>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-8303399095895090",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -161,19 +139,16 @@
 
 
 
+</head>
 
-
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -182,7 +157,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">时间只会一直走</span>
         <span class="logo-line-after"><i></i></span>
@@ -212,17 +187,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -230,29 +215,19 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+          <a href="/404/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -286,12 +261,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/webpack入门系列教程-文本抽离/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="姜柏超">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
     </span>
 
@@ -327,7 +306,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -363,6 +342,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/27/webpack入门系列教程-文本抽离/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/27/webpack入门系列教程-文本抽离/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -371,7 +360,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -383,6 +372,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -393,64 +385,60 @@
 <p>&emsp;&emsp;如果你够细心的话，在前面几篇文章的例子里，你可能会发现我们所添加的 css 样式，全部写入到了所生成的 index.html 当中。而我们平时的开发中，往往是将样式独立出一个 <code>.css</code> 文件，然后引入到项目。<br>&emsp;&emsp;实际上，这两种做法，各自有各自的优点。<br>&emsp;&emsp;首先说写入到文件里的。要知道，web资源每次请求都是要消耗网络资源的，如果是通过 URL 引用样式文件，那么用户需要等待请求完成后才能看到渲染的界面，因此，在需要的样式较少时，实际上直接卸载<code>&lt;style&gt;</code>当中，是更好的选择，因为只需要访问页面时加载一次。<br>&emsp;&emsp;然而，当样式内容较多是时，单次相应已经不足以迅速完成，那么将样式表独立抽出较好，既方便调试、有不会产生请求的同步中断。<br>&emsp;&emsp;本篇文章将介绍如何在 <code>webpack</code> 打包时，抽离出独立的 css 文件，所用的项目为上一篇文章中建立的测试项目。</p>
 <a id="more"></a>
 <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><hr>
-<p>&emsp;&emsp;上一篇文章中，我建议大家安装的<code>extract-text-webpack-plugin</code>便是今天的主角，如果你在上次练习中没有安装，那么现在进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上一篇文章中，我建议大家安装的<code>extract-text-webpack-plugin</code>便是今天的主角，如果你在上次练习中没有安装，那么现在进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cs ~/project</span></span><br><span class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><hr>
-<p>&emsp;&emsp;使用<code>extract-text-webpack-plugin</code>时需要修改<code>webpack</code>配置文件<code>webpack.config.js</code>，将上一篇文章中的<code>webpack.config.js</code>文件修改如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line"><span class="comment">/** 导入 extract-text-webpack-plugin 插件 */</span></div><div class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> ROOT_PATH = path.resolve(__dirname);</div><div class="line"><span class="keyword">const</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</div><div class="line"><span class="keyword">const</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</div><div class="line"><span class="keyword">const</span> SOURCE_PATH = path.resolve(ROOT_PATH, <span class="string">'source'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">mode</span>: <span class="string">'development'</span>,</div><div class="line">    <span class="attr">entry</span>: APP_PATH,</div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: BUILD_PATH,</div><div class="line">        <span class="attr">filename</span>: <span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="comment">/** 将 css-loader、sass-loader 交由 extract-text-webpack-plugin 处理 */</span></div><div class="line">        rules: [&#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.s?css$/</span>,</div><div class="line">            <span class="attr">use</span>: ExtractTextPlugin.extract(&#123;</div><div class="line">                <span class="attr">fallback</span>: <span class="string">"style-loader"</span>,</div><div class="line">                <span class="attr">use</span>: [<span class="string">"css-loader"</span>, <span class="string">"sass-loader"</span>]</div><div class="line">            &#125;)</div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.(jpe?g|png|gif|ico)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10240'</span></div><div class="line">        &#125;, &#123;</div><div class="line">            <span class="attr">test</span>: <span class="regexp">/\.((ttf|eot|woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot|woff2?|svg)$/</span>,</div><div class="line">            <span class="attr">loader</span>: <span class="string">'url-loader?limit=10000&amp;name=fonts/[hash:8].[name].[ext]'</span></div><div class="line">        &#125;]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> hwp(&#123;</div><div class="line">            <span class="attr">title</span>: <span class="string">'hello world app'</span>,</div><div class="line">            <span class="attr">template</span>:__dirname + <span class="string">'/source/template/index.html'</span></div><div class="line">        &#125;),</div><div class="line">        <span class="comment">/** 指定抽离出的文件名，本例中为 styles.css */</span></div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>)</div><div class="line">    ],</div><div class="line">    <span class="attr">devServer</span>: &#123;</div><div class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">hot</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">inline</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">progress</span>: <span class="literal">true</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;使用<code>extract-text-webpack-plugin</code>时需要修改<code>webpack</code>配置文件<code>webpack.config.js</code>，将上一篇文章中的<code>webpack.config.js</code>文件修改如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hwp = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="comment">/** 导入 extract-text-webpack-plugin 插件 */</span></span><br><span class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ROOT_PATH = path.resolve(__dirname);</span><br><span class="line"><span class="keyword">const</span> APP_PATH = path.resolve(ROOT_PATH, <span class="string">'app'</span>);</span><br><span class="line"><span class="keyword">const</span> BUILD_PATH = path.resolve(ROOT_PATH, <span class="string">'build'</span>);</span><br><span class="line"><span class="keyword">const</span> SOURCE_PATH = path.resolve(ROOT_PATH, <span class="string">'source'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line">    entry: APP_PATH,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: BUILD_PATH,</span><br><span class="line">        filename: <span class="string">'bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">/** 将 css-loader、sass-loader 交由 extract-text-webpack-plugin 处理 */</span></span><br><span class="line">        rules: [&#123;</span><br><span class="line">            test: <span class="regexp">/\.s?css$/</span>,</span><br><span class="line">            use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">                fallback: <span class="string">"style-loader"</span>,</span><br><span class="line">                use: [<span class="string">"css-loader"</span>, <span class="string">"sass-loader"</span>]</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            test: <span class="regexp">/\.(jpe?g|png|gif|ico)$/</span>,</span><br><span class="line">            loader: <span class="string">'url-loader?limit=10240'</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            test: <span class="regexp">/\.((ttf|eot|woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot|woff2?|svg)$/</span>,</span><br><span class="line">            loader: <span class="string">'url-loader?limit=10000&amp;name=fonts/[hash:8].[name].[ext]'</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> hwp(&#123;</span><br><span class="line">            title: <span class="string">'hello world app'</span>,</span><br><span class="line">            template:__dirname + <span class="string">'/source/template/index.html'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="comment">/** 指定抽离出的文件名，本例中为 styles.css */</span></span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>)</span><br><span class="line">    ],</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        historyApiFallback: <span class="literal">true</span>,</span><br><span class="line">        hot: <span class="literal">true</span>,</span><br><span class="line">        inline: <span class="literal">true</span>,</span><br><span class="line">        progress: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;可以看到，修改的项并不多。我们只需要将<code>extract-text-webpack-plugin</code>插件导入，将<code>css-loader</code>、<code>sass-loader</code>两个加载器指定给<code>extract-text-webpack-plugin</code>处理，并且添加一个<code>extract-text-webpack-plugin</code>导出实例就可以了。<br>&emsp;&emsp;配置完成后，所有样式将以<code>styles.css</code>通过<code>&lt;link&gt;</code>标签引入页面。</p>
 <h1 id="运行、对比结果"><a href="#运行、对比结果" class="headerlink" title="运行、对比结果"></a>运行、对比结果</h1><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ~/project</span></div><div class="line"><span class="comment"># npm start</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd ~/project</span></span><br><span class="line"><span class="comment"># npm start</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;访问页面后，按<f12>打开开发者工具：</f12></p>
-<h3 id="文本抽离"><a href="#文本抽离" class="headerlink" title="文本抽离"></a>文本抽离</h3><p><img src="/2018/06/27/webpack入门系列教程-文本抽离/1.png" alt="图片无法显示"><br>&emsp;&emsp;可以看到通过<code>&lt;link&gt;</code>标签引入了<code>styles.css</code></p>
-<h3 id="未进行文本抽离"><a href="#未进行文本抽离" class="headerlink" title="未进行文本抽离"></a>未进行文本抽离</h3><p><img src="/2018/06/27/webpack入门系列教程-文本抽离/2.png" alt="图片无法显示"><br>&emsp;&emsp;全部样式都写到了页面的<code>&lt;style&gt;</code>标签中。</p>
+<h3 id="文本抽离"><a href="#文本抽离" class="headerlink" title="文本抽离"></a>文本抽离</h3><p><img src="1.png" alt="图片无法显示"><br>&emsp;&emsp;可以看到通过<code>&lt;link&gt;</code>标签引入了<code>styles.css</code></p>
+<h3 id="未进行文本抽离"><a href="#未进行文本抽离" class="headerlink" title="未进行文本抽离"></a>未进行文本抽离</h3><p><img src="2.png" alt="图片无法显示"><br>&emsp;&emsp;全部样式都写到了页面的<code>&lt;style&gt;</code>标签中。</p>
 <h1 id="遇到的几个错误"><a href="#遇到的几个错误" class="headerlink" title="遇到的几个错误"></a>遇到的几个错误</h1><hr>
-<h2 id="extract-text-webpack-plugin-版本问题"><a href="#extract-text-webpack-plugin-版本问题" class="headerlink" title="extract-text-webpack-plugin 版本问题"></a>extract-text-webpack-plugin 版本问题</h2><p>&emsp;&emsp;在前几次安装中一直按照下面方法安装的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin --save-dev</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;但是安装完成后，一直报错，最后发现是由于<code>install extract-text-webpack-plugin</code>的版本过低，不支持<code>webpack4</code>。因此需要用以下方法安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cs ~/project</span></div><div class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></div></pre></td></tr></table></figure></p>
+<h2 id="extract-text-webpack-plugin-版本问题"><a href="#extract-text-webpack-plugin-版本问题" class="headerlink" title="extract-text-webpack-plugin 版本问题"></a>extract-text-webpack-plugin 版本问题</h2><p>&emsp;&emsp;在前几次安装中一直按照下面方法安装的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cs ~/project</span></span><br><span class="line"><span class="comment"># npm install extract-text-webpack-plugin --save-dev</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;但是安装完成后，一直报错，最后发现是由于<code>install extract-text-webpack-plugin</code>的版本过低，不支持<code>webpack4</code>。因此需要用以下方法安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cs ~/project</span></span><br><span class="line"><span class="comment"># npm install extract-text-webpack-plugin@next --save-dev</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="一定要利用extract-text-webpack-plugin建立输出文件的实例"><a href="#一定要利用extract-text-webpack-plugin建立输出文件的实例" class="headerlink" title="一定要利用extract-text-webpack-plugin建立输出文件的实例"></a>一定要利用<code>extract-text-webpack-plugin</code>建立输出文件的实例</h2><p>&emsp;&emsp;必须在 <code>plugins</code> 中增加 <code>new ExtractTextPlugin(&quot;filename.css&quot;)</code></p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>Think you!</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpj" alt="姜柏超 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -496,34 +484,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
       
     </div>
   </div>
@@ -534,11 +503,12 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
-    
-  </div>
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
 
 
         </div>
@@ -554,107 +524,104 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
-               alt="姜柏超" />
-          <p class="site-author-name" itemprop="name">姜柏超</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460" alt="姜柏超">
+            
+              <p class="site-author-name" itemprop="name">姜柏超</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
-            </a>
           </div>
-        
 
-        
-        
+          <nav class="site-state motion-element">
 
-        
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
 
       
@@ -667,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件"><span class="nav-number">2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改配置"><span class="nav-number">3.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行、对比结果"><span class="nav-number">4.</span> <span class="nav-text">运行、对比结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本抽离"><span class="nav-number">4.0.1.</span> <span class="nav-text">文本抽离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未进行文本抽离"><span class="nav-number">4.0.2.</span> <span class="nav-text">未进行文本抽离</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的几个错误"><span class="nav-number">5.</span> <span class="nav-text">遇到的几个错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin-版本问题"><span class="nav-number">5.1.</span> <span class="nav-text">extract-text-webpack-plugin 版本问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一定要利用extract-text-webpack-plugin建立输出文件的实例"><span class="nav-number">5.2.</span> <span class="nav-text">一定要利用extract-text-webpack-plugin建立输出文件的实例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件"><span class="nav-number">2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改配置"><span class="nav-number">3.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行、对比结果"><span class="nav-number">4.</span> <span class="nav-text">运行、对比结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本抽离"><span class="nav-number">4.0.1.</span> <span class="nav-text">文本抽离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未进行文本抽离"><span class="nav-number">4.0.2.</span> <span class="nav-text">未进行文本抽离</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的几个错误"><span class="nav-number">5.</span> <span class="nav-text">遇到的几个错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-text-webpack-plugin-版本问题"><span class="nav-number">5.1.</span> <span class="nav-text">extract-text-webpack-plugin 版本问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一定要利用extract-text-webpack-plugin建立输出文件的实例"><span class="nav-number">5.2.</span> <span class="nav-text">一定要利用extract-text-webpack-plugin建立输出文件的实例</span></a></li></ol></li></div>
             
 
           </div>
@@ -687,32 +654,32 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">姜柏超</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
 <div class="busuanzi-count">
-  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -732,6 +699,12 @@
 </div>
 
 
+
+
+
+
+
+
         
       </div>
     </footer>
@@ -741,6 +714,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -775,46 +750,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -844,34 +831,48 @@
 
 
 
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'R4y5z2N2MbKO9zCCBfN5EmMo-gzGzoHsz',
+        appKey: 'sweLAHuOwRwgcWjrPYuVTa5g',
+        placeholder: '😈',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
   
 
 
 
 
 
-
   
-
-
-
-
 
   
 
   
 
+  
   
 
   

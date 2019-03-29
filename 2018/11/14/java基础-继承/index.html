@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -6,10 +6,11 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="java,基础," />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,基础,">
+
+
+
+
 
 
 
@@ -100,8 +86,9 @@
 <meta property="og:url" content="http://yoursite.com/2018/11/14/java基础-继承/index.html">
 <meta property="og:site_name" content="时间只会一直走">
 <meta property="og:description" content="简介 &amp;emsp;&amp;emsp;与封装类似，继承也是面向对象编程的特性之一，利用继承可以提升代码复用性，并且可以实现多态特性。   Inheritance and behavioral subtyping It is intuitive to assume that inheritance creates a semantic “is a” relationship, and thus to inf">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/14/java基础-继承/stack.png">
-<meta property="og:updated_time" content="2018-11-14T14:52:06.000Z">
+<meta property="og:updated_time" content="2019-03-29T04:59:57.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础-继承">
 <meta name="twitter:description" content="简介 &amp;emsp;&amp;emsp;与封装类似，继承也是面向对象编程的特性之一，利用继承可以提升代码复用性，并且可以实现多态特性。   Inheritance and behavioral subtyping It is intuitive to assume that inheritance creates a semantic “is a” relationship, and thus to inf">
@@ -114,9 +101,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -133,24 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/14/java基础-继承/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/java基础-继承/">
 
 
 
 
 
   <title>java基础-继承 | 时间只会一直走</title>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-8303399095895090",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
@@ -160,19 +138,16 @@
 
 
 
+</head>
 
-
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +156,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">时间只会一直走</span>
         <span class="logo-line-after"><i></i></span>
@@ -211,17 +186,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -229,29 +214,19 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+          <a href="/404/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -285,12 +260,16 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/java基础-继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="姜柏超">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
     </span>
 
@@ -326,7 +305,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -384,6 +363,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/14/java基础-继承/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/14/java基础-继承/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -392,7 +381,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -404,6 +393,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -413,41 +405,41 @@
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
 <p>&emsp;&emsp;与封装类似，继承也是面向对象编程的特性之一，利用继承可以提升代码复用性，并且可以实现多态特性。</p>
 <blockquote>
-<p><strong> Inheritance and behavioral subtyping </strong><br>It is intuitive to assume that inheritance creates a semantic “is a” relationship, and thus to infer that objects instantiated from subclasses can always be safely used instead of those instantiated from the superclass. This intuition is unfortunately false in most OOP languages, in particular in all those that allow mutable objects. Subtype polymorphism as enforced by the type checker in OOP languages (with mutable objects) cannot guarantee behavioral subtyping in any context. Behavioral subtyping is undecidable in general, so it cannot be implemented by a program (compiler). Class or object hierarchies must be carefully designed, considering possible incorrect uses that cannot be detected syntactically. This issue is known as the Liskov substitution principle.<br>引自—-<a href="https://en.wikipedia.org/wiki/Object-oriented_programming#Inheritance_and_behavioral_subtyping" target="_blank" rel="external">维基百科</a></p>
+<p><strong> Inheritance and behavioral subtyping </strong><br>It is intuitive to assume that inheritance creates a semantic “is a” relationship, and thus to infer that objects instantiated from subclasses can always be safely used instead of those instantiated from the superclass. This intuition is unfortunately false in most OOP languages, in particular in all those that allow mutable objects. Subtype polymorphism as enforced by the type checker in OOP languages (with mutable objects) cannot guarantee behavioral subtyping in any context. Behavioral subtyping is undecidable in general, so it cannot be implemented by a program (compiler). Class or object hierarchies must be carefully designed, considering possible incorrect uses that cannot be detected syntactically. This issue is known as the Liskov substitution principle.<br>引自—-<a href="https://en.wikipedia.org/wiki/Object-oriented_programming#Inheritance_and_behavioral_subtyping" target="_blank" rel="noopener">维基百科</a></p>
 </blockquote>
 <a id="more"></a>
 <h1 id="何为继承"><a href="#何为继承" class="headerlink" title="何为继承"></a>何为继承</h1><p>&emsp;&emsp;继承是描述两个类的一种关系，<strong> <code>IS-A</code> </strong>，比如我们拿出狗和猫两种生物，我们可以说狗是动物，猫是动物，因此我们可以说狗继承了动物，猫继承了动物，但是不能泛泛的说动物是狗、是猫（动物这个分类包含的更加广泛，这种观点，我们可以称之为<strong> 向上转型 </strong>）。<br>&emsp;&emsp;其中，狗、猫两种生物，具有一些共同的属性和行为：重量、颜色、跑、叫…等等，那我们就可以将这些他们共有的属性和行为抽取出来，放到动物这个父对象当中，然后继承动物这个父对象，获得这些共同的属性。<br>&emsp;&emsp;然而除了这些共同属性和行为外，各个子类还会具有各自独特细化的属性与行为，比如狗可以摇尾巴，猫咪可以跳高。并且各个子类也可以用自己的方式去实现从父类继承来的行为，比如动物有<strong> 叫 </strong> 这个行为，但是狗继承来之后，变成了“汪汪叫”，而猫咪继承来之后则变成了“喵喵叫”。<br>&emsp;&emsp;同时，还存在这样一种情况，动物在进化过程中，有一些特性被深深的埋在基因当中，虽然动物具有这种属性，但是各个实际的物种并不能获得和体现出来。</p>
 <p>&emsp;&emsp;<strong> 通过上面的描述，我们可以这样说：狗是动物、猫是动物，因此，狗与猫都继承动物，则动物是狗与猫的父类（或超类），狗与猫是动物的子类（或派生类）。继承后，子类共享了父类的数据，既狗与猫获得了动物的全部属性及方法，这个过程可以称作“泛化”。并且狗与猫各自存在自身特有的属性与方法，同时根据自身性质，重新定义了某些从动物继承来的方法。</strong></p>
-<p>&emsp;&emsp;下面给出具体的实现代码以便后续讲解：<br><strong> 目录结构 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">├── src</div><div class="line">│   └── com</div><div class="line">│       ├── Index.java</div><div class="line">│       └── libs</div><div class="line">│           ├── Cat.java</div><div class="line">│           ├── Dog.java</div><div class="line">│           └── ext</div><div class="line">│               └── Animal.java</div></pre></td></tr></table></figure></p>
-<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String color;</div><div class="line">    <span class="keyword">protected</span> String weight;</div><div class="line">    <span class="keyword">private</span> String unknownDNA;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.unknownDNA = <span class="string">"一段未知的DNA"</span>;</div><div class="line">        System.out.println(<span class="string">"一只动物诞生了"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"吼叫"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"一只小动物跑过来"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.color = color;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> color;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(String weight)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weight = weight;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> weight;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"诞生的是小猫"</span>);</div><div class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</div><div class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"小猫喵喵叫"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"猫咪在跳高"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"诞生的是小狗"</span>);</div><div class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</div><div class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"小狗汪汪叫"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shake</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"狗狗在摇尾巴"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.Cat;</div><div class="line"><span class="keyword">import</span> com.libs.Dog;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Dog d = <span class="keyword">new</span> Dog();</div><div class="line">        Cat c = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">        d.bray();</div><div class="line">        c.bray();</div><div class="line"></div><div class="line">        d.shake();</div><div class="line">        c.jump();</div><div class="line"></div><div class="line">        d.run();</div><div class="line">        c.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> 运行结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">一只动物诞生了</div><div class="line">诞生的是小狗</div><div class="line">一只动物诞生了</div><div class="line">诞生的是小猫</div><div class="line">小狗汪汪叫</div><div class="line">小猫喵喵叫</div><div class="line">狗狗在摇尾巴</div><div class="line">猫咪在跳高</div><div class="line">一只小动物跑过来</div><div class="line">一只小动物跑过来</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;下面给出具体的实现代码以便后续讲解：<br><strong> 目录结构 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── src</span><br><span class="line">│   └── com</span><br><span class="line">│       ├── Index.java</span><br><span class="line">│       └── libs</span><br><span class="line">│           ├── Cat.java</span><br><span class="line">│           ├── Dog.java</span><br><span class="line">│           └── ext</span><br><span class="line">│               └── Animal.java</span><br></pre></td></tr></table></figure></p>
+<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs.ext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String color;</span><br><span class="line">    <span class="keyword">protected</span> String weight;</span><br><span class="line">    <span class="keyword">private</span> String unknownDNA;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.unknownDNA = <span class="string">"一段未知的DNA"</span>;</span><br><span class="line">        System.out.println(<span class="string">"一只动物诞生了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"吼叫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"一只小动物跑过来"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(String weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"诞生的是小猫"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小猫喵喵叫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"猫咪在跳高"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"诞生的是小狗"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小狗汪汪叫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shake</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗狗在摇尾巴"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.Cat;</span><br><span class="line"><span class="keyword">import</span> com.libs.Dog;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">        Cat c = <span class="keyword">new</span> Cat();</span><br><span class="line"></span><br><span class="line">        d.bray();</span><br><span class="line">        c.bray();</span><br><span class="line"></span><br><span class="line">        d.shake();</span><br><span class="line">        c.jump();</span><br><span class="line"></span><br><span class="line">        d.run();</span><br><span class="line">        c.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 运行结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小狗</span><br><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小猫</span><br><span class="line">小狗汪汪叫</span><br><span class="line">小猫喵喵叫</span><br><span class="line">狗狗在摇尾巴</span><br><span class="line">猫咪在跳高</span><br><span class="line">一只小动物跑过来</span><br><span class="line">一只小动物跑过来</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;根据上面的例子，我们可以总结出以下几点！</p>
 <h2 id="子类无法继承父类中private的属性与方法"><a href="#子类无法继承父类中private的属性与方法" class="headerlink" title="子类无法继承父类中private的属性与方法"></a>子类无法继承父类中private的属性与方法</h2><p>&emsp;&emsp;如同隐藏在动物DNA中的突变一样，子类继承父类后，若父类中某属性、方法有<code>private</code>标志，那么此属性、方法虽然可以传递到子类（猫、狗拥有这段基因），但是子类无法使用。如上面代码所示，父类<code>Animal</code>中存在<code>private</code>属性<code>unknownDNA</code>，子类继承后，在运行阶段调试，在调试信息中可以看到：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Local variables:</div><div class="line">d = instance of com.libs.Dog(id=400)</div><div class="line">c = instance of com.libs.Cat(id=401)</div><div class="line">main[1] dump d</div><div class="line"> d = &#123;</div><div class="line">    com.libs.ext.Animal.color: <span class="string">"黑色"</span></div><div class="line">    com.libs.ext.Animal.weight: <span class="string">"7kg"</span></div><div class="line">    com.libs.ext.Animal.unknownDNA: <span class="string">"一段未知的DNA"</span></div><div class="line">&#125;</div><div class="line">main[1] dump c</div><div class="line"> c = &#123;</div><div class="line">    com.libs.ext.Animal.color: <span class="string">"白色"</span></div><div class="line">    com.libs.ext.Animal.weight: <span class="string">"5kg"</span></div><div class="line">    com.libs.ext.Animal.unknownDNA: <span class="string">"一段未知的DNA"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Local variables:</span><br><span class="line">d = instance of com.libs.Dog(id=400)</span><br><span class="line">c = instance of com.libs.Cat(id=401)</span><br><span class="line">main[1] dump d</span><br><span class="line"> d = &#123;</span><br><span class="line">    com.libs.ext.Animal.color: <span class="string">"黑色"</span></span><br><span class="line">    com.libs.ext.Animal.weight: <span class="string">"7kg"</span></span><br><span class="line">    com.libs.ext.Animal.unknownDNA: <span class="string">"一段未知的DNA"</span></span><br><span class="line">&#125;</span><br><span class="line">main[1] dump c</span><br><span class="line"> c = &#123;</span><br><span class="line">    com.libs.ext.Animal.color: <span class="string">"白色"</span></span><br><span class="line">    com.libs.ext.Animal.weight: <span class="string">"5kg"</span></span><br><span class="line">    com.libs.ext.Animal.unknownDNA: <span class="string">"一段未知的DNA"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;此时<code>d</code>与<code>c</code>两个对象中，存在<code>unknownDNA</code>属性，但是如果你在<code>Dog</code>与<code>Cat</code>类中，利用代码调用<code>unknownDNA</code>属性，<code>System.out.println(this.unknownDNA)</code>或<code>System.out.println(super.unknownDNA)</code>，则会在编译阶段报错<code>error: unknownDNA has private access in Animal</code>。因此，子类无法直接使用父类中标识为<code>private</code>的属性或方法，但是可以通过继承父类的方法来间接使用此属性，我们来修改一下<code>Animal</code>、<code>Dog</code>类：</p>
-<p><strong> 在<code>Animal</code>类结尾加入以下代码 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUnknownDNA</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.unknownDNA;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> 在<code>Dog</code>构造器结尾调用从父类继承的<code>getUnknownDNA</code>方法并输出到控制台 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">        ...</div><div class="line">        System.out.println(<span class="string">"获取了一段未知DNA："</span> + <span class="keyword">this</span>.getUnknownDNA());</div><div class="line">    &#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
-<p><strong> 执行后，得到以下结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">一只动物诞生了</div><div class="line">诞生的是小狗</div><div class="line">获取了一段未知DNA：一段未知的DNA</div><div class="line">一只动物诞生了</div><div class="line">诞生的是小猫</div><div class="line">小狗汪汪叫</div><div class="line">小猫喵喵叫</div><div class="line">狗狗在摇尾巴</div><div class="line">猫咪在跳高</div><div class="line">一只小动物跑过来</div><div class="line">一只小动物跑过来</div></pre></td></tr></table></figure></p>
+<p><strong> 在<code>Animal</code>类结尾加入以下代码 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs.ext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUnknownDNA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.unknownDNA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 在<code>Dog</code>构造器结尾调用从父类继承的<code>getUnknownDNA</code>方法并输出到控制台 </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">        System.out.println(<span class="string">"获取了一段未知DNA："</span> + <span class="keyword">this</span>.getUnknownDNA());</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p><strong> 执行后，得到以下结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小狗</span><br><span class="line">获取了一段未知DNA：一段未知的DNA</span><br><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小猫</span><br><span class="line">小狗汪汪叫</span><br><span class="line">小猫喵喵叫</span><br><span class="line">狗狗在摇尾巴</span><br><span class="line">猫咪在跳高</span><br><span class="line">一只小动物跑过来</span><br><span class="line">一只小动物跑过来</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;在这个例子中，我们通过调用从父类继承来的<code>getUnknownDNA()</code>方法，来获得<code>unkownDNA</code>属性，实际上这里我们在调用时可以直接写<code>super.getUnknownDNA()</code>，具体原因将在后续的文章中提到。<br>&emsp;&emsp;以上是一种使用父类<code>private</code>属性或方法的途径，实际上，在开发中，应该尽量将父类的属性进行私有化封装，之后通过<code>set</code>、<code>get</code>方法进行操作，不知道为什么的，可以回顾一下上一篇中所讲解的封装。</p>
-<h2 id="子类可重写父类方法"><a href="#子类可重写父类方法" class="headerlink" title="子类可重写父类方法"></a>子类可重写父类方法</h2><p>&emsp;&emsp;在上面的例子中，<code>Animal</code>类存在一个<code>bray</code>方法，代表动物的叫声，而我们定义了原始的动物的叫声，仅仅是吼叫：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"吼叫"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;当<code>Dog</code>、<code>Cat</code>继承了<code>Animal</code>后，都把叫声进化成了自己的叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"小狗汪汪叫"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"小猫喵喵叫"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="子类可重写父类方法"><a href="#子类可重写父类方法" class="headerlink" title="子类可重写父类方法"></a>子类可重写父类方法</h2><p>&emsp;&emsp;在上面的例子中，<code>Animal</code>类存在一个<code>bray</code>方法，代表动物的叫声，而我们定义了原始的动物的叫声，仅仅是吼叫：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"吼叫"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;当<code>Dog</code>、<code>Cat</code>继承了<code>Animal</code>后，都把叫声进化成了自己的叫声：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"小狗汪汪叫"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"小猫喵喵叫"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;这种处理方式，就叫做<strong> 方法重写（Overriding） </strong>，通过方法重写，我们可以增加类的多样性，更精细的刻画子类功能。并且，这也是多态的一种实现形式。</p>
 <h2 id="子类可拥有自身独有的方法与属性"><a href="#子类可拥有自身独有的方法与属性" class="headerlink" title="子类可拥有自身独有的方法与属性"></a>子类可拥有自身独有的方法与属性</h2><p>&emsp;&emsp;上面的例子中，<code>Dog</code>、<code>Cat</code>除了继承了<code>Animal</code>的属性和方法，它们各自还有自身独特的方法，其中<code>Dog</code>可以摇尾巴（<code>shake</code>），<code>Cat</code>可以跳高（<code>jump</code>）。<br>&emsp;&emsp;所以说，子类实际上是父类扩展与完善，在开发中，不同的子类，通过自身的独特属性和方法，为父类增加了多样性。</p>
 <h1 id="继承中需要注意的细节"><a href="#继承中需要注意的细节" class="headerlink" title="继承中需要注意的细节"></a>继承中需要注意的细节</h1><h2 id="protected标识"><a href="#protected标识" class="headerlink" title="protected标识"></a>protected标识</h2><p>&emsp;&emsp;在我们的例子中，<code>Animal</code>类存在两个被<code>protected</code>修饰的属性<code>color</code>、<code>weight</code>，它是告诉编译器，此属性仅可被子类访问，也就是说，当<code>Dog</code>、<code>Cat</code>继承了<code>Animal</code>后，这两个属性在<code>Dog</code>、<code>Cat</code>所实例化的对象中，就变为了“<code>private</code>”，此时，对于实例对象而言，这两个属性是不可访问的，如果在编码阶段在主类<code>Index</code>中写了访问这两个属性的代码，那么在编译阶段，将会报错<code>error: unknownDNA has private access in Animal</code>。<br>&emsp;&emsp;那么，我们该如何使用这两个属性呢？首先，在<code>Dog</code>、<code>Cat</code>两个子类的内部，我们可以通过<code>this.color</code>、<code>this.weight</code>、<code>super.color</code>、<code>super.weight</code>来访问这两个属性。如果想在子类外使用（例如在主类<code>Index</code>中），我们不能直接通过实例对象调用这些属性，但是我们看到存在四个被<code>public</code>修饰的方法<code>setColor</code>、<code>getWeight</code>、<code>setWeight</code>、<code>getWeight</code>，我们可以通过这四个方法来读写这些属性（这相当于子类继承父类的封装）。</p>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>&emsp;&emsp;构造函数又称为<strong> 构造器 </strong>，其作用实例化一个对象，并且可在实例化过程中初始化一些信息。程序运行阶段，<code>new</code>一个对象产生新实例的时候，此对象的构造函数将被自动调用。<br>&emsp;&emsp;与属性和方法不同，子类在继承父类后，不会继承父类的构造器，但是在实例化一个子类的时候，父类的构造器会被自动调用，我们回过头来继续看之前示例的输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">一只动物诞生了</div><div class="line">诞生的是小狗</div><div class="line">...</div><div class="line">...</div><div class="line">一只动物诞生了</div><div class="line">诞生的是小猫</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>&emsp;&emsp;构造函数又称为<strong> 构造器 </strong>，其作用实例化一个对象，并且可在实例化过程中初始化一些信息。程序运行阶段，<code>new</code>一个对象产生新实例的时候，此对象的构造函数将被自动调用。<br>&emsp;&emsp;与属性和方法不同，子类在继承父类后，不会继承父类的构造器，但是在实例化一个子类的时候，父类的构造器会被自动调用，我们回过头来继续看之前示例的输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小狗</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小猫</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;在主类<code>Index</code>中，我们的调用顺序是<code>Dog d = new Dog();</code>、<code>Cat c = new Cat();</code>，因此两个<code>d</code>、<code>c</code>两个实例的产生顺序是正确的，但是在每个实例产生之前，都输出了<code>一只动物诞生了</code>，这是我们在<code>Animal</code>构造器中输出的，因此，父类的构造器被自动的调用了。那么它是在什么时候、什么位置被调用的呢？我们稍微修改一下<code>Dog.java</code>，在他的构造方法体的首末行增加<code>super();</code>来手动调用父类构造器！</p>
-<p><strong> Dog.java </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"诞生的是小狗"</span>);</div><div class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</div><div class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</div><div class="line">        System.out.println(<span class="string">"获取了一段未知DNA："</span> + <span class="keyword">this</span>.getUnknownDNA());</div><div class="line"></div><div class="line">        <span class="keyword">super</span>();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"小狗汪汪叫"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shake</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"狗狗在摇尾巴"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;修改完成后，编译运行，但是会在编译阶段得到一个错误<code>error: call to super must be first statement in constructor</code>，意思是说在调用父类构造方法时必须在当前子类构造方法的第一行，很显然，我们在最后一行增加的<code>super();</code>产生了这个错误，我们将最后一行的<code>super();</code>删除，重新编译运行，得到结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">一只动物诞生了</div><div class="line">诞生的是小狗</div><div class="line">...</div><div class="line">...</div><div class="line">一只动物诞生了</div><div class="line">诞生的是小猫</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p><strong> Dog.java </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"诞生的是小狗"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setColor(<span class="string">"白色"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</span><br><span class="line">        System.out.println(<span class="string">"获取了一段未知DNA："</span> + <span class="keyword">this</span>.getUnknownDNA());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小狗汪汪叫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shake</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗狗在摇尾巴"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;修改完成后，编译运行，但是会在编译阶段得到一个错误<code>error: call to super must be first statement in constructor</code>，意思是说在调用父类构造方法时必须在当前子类构造方法的第一行，很显然，我们在最后一行增加的<code>super();</code>产生了这个错误，我们将最后一行的<code>super();</code>删除，重新编译运行，得到结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小狗</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">一只动物诞生了</span><br><span class="line">诞生的是小猫</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;很显然，得到的结果与我们没增加<code>super();</code>时相同，也就是说如果我们不显示的调用父类构造方法，那么编译器在编译时，会自动将父类构造方法放在子类构造方法的第一行，并且自动执行。<br>&emsp;&emsp;我们的例子中，无论是<code>Animal</code>还是它的子类<code>Dog</code>、<code>Cat</code>，都只存在无参构造方法，但是这里有一种情况，虽然编译器会在子类实例化时，自动调用父类构造方法，但是只能调用默认的无参数构造方法，下面我们简化一下我们上面的例子，来演示有关父类构造方法的调用！</p>
-<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String color;</div><div class="line">    <span class="keyword">protected</span> String weight;</div><div class="line">    <span class="keyword">private</span> String unknownDNA;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"默认调用了父类的无参构造方法"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String a)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"显示调用了父类的有参构造方法，传入参数："</span> + a);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="string">"猫"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.Cat;</div><div class="line"><span class="keyword">import</span> com.libs.Dog;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Dog d = <span class="keyword">new</span> Dog();</div><div class="line">        Cat c = <span class="keyword">new</span> Cat();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> 输出结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">默认调用了父类的无参构造方法</div><div class="line">显示调用了父类的有参构造方法，传入参数：猫</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;通过例子，我们看到，在<code>Dog</code>类中默认调用了父类的无参构造方法，在<code>Cat</code>类中我们显示的调用了父类的有参构造方法。实际上如果删除掉<code>Animal</code>中的无参构造方法，在实例化<code>Dog</code>时，会产生错误：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">./com/libs/Dog.java:7: error: constructor Animal <span class="keyword">in</span> class Animal cannot be applied to given types;</div><div class="line">    public <span class="function"><span class="title">Dog</span></span>() &#123;</div><div class="line">                 ^</div><div class="line">  required: String</div><div class="line">  found: no arguments</div><div class="line">  reason: actual and formal argument lists differ <span class="keyword">in</span> length</div><div class="line">1 error</div></pre></td></tr></table></figure></p>
+<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs.ext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String color;</span><br><span class="line">    <span class="keyword">protected</span> String weight;</span><br><span class="line">    <span class="keyword">private</span> String unknownDNA;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"默认调用了父类的无参构造方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String a)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"显示调用了父类的有参构造方法，传入参数："</span> + a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"猫"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.Cat;</span><br><span class="line"><span class="keyword">import</span> com.libs.Dog;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">        Cat c = <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 输出结果 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">默认调用了父类的无参构造方法</span><br><span class="line">显示调用了父类的有参构造方法，传入参数：猫</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;通过例子，我们看到，在<code>Dog</code>类中默认调用了父类的无参构造方法，在<code>Cat</code>类中我们显示的调用了父类的有参构造方法。实际上如果删除掉<code>Animal</code>中的无参构造方法，在实例化<code>Dog</code>时，会产生错误：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./com/libs/Dog.java:7: error: constructor Animal <span class="keyword">in</span> class Animal cannot be applied to given types;</span><br><span class="line">    public <span class="function"><span class="title">Dog</span></span>() &#123;</span><br><span class="line">                 ^</span><br><span class="line">  required: String</span><br><span class="line">  found: no arguments</span><br><span class="line">  reason: actual and formal argument lists differ <span class="keyword">in</span> length</span><br><span class="line">1 error</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;通过上述说明，我们总结以下几点：</p>
 <ul>
 <li>在实例化子类时，父类的构造器会被自动调用</li>
@@ -456,19 +448,19 @@
 <li>若父类不存在无参构造器，则子类必须显示的调用父类的有参构造器</li>
 </ul>
 <h2 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h2><p>&emsp;&emsp;在解释什么是继承时，我们说过<em> “我们可以说狗是动物，猫是动物，因此我们可以说狗继承了动物，猫继承了动物，但是不能泛泛的说动物是狗、是猫（动物这个分类包含的更加广泛，这种观点，我们可以称之为<strong> 向上转型 </strong>）” </em>。<br>&emsp;&emsp;子类继承父类时，我们可以理解为一个泛化过程，<code>Animal</code>包括更广泛的集合，而<code>Dog</code>、<code>Cat</code>都是这广泛集合中的一种，那么我们就可以说，<code>动物-狗</code>、<code>动物-猫</code>，我们实际上把狗、猫看作了动物（子类看作父类）。类似的也可将人民币、美元看作货币，大米、小米看作谷物等等。<br>&emsp;&emsp;下面用代码给出<strong> 向上转型 </strong>的实例！</p>
-<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Animal 在吃东西"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"cat 在跳"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.Cat;</div><div class="line"><span class="keyword">import</span> com.libs.Dog;</div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doEat</span><span class="params">(Animal animal)</span> </span>&#123;</div><div class="line">        animal.eat();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doJump</span><span class="params">(Animal animal)</span> </span>&#123;</div><div class="line">        animal.jump();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Dog d = <span class="keyword">new</span> Dog();</div><div class="line">        Cat c = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">        Index.doEat(d);</div><div class="line">        Index.doEat(c);</div><div class="line"></div><div class="line">        Index.doJump(c);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs.ext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Animal 在吃东西"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jump</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cat 在跳"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.Cat;</span><br><span class="line"><span class="keyword">import</span> com.libs.Dog;</span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doEat</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.eat();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doJump</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.jump();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">        Cat c = <span class="keyword">new</span> Cat();</span><br><span class="line"></span><br><span class="line">        Index.doEat(d);</span><br><span class="line">        Index.doEat(c);</span><br><span class="line"></span><br><span class="line">        Index.doJump(c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;当我们试图编译上述代码是，会得到如下错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">com/Index.java:14: error: cannot find symbol</div><div class="line">        animal.jump();</div><div class="line">              ^</div><div class="line">  symbol:   method jump()</div><div class="line">  location: variable animal of <span class="built_in">type</span> Animal</div><div class="line">1 error</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;我们本以为调用<code>Index.doJump(c);</code>时，传入的是<code>Cat</code>的实例c，而<code>Cat</code>的实例对象中是存在<code>jump</code>方法的，但是在<code>doJump</code>的形参中，我们指定了参数类型是<code>Animal</code>父类，虽然<code>Dog d</code>、<code>Cat c</code>可以向上转型为<code>Animal</code>，但是这始终是一种<strong> 专用类型至通用类型的转换 </strong>，这是将会丢失原专用类型的独有的方法。<br>&emsp;&emsp;此时，即便是我们将<code>Index.doJump(c);</code>这段代码删掉，编译时程序依然报错，因为<code>doJump</code>的形参<code>Animal</code>对象是不存在<code>jump</code>方法的，我们删除<code>Index.doJump(c);</code>与<code>doJump</code>方法后编译代码并运行得到结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Animal 在吃东西</div><div class="line">Animal 在吃东西</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">com/Index.java:14: error: cannot find symbol</span><br><span class="line">        animal.jump();</span><br><span class="line">              ^</span><br><span class="line">  symbol:   method jump()</span><br><span class="line">  location: variable animal of <span class="built_in">type</span> Animal</span><br><span class="line">1 error</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;我们本以为调用<code>Index.doJump(c);</code>时，传入的是<code>Cat</code>的实例c，而<code>Cat</code>的实例对象中是存在<code>jump</code>方法的，但是在<code>doJump</code>的形参中，我们指定了参数类型是<code>Animal</code>父类，虽然<code>Dog d</code>、<code>Cat c</code>可以向上转型为<code>Animal</code>，但是这始终是一种<strong> 专用类型至通用类型的转换 </strong>，这是将会丢失原专用类型的独有的方法。<br>&emsp;&emsp;此时，即便是我们将<code>Index.doJump(c);</code>这段代码删掉，编译时程序依然报错，因为<code>doJump</code>的形参<code>Animal</code>对象是不存在<code>jump</code>方法的，我们删除<code>Index.doJump(c);</code>与<code>doJump</code>方法后编译代码并运行得到结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animal 在吃东西</span><br><span class="line">Animal 在吃东西</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;可以看到，虽然传入的实参是<code>Dog d</code>、<code>Cat c</code>，但是其已经向上转型为<code>Animal</code>。</p>
-<h1 id="继承中的内存关系"><a href="#继承中的内存关系" class="headerlink" title="继承中的内存关系"></a>继承中的内存关系</h1><p>&emsp;&emsp;下面做一些简化，我们重新定义<code>Animal</code>、<code>Dog</code>、<code>Cat</code>这三个类，并画出相应的内存关系图！<br><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs.ext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String weight;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(String weight)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.weight = weight;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.libs;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.ext.Animal;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String color;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</div><div class="line">        <span class="keyword">this</span>.setColor(<span class="string">"black"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.color = color;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.libs.Cat;</div><div class="line"><span class="keyword">import</span> com.libs.Dog;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Dog d = <span class="keyword">new</span> Dog();</div><div class="line">        Cat c = <span class="keyword">new</span> Cat();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;上述代码运行完后，<code>Animal</code>、<code>Dog</code>、<code>Cat</code>的内存关系，大致如下图：<br><img src="/2018/11/14/java基础-继承/./stack.png" alt=""></p>
+<h1 id="继承中的内存关系"><a href="#继承中的内存关系" class="headerlink" title="继承中的内存关系"></a>继承中的内存关系</h1><p>&emsp;&emsp;下面做一些简化，我们重新定义<code>Animal</code>、<code>Dog</code>、<code>Cat</code>这三个类，并画出相应的内存关系图！<br><strong> Animal.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs.ext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(String weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Cat.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Dog.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.libs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.ext.Animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setWeight(<span class="string">"5kg"</span>);</span><br><span class="line">        <span class="keyword">this</span>.setColor(<span class="string">"black"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> Index.java </strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.libs.Cat;</span><br><span class="line"><span class="keyword">import</span> com.libs.Dog;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">        Cat c = <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上述代码运行完后，<code>Animal</code>、<code>Dog</code>、<code>Cat</code>的内存关系，大致如下图：<br><img src="./stack.png" alt></p>
 <p>&emsp;&emsp;首先，当代码执行到<code>Dog d = new Dog();</code>时，由于父类的构造方法会先行执行，因此<code>Dog</code>的父类<code>Animal</code>将会优先实例化完成，jvm会在堆中开辟一块内存，存放<code>Animal</code>实例，<code>Animal</code>实例中的<code>setWeight</code>方法指向方法区的对应的<code>public void setWeight(String weight)</code>的地址。紧接着，<code>Dog</code>实例化完成，其中<code>super</code>代表<code>Dog</code>的超类，因此指向<code>Dog</code>的<code>Animal</code>实例地址，<code>Dog</code>实例中的<code>setColor</code>方法指向方法区对应的<code>public void setColor(String color)</code>的地址。与此同时<code>Dog</code>构造方法执行完成后，运行了<code>setWeight</code>、<code>setColor</code>，这是将会在字符常量池存放两个字符常量<code>black</code>、<code>5kg</code>，<code>Dog</code>实例中的<code>color</code>属性会指向字符常量池中<code>black</code>的地址，<code>Animal</code>实例中的<code>weight</code>属性会指向字符常量池中<code>5kg</code>的地址，最后，jvm在栈中开辟一小块内存，存放变量<code>Dog d</code>所指向的<code>Dog</code>实例地址。<br>&emsp;&emsp;类似的，<code>Cat c = new Cat();</code>执行完后，也会在栈中存在一个<code>Cat c</code>指向<code>Cat</code>实例的地址。<br>&emsp;&emsp;这里有一点需要特别说明的，就是<code>Dog</code>构造方法执行完成后运行<code>setWeight</code>、<code>setColor</code>的过程，以<code>setWeight</code>详细举例：<br>&emsp;&emsp;<strong> 首先，jvm会在<code>Dog</code>实例的内存中查找，看是否能找到<code>this.setWeight</code>（即我们示例代码里面的代码表述，代表<code>Dog</code>自身的<code>setWeight</code>方法），这里很显然找不到，因为<code>Dog</code>并没有重写父类的<code>setWeight</code>方法，找不到，然后去<code>super</code>里找（也就是执行<code>super.setWeight</code>），前面说过了，<code>super</code>指向<code>Animal</code>实例，因此找到了，接下来去方法区去除方法体执行这个方法（实际上方法区里面存的已经不是我们写的代码，而是编译完的一些东西，具体的内容如果有精力的话会在后续文章中讲解）。 </strong><br>&emsp;&emsp;同理，执行<code>setColor</code>也是这个步骤，不同的是在执行<code>this.setColor</code>时，找到了就直接执行了。</p>
 <h1 id="继承的缺陷"><a href="#继承的缺陷" class="headerlink" title="继承的缺陷"></a>继承的缺陷</h1><p>&emsp;&emsp;以上全文说明了继承的作用与一些需要注意的细节，但是它也存在一些缺陷，我们在软件开发中，应该结合继承的优点和缺陷，谨慎选择是否需要使用，不能仅仅是“为了继承而继承”。</p>
 <ol>
@@ -479,48 +471,44 @@
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>Think you!</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/zfb.jpg" alt="姜柏超 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpj" alt="姜柏超 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
   </div>
+</div>
 
+      </div>
+    
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -562,34 +550,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
       
     </div>
   </div>
@@ -600,11 +569,12 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODk4My81NTUy"></div>
-    
-  </div>
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
 
 
         </div>
@@ -620,107 +590,104 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460"
-               alt="姜柏超" />
-          <p class="site-author-name" itemprop="name">姜柏超</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460" alt="姜柏超">
+            
+              <p class="site-author-name" itemprop="name">姜柏超</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-sa.svg" alt="Creative Commons" />
-            </a>
           </div>
-        
 
-        
-        
+          <nav class="site-state motion-element">
 
-        
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
 
       
@@ -753,32 +720,32 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">姜柏超</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
 <div class="busuanzi-count">
-  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
@@ -798,6 +765,12 @@
 </div>
 
 
+
+
+
+
+
+
         
       </div>
     </footer>
@@ -807,6 +780,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -841,46 +816,58 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -910,34 +897,48 @@
 
 
 
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'R4y5z2N2MbKO9zCCBfN5EmMo-gzGzoHsz',
+        appKey: 'sweLAHuOwRwgcWjrPYuVTa5g',
+        placeholder: '😈',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
   
 
 
 
 
 
-
   
-
-
-
-
 
   
 
   
 
+  
   
 
   
