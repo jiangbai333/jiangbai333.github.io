@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定） 命令行参数说明   参数 说明 实例     -classpath或-cp 设置用户的类">
+<meta name="description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定）">
 <meta name="keywords" content="java,基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java编译、打包、运行">
 <meta property="og:url" content="http://yoursite.com/2019/11/01/java编译、打包、运行/index.html">
 <meta property="og:site_name" content="时间只会一直走">
-<meta property="og:description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定） 命令行参数说明   参数 说明 实例     -classpath或-cp 设置用户的类">
+<meta property="og:description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/java编译、打包、运行/jcpr.png">
-<meta property="og:updated_time" content="2019-11-11T15:47:29.929Z">
+<meta property="og:updated_time" content="2019-11-11T15:54:17.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java编译、打包、运行">
-<meta name="twitter:description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定） 命令行参数说明   参数 说明 实例     -classpath或-cp 设置用户的类">
+<meta name="twitter:description" content="相关命令介绍javac javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。引自—-百度百科  使用方式javac [options][sourcefiles][@files]（参数排列顺序没有限定）">
 <meta name="twitter:image" content="http://yoursite.com/images/java编译、打包、运行/jcpr.png">
 
 
@@ -405,7 +405,7 @@
         <h1 id="相关命令介绍"><a href="#相关命令介绍" class="headerlink" title="相关命令介绍"></a>相关命令介绍</h1><h2 id="javac"><a href="#javac" class="headerlink" title="javac"></a>javac</h2><blockquote>
 <p>javac 是java语言编程编译器。全称java compiler。javac工具读由java语言编写的类和接口的定义，并将它们编译成字节代码的class文件。<br>引自—-<a href="https://baike.baidu.com/item/javac/5156702?fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
 </blockquote>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p><code>javac [options][sourcefiles][@files]</code>（<strong>参数排列顺序没有限定</strong>）</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p><code>javac [options][sourcefiles][@files]</code>（<strong>参数排列顺序没有限定</strong>）<br><a id="more"></a></p>
 <h3 id="命令行参数说明"><a href="#命令行参数说明" class="headerlink" title="命令行参数说明"></a>命令行参数说明</h3><table>
 <thead>
 <tr>
@@ -638,6 +638,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -cvfm target/project.jar target/META-INF/MANIFEST.MF -C target/ ./</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;执行完成后，会在target目录下生成<code>project.jar</code>，我们通过<code>java -jar</code>命令即可运行它</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java -jar target/project.jar</span><br><span class="line"></span><br><span class="line">外部类变量</span><br><span class="line">使用了型参&#123;测试&#125;和静态变量&#123;外部类变量&#125;</span><br><span class="line">com.lib.Dog@2503dbd3</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
