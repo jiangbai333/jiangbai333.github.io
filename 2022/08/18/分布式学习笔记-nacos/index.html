@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装nacos ​        快速开始，在版本选择中找到稳定版，下载。截止文章发布日，最新稳定版为nacos 2.0.3 配置nacos​        下载完成后，会得到压缩包，解压为nacos01，进入nacos01/conf目录下，可以看到如下文件： 12345678.├── 1.4.0-ipv6_support-update.sql ├── application.properties">
+<meta name="keywords" content="java,基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式学习笔记-nacos">
+<meta property="og:url" content="http://yoursite.com/2022/08/18/分布式学习笔记-nacos/index.html">
+<meta property="og:site_name" content="时间只会一直走">
+<meta property="og:description" content="安装nacos ​        快速开始，在版本选择中找到稳定版，下载。截止文章发布日，最新稳定版为nacos 2.0.3 配置nacos​        下载完成后，会得到压缩包，解压为nacos01，进入nacos01/conf目录下，可以看到如下文件： 12345678.├── 1.4.0-ipv6_support-update.sql ├── application.properties">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-08-18T03:25:45.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布式学习笔记-nacos">
+<meta name="twitter:description" content="安装nacos ​        快速开始，在版本选择中找到稳定版，下载。截止文章发布日，最新稳定版为nacos 2.0.3 配置nacos​        下载完成后，会得到压缩包，解压为nacos01，进入nacos01/conf目录下，可以看到如下文件： 12345678.├── 1.4.0-ipv6_support-update.sql ├── application.properties">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/08/18/分布式学习笔记-nacos/">
+
+
+
+
+
+  <title>分布式学习笔记-nacos | 时间只会一直走</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时间只会一直走</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">ForFree</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/08/18/分布式学习笔记-nacos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="姜柏超">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时间只会一直走">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">分布式学习笔记-nacos</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-08-18T11:22:53+08:00">
+                2022-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/原生/" itemprop="url" rel="index">
+                    <span itemprop="name">原生</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/java/原生/基础/" itemprop="url" rel="index">
+                    <span itemprop="name">基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/08/18/分布式学习笔记-nacos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/08/18/分布式学习笔记-nacos/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装nacos"><a href="#安装nacos" class="headerlink" title="安装nacos"></a>安装nacos</h1><hr>
+<p>​        <a href="https://nacos.io/zh-cn/docs/quick-start.html" target="_blank" rel="noopener">快速开始</a>，在版本选择中找到稳定版，下载。截止文章发布日，最新稳定版为<a href="https://github.com/alibaba/nacos/releases/tag/2.0.3" target="_blank" rel="noopener">nacos 2.0.3</a></p>
+<h2 id="配置nacos"><a href="#配置nacos" class="headerlink" title="配置nacos"></a>配置nacos</h2><p>​        下载完成后，会得到压缩包，解压为<code>nacos01</code>，进入<code>nacos01/conf</code>目录下，可以看到如下文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── 1.4.0-ipv6_support-update.sql </span><br><span class="line">├── application.properties 默认的配置文件</span><br><span class="line">├── application.properties.example 默认的配置文件示例</span><br><span class="line">├── cluster.conf.example 集群配置示例</span><br><span class="line">├── nacos-logback.xml 日志配置</span><br><span class="line">├── nacos-mysql.sql mysql初始化脚本</span><br><span class="line">└── schema.sql 嵌入式数据库(Derby)初始化脚本</span><br></pre></td></tr></table></figure>
+<p>​         <strong><code>cluster.conf.example</code>、<code>application.properties.example</code>是两个示例文件，如果配置文件配置乱了，可以删掉，然后从这两个文件复制一份，把结尾<code>.example</code>去掉即可</strong>。</p>
+<p>​        <code>nacos-mysql.sql</code>是nacos在使用mysql作为元数据存储时所用到的数据库表结构，本文以mysql作为nacos元数据的存储库，所以需要将这个sql文件导入到数据库中。</p>
+<p>​        导入完成后，开始配置<code>application.properties</code>，作为基础应用，我们不需要额外的配置，只需要指定数据库连接就可以，在配置文件中添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql                                                                                                                                                                                                                                            </span><br><span class="line"></span><br><span class="line">db.num=1                                                                        </span><br><span class="line"></span><br><span class="line">db.url.0=jdbc:mysql://HOST:PORT/DATABASE?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC</span><br><span class="line">db.user.0=用户名                                                                  </span><br><span class="line">db.password.0=密码</span><br></pre></td></tr></table></figure>
+<p>​        需要注意的是，在配置文件注释中，<code>db.url.0=jdbc:mysql://127.0.0.1:3306/nacos?...</code>，其中<code>nacos</code>是对应的数据库名称，不能直接这样写，需要看我们本地创建的数据库的实际名称是什么，比如我们使用conf目录中<code>nacos-mysql.sql</code>脚本创建后，实际的名称为<code>nacos_config</code>。</p>
+<p>​        配置完上述基础配置后，如果需要以集群模式启动，还需要配置<code>cluster.conf</code>，目录中默认不存在这个文件，按照上面说的，从<code>cluster.conf.example</code>复制一份：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp cluster.conf.example cluster.conf</span><br></pre></td></tr></table></figure>
+<p>​        之后，在其中添加集群IP（这里写的是我本地的ip，你需要换成你的ip），理论上，集群有几个节点，就有几组ip:port，这里是在本机以三个不同端口启动的，需要注意的是，不要使用相连的端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.75:8841                                                                                                  </span><br><span class="line">192.168.1.75:8843                                                                                                  </span><br><span class="line">192.168.1.75:8845</span><br></pre></td></tr></table></figure>
+<h2 id="启动nacos服务"><a href="#启动nacos服务" class="headerlink" title="启动nacos服务"></a>启动nacos服务</h2><h3 id="集群模式启动"><a href="#集群模式启动" class="headerlink" title="集群模式启动"></a>集群模式启动</h3><p>​        配置完成后，由于我们需要以集群模式启动，所以需要把上面的<code>nacos01</code>再复制两份<code>nacos02</code>、<code>nacos03</code>，之后，分别进入其bin目录下运行startup.sh启动即可；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./nacos01/bin/startup.sh</span><br><span class="line">./nacos02/bin/startup.sh</span><br><span class="line">./nacos03/bin/startup.sh</span><br></pre></td></tr></table></figure>
+<p>​        查看进程，有三个运行中的nacos-server.jar，代表启动成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jps -l </span><br><span class="line">72385 /nacos03/target/nacos-server.jar</span><br><span class="line">72373 /nacos02/target/nacos-server.jar</span><br><span class="line">72361 /nacos01/target/nacos-server.jar</span><br></pre></td></tr></table></figure>
+<h3 id="单机模式启动"><a href="#单机模式启动" class="headerlink" title="单机模式启动"></a>单机模式启动</h3><p>​        如果以单机模式启动，可以忽略本文中<strong>配置nacos</strong>章节，单机模式会使用内嵌数据库管理元数据，也不需要配置集群ip端口，直接指定单机参数启动即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nacos01/bin/startup.sh -m standalone</span><br></pre></td></tr></table></figure>
+<h2 id="访问nacos"><a href="#访问nacos" class="headerlink" title="访问nacos"></a>访问nacos</h2><p>​        通过<a href="http://localhost:8841/nacos" target="_blank" rel="noopener">localhost:8841/nacos</a>、<a href="http://localhost:8843/nacos" target="_blank" rel="noopener">localhost:8843/nacos</a>、<a href="http://localhost:8845/nacos" target="_blank" rel="noopener">localhost:8845/nacos</a>，均可以访问nacos配置页面，登录账号：nacos，密码：nacos。</p>
+<h2 id="停止nacos服务"><a href="#停止nacos服务" class="headerlink" title="停止nacos服务"></a>停止nacos服务</h2><p>​        想要停止服务，可以直接kill掉上面jps查出来的对应的进程。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="姜柏超 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpj" alt="姜柏超 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/01/java编译、打包、运行/" rel="next" title="java编译、打包、运行">
+                <i class="fa fa-chevron-left"></i> java编译、打包、运行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/7368288?v=3&s=460" alt="姜柏超">
+            
+              <p class="site-author-name" itemprop="name">姜柏超</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiangbai333" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/forfreeb" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装nacos"><span class="nav-number">1.</span> <span class="nav-text">安装nacos</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nacos"><span class="nav-number">1.1.</span> <span class="nav-text">配置nacos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动nacos服务"><span class="nav-number">1.2.</span> <span class="nav-text">启动nacos服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群模式启动"><span class="nav-number">1.2.1.</span> <span class="nav-text">集群模式启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单机模式启动"><span class="nav-number">1.2.2.</span> <span class="nav-text">单机模式启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问nacos"><span class="nav-number">1.3.</span> <span class="nav-text">访问nacos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止nacos服务"><span class="nav-number">1.4.</span> <span class="nav-text">停止nacos服务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">姜柏超</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'R4y5z2N2MbKO9zCCBfN5EmMo-gzGzoHsz',
+        appKey: 'sweLAHuOwRwgcWjrPYuVTa5g',
+        placeholder: '😈',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
